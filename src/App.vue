@@ -9,7 +9,7 @@
       <router-link to="/register">Register</router-link> |
       <router-link to="/confirm">Confirm</router-link> |
       <router-link to="/userPage">User Page</router-link> |
-      <router-link to="/admin">Admin</router-link> |
+      <router-link to="/admin">Admin</router-link>
     </div>
     <router-view/>
   </div>
