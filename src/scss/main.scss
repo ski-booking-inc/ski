@@ -1,0 +1,27 @@
+%center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    @extend %center;
+}
+
+a {
+    margin: 0;
+    &.btn {
+        width: 13rem;
+        margin: .3rem;
+        background: rgb(130, 150, 218);
+        height: 3.8rem;
+        border-radius: 3px;
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
