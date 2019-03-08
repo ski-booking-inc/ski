@@ -6,7 +6,7 @@
     <section class="products">
       <h2>Välj utrustning</h2>
       <a class="btn" href="#" @click="$router.push(`/age`)">Komplett</a>
-      <a class="btn" href="#" @click="$router.push(`/age`)">Snowboard</a>
+      <a class="btn" href="#" @click="addProduct('Snowboard')">Snowboard</a>
       <a class="btn" href="#" @click="$router.push(`/age`)">Alpint</a>
     </section>
     <router-view/>
@@ -16,8 +16,12 @@
 <script>
 export default {
   name: "products",
-  data () {
-      
+  methods: {
+    addProduct(article){
+      this.$store.dispatch('addProduct', article)
+      this.$router.push(`/age`)
+    }
+
   }
 };
 </script>
