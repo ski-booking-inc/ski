@@ -18,7 +18,21 @@ export default new Router({
     {
       path: '/products',
       name: 'products',
-      component: () => import('./views/Products.vue')
+      component: () => import('./views/Products.vue'),
+      children: [
+        {
+          path: '/age',
+          name: 'age',
+          component: () => import ('./components/Age.vue'),
+          children: [
+            {
+              path: 'level',
+              name: 'level',
+              component: () => import ('./components/Level.vue')
+            }
+          ]
+        }
+      ]
     },
     {
       path: '/userInfo',

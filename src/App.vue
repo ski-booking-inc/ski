@@ -1,23 +1,32 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/main">Main</router-link> |
-      <router-link to="/products">Products</router-link> |
-      <router-link to="/userInfo">User Info</router-link> |
-      <router-link to="/cart">Cart</router-link> |
-      <router-link to="/register">Register</router-link> |
-      <router-link to="/confirm">Confirm</router-link> |
-      <router-link to="/userPage">User Page</router-link> |
+      <router-link to="/">Home</router-link>|
+      <router-link to="/main">Main</router-link>|
+      <router-link to="/products">Products</router-link>|
+      <router-link to="/userInfo">User Info</router-link>|
+      <router-link to="/cart">Cart</router-link>|
+      <router-link to="/register">Register</router-link>|
+      <router-link to="/confirm">Confirm</router-link>|
+      <router-link to="/userPage">User Page</router-link>|
       <router-link to="/admin">Admin</router-link>
     </div>
     <router-view/>
   </div>
 </template>
 
+<script>
+export default {
+  name: "App",
+  beforeMount() {
+    this.$store.dispatch("getProducts");
+  }
+};
+</script>
+
 <style lang="scss">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
