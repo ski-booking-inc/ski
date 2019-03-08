@@ -2,7 +2,10 @@ export default {
     setProducts(state, products) {
         state.products = products;
     },
-    addToProductArray(state, article) {
-        state.chosenProduct.push(article)
+    addToProductArray(state, payload) {
+        state.chosenProduct.push(payload)
+    },
+    setProduct(state, payload) {
+      state.theProduct = payload
     }
 }

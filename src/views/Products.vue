@@ -5,9 +5,9 @@
 
     <section class="products">
       <h2>Välj utrustning</h2>
-      <a class="btn" href="#" @click="$router.push(`/age`)">Komplett</a>
+      <a class="btn" href="#" @click="addProduct('Skidor Alpin')">Skidor Alpint</a>
       <a class="btn" href="#" @click="addProduct('Snowboard')">Snowboard</a>
-      <a class="btn" href="#" @click="$router.push(`/age`)">Alpint</a>
+      <a class="btn" href="#" @click="addProduct('Skidor Längd')">Skidor Längd</a>
     </section>
     <router-view/>
   </main>

@@ -1,4 +1,5 @@
 export default {
     products: [],
-    chosenProduct: []
+    chosenProduct: [],
+    theProduct: {}
 }
