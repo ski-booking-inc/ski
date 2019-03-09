@@ -1,5 +1,6 @@
 export default {
     products: [],
-    chosenProduct: [],
-    theProduct: {}
+    productKeys: [],
+    chosenProduct: {},
+    userInfo: {}
 }
