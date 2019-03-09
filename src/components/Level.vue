@@ -14,7 +14,7 @@ export default {
     addCategory(category){
       this.$store.dispatch('addProduct', category)
       this.$store.dispatch('findMatch')
-      this.$router.push(`/register`)
+      this.$router.push(`/userInfo`)
     }
   }
 };
