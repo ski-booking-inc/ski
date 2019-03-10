@@ -12,7 +12,6 @@
           <label for="form_lastname">Efternamn </label>
           <input id="form_lastname" type="text" value="Efternamn" placeholder="Efternamn *" required="required" data-error=" Lägg till efternamn." v-model="userInput.lastName">
          </div>
-        <hr/>
          <div class="right">
           <label for="form_weight">Vikt </label>
           <input id="form_weight" type="Number" value="Vikt" placeholder="Vikt *" required="required" data-error=" Lägg till din vikt." v-model="userInput.weight">
@@ -26,6 +25,7 @@
           <input id="form_shoe" type="Number" value="shoe" placeholder="Skostorlek *" required="required" data-error=" Lägg till din skostorlek." v-model="userInput.shoe">
          </div>
   </form>
+        <hr/>
   <form class="box">
     <div class="right">
       <label for="helmet">Hjälm? | Gratis</label>
@@ -69,7 +69,7 @@ export default {
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 @import "../scss/main";
 
@@ -113,9 +113,12 @@ main {
       }
       .right{
       text-align: right;
-      padding-right: 2rem;
+      padding-right: 15vw;
      }
     }
+}
+.bot {
+  bottom:0px;
 }
 }
 </style>
