@@ -1,6 +1,6 @@
 <template>
   <main class="products">
-    <h1>Products</h1>
+    <h2>Välj Datum</h2>
     <date-pick v-model="dates.startDate" :format="'YYYY.MM.DD'" :isDateDisabled="isFutureDate"></date-pick>
     <date-pick v-model="dates.stopDate" :format="'YYYY.MM.DD'" :isDateDisabled="isFutureDate"></date-pick>
     <section class="products">

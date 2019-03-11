@@ -1,17 +1,8 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/main">Main</router-link>|
-      <router-link to="/products">Products</router-link>|
-      <router-link to="/userInfo">User Info</router-link>|
-      <router-link to="/cart">Cart</router-link>|
-      <router-link to="/register">Register</router-link>|
-      <router-link to="/confirm">Confirm</router-link>|
-      <router-link to="/userPage">User Page</router-link>|
-      <router-link to="/admin">Admin</router-link>
-    </div>
-    <router-view/>
+    <transition name="fade">
+      <router-view/>
+    </transition>
   </div>
 </template>
 
@@ -32,14 +23,10 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.fade-enter-active{
+ transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+ opacity: 0;
 }
 </style>

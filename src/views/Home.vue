@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-   <h1>Home</h1>
-   <p>Hyr skidor</p>
+
   </div>
 </template>
 
@@ -10,6 +9,8 @@
 
 export default {
   name: 'home',
- 
+  created(){
+     setTimeout( () => this.$router.push({ path: '/Main'}), 3000);
+   }
 }
 </script>

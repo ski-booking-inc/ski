@@ -1,6 +1,5 @@
 <template>
   <div class="main">
-    <h1>Main</h1>
     <section>
       <h1>Välkommen till Fjällgårdens skidanläggning</h1>
       <p>Hyr din utrustning hos oss på Fjällgården och få mer utav din semester. Vi anpassar utrustningen efter dina behov och du hämtar enkelt ut den precis vid backen.</p>

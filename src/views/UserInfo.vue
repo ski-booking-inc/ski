@@ -58,6 +58,7 @@ export default {
   methods: {
     inputFromUser: function (){
       this.$store.dispatch('addInput', this.userInput)
+      this.$router.push('/cart')
       }
 }
 }
@@ -113,8 +114,6 @@ main {
       color: white;
     }
 }
-.bot {
-  bottom:0px;
-}
+
 }
 </style>
