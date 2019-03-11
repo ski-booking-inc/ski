@@ -19,5 +19,8 @@ export default {
   },
   setDates (ctx, dates) {
     ctx.commit('selectedDates', dates)
-  } 
+  }, 
+  addInput(ctx, userInput) {
+    ctx.commit('setInput', userInput)
+  }
 }

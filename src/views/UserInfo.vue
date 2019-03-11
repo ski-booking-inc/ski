@@ -5,24 +5,20 @@
     </div>
   <form class="text"> 
          <div class="right">
-          <label for="form_firstname">Förnamn </label>
-          <input id="form_firstname" type="text"  value="Förnamn" placeholder="Förnamn *" required="required" data-error=" Lägg till förnamn." v-model="userInput.firstName">
+          <label for="name">Namn *</label>
+          <input id="form_name" type="text"  value="Namn" required="required" data-error=" Lägg till Namn." v-model="userInput.name">
          </div>
          <div class="right">
-          <label for="form_lastname">Efternamn </label>
-          <input id="form_lastname" type="text" value="Efternamn" placeholder="Efternamn *" required="required" data-error=" Lägg till efternamn." v-model="userInput.lastName">
+          <label for="form_weight">Vikt *</label>
+          <input id="form_weight" type="Number" value="Vikt"  required="required" data-error=" Lägg till din vikt." v-model="userInput.weight">
          </div>
          <div class="right">
-          <label for="form_weight">Vikt </label>
-          <input id="form_weight" type="Number" value="Vikt" placeholder="Vikt *" required="required" data-error=" Lägg till din vikt." v-model="userInput.weight">
+          <label for="form_lenght">Längd *</label>
+          <input id="form_length" type="Number" value="Läng"  required="required" data-error=" Lägg till din längd." v-model="userInput.length">
          </div>
          <div class="right">
-          <label for="form_lenght">Längd </label>
-          <input id="form_length" type="Number" value="Läng" placeholder="Längd *" required="required" data-error=" Lägg till din längd." v-model="userInput.length">
-         </div>
-         <div class="right">
-          <label for="form_shoe">Skostorlek </label>
-          <input id="form_shoe" type="Number" value="shoe" placeholder="Skostorlek *" required="required" data-error=" Lägg till din skostorlek." v-model="userInput.shoe">
+          <label for="form_shoe">Skostorlek *</label>
+          <input id="form_shoe" type="Number" value="shoe"  required="required" data-error=" Lägg till din skostorlek." v-model="userInput.shoe">
          </div>
   </form>
         <hr/>
@@ -37,7 +33,7 @@
     </div>
   </form>
   {{userInput}}
-  <div><input type="button" value="Lägg till" @click="inputFromUser()"></div>
+  <div><input id="btn" type="button" value="Lägg till" @click="inputFromUser()"></div>
   </main>
 </template>
 
@@ -49,8 +45,7 @@ export default {
   data() {
     return{
       userInput: {
-        firstName: '',
-        lastName: '',
+        name: '',
         weight: null,
         length: null,
         shoe:null,
@@ -62,7 +57,7 @@ export default {
   },
   methods: {
     inputFromUser: function (){
-
+      this.$store.dispatch('addInput', this.userInput)
       }
 }
 }
@@ -86,7 +81,7 @@ main {
     flex-direction: column;
       .right{
       text-align: right;
-      padding-right: 15vw;
+      padding: .5rem 15vw 0 0;
      }
       label {
         font-size: 1.1rem;
@@ -100,10 +95,6 @@ main {
         border-radius: 10px;
         padding: .5rem;
       }
-        ::placeholder{
-        color:white;
-        font-weight: 300;
-        }
     }
     .box {
       label {
@@ -115,6 +106,11 @@ main {
       text-align: right;
       padding-right: 15vw;
      }
+    }
+    #btn {
+      padding: .5rem 1rem;
+      background: cornflowerblue;
+      color: white;
     }
 }
 .bot {

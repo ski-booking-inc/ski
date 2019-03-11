@@ -10,5 +10,8 @@ export default {
     },
     selectedDates(state, dates) {
         state.dates = dates
+    },
+    setInput(state, userInput) {
+        state.userInfo = userInput
     }
 }
