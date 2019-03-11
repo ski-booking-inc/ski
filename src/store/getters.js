@@ -5,5 +5,8 @@ export default {
   },
   getUserInfo(state){
     return state.userInfo;
+  },
+  bookedProducts(state) {
+    return state.bookedProducts;
   }
 }

@@ -5,7 +5,7 @@
       <p>{{ chosenProduct.brand }}</p>
       <p>{{  chosenProduct.category }}</p>
       <p>{{  chosenProduct.age }}</p>
-      <p>{{ chosenProduct.info }}</p
+      <p>{{ chosenProduct.info }}</p>
       <h3>{{ chosenProduct.price }}</h3>
     </section>
     <section>
@@ -17,7 +17,7 @@
 <script>
   export default {
     name: 'product',
-    computed(){
+    computed: {
       chosenProduct(){
         return this.$store.getters.getChosenProduct;
       },

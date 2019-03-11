@@ -3,5 +3,6 @@ export default {
     productKeys: [],
     chosenProduct: {},
     userInfo: {},
-    dates: {}
+    dates: {},
+    bookedProducts: []
 }
