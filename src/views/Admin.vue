@@ -10,11 +10,11 @@
       <div class="editAdmin">
         <h3>Add/Edit/Delete</h3>
         <input type="text" placeholder="Package Name..." v-model="addProducts.article">
-        <input type="text" placeholder="Level..." v-model="addProducts.category">
-        <input type="textarea" placeholder="Info..." v-model="addProducts.info">
+        <input type="text" placeholder="Nybörjare, Medel, Proffs" v-model="addProducts.category">
         <input type="text" placeholder="Price..." v-model="addProducts.price">
-        <input type="text" placeholder="Age..." v-model="addProducts.age">
+        <input type="text" placeholder="0-6, 7-16, 17+" v-model="addProducts.age">
         <input type="text" placeholder="How many package..." v-model="addProducts.packages.total">
+        <textarea  placeholder="Info..." v-model="addProducts.info"></textarea>
         <div>
           <a href="#" class="btn" @click="createProduct">Add</a>
         </div>
@@ -102,6 +102,20 @@ body {
       .editAdmin{
         background: darkcyan;
         grid-area: editAdmin;
+
+        input, textarea {
+          width: 80%;
+          padding: .5rem;
+          margin: .4rem;
+          border-radius: 3px;
+          max-width: 200px;
+          max-height: 50px;
+          min-width: 200px;
+          min-height: 20px;
+        }
+        .btn {
+          width:inherit;
+        }
       }
 
       .bookingAdmin {
