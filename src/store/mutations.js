@@ -7,5 +7,8 @@ export default {
     },
     setProduct(state, payload) {
       state.chosenProduct = payload
+    },
+    selectedDates(state, dates) {
+        state.dates = dates
     }
 }

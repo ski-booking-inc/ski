@@ -16,5 +16,8 @@ export default {
         ctx.commit('setProduct', x[i])
       }
     }
-  }
+  },
+  setDates (ctx, dates) {
+    ctx.commit('selectedDates', dates)
+  } 
 }
