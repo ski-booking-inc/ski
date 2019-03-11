@@ -7,5 +7,8 @@ export default {
     },
     setProduct(state, payload) {
       state.chosenProduct = payload
+    },
+    setInput(state, userInput) {
+        state.userInfo = userInput
     }
 }

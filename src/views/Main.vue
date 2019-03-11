@@ -10,7 +10,7 @@
       <a class="btn" href="#" @click="$router.push('/userpage')">Mina bokningar</a>
     </section>
     <section class="logo">
-      <img src="../assets/Vector.png" alt="admin" @click="$router.push('/admin')">
+      <img src="../assets/img/Vector.png" alt="admin" @click="$router.push('/admin')">
     </section>
     <router-view/>
   </div>

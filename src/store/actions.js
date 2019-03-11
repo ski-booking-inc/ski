@@ -16,5 +16,8 @@ export default {
         ctx.commit('setProduct', x[i])
       }
     }
+  },
+  addInput(ctx, userInput) {
+    ctx.commit('setInput', userInput)
   }
 }
