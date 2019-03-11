@@ -1,7 +1,9 @@
 export default {
     products: [],
+    addProducts: [],
     productKeys: [],
     chosenProduct: {},
     userInfo: {},
-    dates: {}
+    dates: {},
+    testProd: {}
 }

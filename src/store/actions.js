@@ -22,5 +22,17 @@ export default {
   }, 
   addInput(ctx, userInput) {
     ctx.commit('setInput', userInput)
+  },
+  async createProduct(ctx, prod ) {
+    try {
+      await Axios.post('http://localhost:3000/products', prod)
+      ctx.dispatch('getProd');
+    } catch (err) {
+      console.err(err.stack);
+    }
+  },
+  async getProd(ctx) {
+    let prod = await Axios.get('http://localhost:3000/products')
+    ctx.commit('setProd', prod.data)
   }
 }

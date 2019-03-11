@@ -13,5 +13,8 @@ export default {
     },
     setInput(state, userInput) {
         state.userInfo = userInput
+    },
+    setProd(state, testProd) {
+        state.testProd = testProd
     }
 }

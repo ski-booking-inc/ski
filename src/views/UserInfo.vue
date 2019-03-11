@@ -110,7 +110,7 @@ main {
     }
     #btn {
       padding: .5rem 1rem;
-      background: cornflowerblue;
+      background: rgb(130, 150, 218);
       color: white;
     }
 }
