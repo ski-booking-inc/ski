@@ -32,38 +32,33 @@ export default {
  },
  data() {
    return {
-    addProducts: {
-      article: '',
-      category: '',
-      age:'',
-      info:'',
-      price:'',
-      packages :{
-        total: '',
-        booked: ''
-     }
-   }
-   }
- },
+      addProducts: {
+        article: '',
+        category: '',
+        age:'',
+        info:'',
+        price:'',
+        packages :{
+          total: '',
+          booked: ''
+        }
+      }
+    }
+  },
  methods: {
-   async createProduct(){
-     await this.$store.dispatch('createProduct', this.addProducts);
-     await this.$store.dispatch('getProd');
-     
+    async createProduct(){
+      await this.$store.dispatch('createProduct', this.addProducts);
      console.log(this.addProducts);
-    
-
-      // this.clearInput()
-    
+     // this.clearInput();
    },
-   clearInput(){
-     this.addProducts.article ='',
-     this.addProducts.category ='',
-     this.addProducts.info ='',
-     this.addProducts.age ='',
-     this.addProducts.price ='',
-     this.addProducts.packages.total =''
-   }
+    // clearInput(){
+    //  this.addProducts.article ='',
+    //  this.addProducts.category ='',
+    //  this.addProducts.info ='',
+    //  this.addProducts.age ='',
+    //  this.addProducts.price ='',
+    //  this.addProducts.packages.total =''
+  //  }
  },
  computed: {
    testProducts(){
@@ -77,10 +72,11 @@ export default {
 $baseline: 100px;
 
 body {
-    margin: 0;
+  margin: 0 auto;
     display: flex;
     flex-direction: column;
     @extend%center;
+    max-width: 768px;
 
     .admin {
       display: grid;
@@ -100,8 +96,8 @@ body {
       }
 
       .editAdmin{
-        background: darkcyan;
         grid-area: editAdmin;
+        margin: 0 auto;
 
         input, textarea {
           width: 80%;
@@ -112,6 +108,7 @@ body {
           max-height: 50px;
           min-width: 200px;
           min-height: 20px;
+          display: block;
         }
         .btn {
           width:inherit;

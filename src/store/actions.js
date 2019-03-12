@@ -24,6 +24,7 @@ export default {
     ctx.commit('setInput', userInput)
   },
   async createProduct(ctx, prod ) {
+    console.log(prod)
     try {
       await Axios.post('http://localhost:3000/products', prod)
       ctx.dispatch('getProd');
