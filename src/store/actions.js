@@ -17,7 +17,7 @@ export default {
       }
     }
   },
-  setDates (ctx, dates) {
+  setDates(ctx, dates) {
     ctx.commit('selectedDates', dates)
   },
   addInput(ctx, userInput) {
@@ -34,6 +34,8 @@ export default {
       }
     }
     ctx.commit('setBooking', booking)
-
+  },
+  addDateDiff (ctx, dayDiff) {
+    ctx.commit('setDateDiff', dayDiff)
   }
-  }
+}

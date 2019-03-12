@@ -16,5 +16,8 @@ export default {
     },
     setBooking(state, booking) {
       state.userBookings.push(booking)
+    },
+    setDateDiff(state, dayDiff) {
+        state.dayDiff = dayDiff
     }
 }

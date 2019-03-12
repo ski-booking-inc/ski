@@ -4,10 +4,6 @@ export default {
     chosenProduct: {},
     userInfo: {},
     dates: {},
-    userBookings: []
-
-
-
-
-
+    userBookings: [],
+    dayDiff: 0
 }
