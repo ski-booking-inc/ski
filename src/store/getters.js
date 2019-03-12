@@ -8,5 +8,8 @@ export default {
   },
   dates(state){
     return state.dates;
+  },
+  getUserBookings(state){
+    return state.userBookings;
   }
 }

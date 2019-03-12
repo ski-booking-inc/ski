@@ -19,6 +19,9 @@ export default {
   computed: {
     dates() {
       return this.$store.getters.dates;
+    },
+    userBookings () {
+      return this.$store.getters.userBookings;
     }
   },
   methods: {
