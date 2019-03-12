@@ -56,6 +56,7 @@ export default {
       this.$store.dispatch("addProduct", article);
       this.$router.push(`/age`);
       this.addDates();
+      this.dateDiff();
     },
     isFutureDate(date) {
       const currentDate = new Date();
@@ -63,6 +64,17 @@ export default {
     },
     addDates () {
       this.$store.dispatch('setDates', this.dates)
+    },
+    dateDiff() {
+      var dt1 = new Date(this.dates.startDate);
+      var dt2 = new Date(this.dates.stopDate);
+      var dayDiff = Math.floor(
+        (Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) -
+          Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate())) /
+          (1000 * 60 * 60 * 24)
+      );
+      this.$store.dispatch('addDateDiff', dayDiff);
+      console.log(dayDiff);
     }
   }
 };

@@ -11,5 +11,8 @@ export default {
   },
   getUserBookings(state){
     return state.userBookings;
+  },
+  dayDiff(state){
+    return state.dayDiff;
   }
 }

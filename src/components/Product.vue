@@ -5,11 +5,10 @@
         <p>{{ chosenProduct.article }}</p>
       </section>
       <section>
-        <p>{{ chosenProduct.brand }}</p>
         <p>{{  chosenProduct.category }}</p>
         <p>{{  chosenProduct.age }}</p>
         <p>{{ chosenProduct.info }}</p>
-        <h3>{{ chosenProduct.price }}</h3>
+        <h3>{{ chosenProduct.price * dayDiff}}</h3>
       </section>
       <section>
         <img src="../assets/img/baseline-delete-24px.svg" alt="arrow">
@@ -29,6 +28,9 @@
       },
       userInfo() {
         return this.$store.getters.getUserInfo;
+      },
+      dayDiff() {
+        return this.$store.getters.dayDiff;
       }
 
     }
