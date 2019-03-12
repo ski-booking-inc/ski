@@ -100,10 +100,12 @@ body {
       .productAdmin{
         background: red;
         grid-area: productAdmin;
-
+// HÄR LIGGER STYLINGEN
         ul {
           li{
             list-style: none;
+            margin: 0;
+            padding:0;
           }
         }
       }
