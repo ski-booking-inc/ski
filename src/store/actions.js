@@ -27,13 +27,13 @@ export default {
     console.log(prod)
     try {
       await Axios.post('http://localhost:3000/products', prod)
-      ctx.dispatch('getProd');
+      // ctx.dispatch('getProducts');
     } catch (err) {
       console.err(err.stack);
     }
   },
-  async getProd(ctx) {
-    let prod = await Axios.get('http://localhost:3000/products')
-    ctx.commit('setProd', prod.data)
-  }
+  // async getProducts(ctx) {
+  //   let prod = await Axios.get('http://localhost:3000/products')
+  //   ctx.commit('setProd', prod.data)
+  // }
 }

@@ -1,8 +1,12 @@
 <template>
     <main class="admin">
       <div class="productAdmin">
-        <h3>Products</h3>
-
+        <div>
+          <ul>
+            <h3>Products</h3>
+            <li v-for="prod in products" :key="prod._id">{{ prod.article }}</li>
+          </ul> 
+        </div>
       </div>
       <div class="bookingAdmin">
         <h3>Bookings</h3> 
@@ -48,21 +52,25 @@ export default {
  methods: {
     async createProduct(){
       await this.$store.dispatch('createProduct', this.addProducts);
+      await this.$store.dispatch('getProducts');
+
      console.log(this.addProducts);
-     // this.clearInput();
+    //  setTimeout(() => { 
+       this.clearInput();
+    //  }, 5000);
    },
-    // clearInput(){
-    //  this.addProducts.article ='',
-    //  this.addProducts.category ='',
-    //  this.addProducts.info ='',
-    //  this.addProducts.age ='',
-    //  this.addProducts.price ='',
-    //  this.addProducts.packages.total =''
-  //  }
+     clearInput(){
+      this.addProducts.article ='',
+      this.addProducts.category ='',
+      this.addProducts.info ='',
+      this.addProducts.age ='',
+      this.addProducts.price ='',
+      this.addProducts.packages.total =''
+    }
  },
  computed: {
-   testProducts(){
-     return this.$store.state.testProducts;
+   products(){
+     return this.$store.state.products;
    }
  }
 }
@@ -93,6 +101,11 @@ body {
         background: red;
         grid-area: productAdmin;
 
+        ul {
+          li{
+            list-style: none;
+          }
+        }
       }
 
       .editAdmin{
