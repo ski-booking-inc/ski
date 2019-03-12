@@ -5,5 +5,8 @@ export default {
   },
   getUserInfo(state){
     return state.userInfo;
+  },
+  dates(state){
+    return state.dates;
   }
 }

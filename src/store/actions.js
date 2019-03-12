@@ -19,8 +19,21 @@ export default {
   },
   setDates (ctx, dates) {
     ctx.commit('selectedDates', dates)
-  }, 
+  },
   addInput(ctx, userInput) {
     ctx.commit('setInput', userInput)
+  },
+  testing(ctx, userInput) {
+    let chosenProduct = this.state.chosenProduct;
+    let chosenDates = this.state.dates;
+    let booking = {
+      booking: {
+        chosenProduct: chosenProduct._id,
+        chosenDates: chosenDates,
+        userInfo: userInput
+      }
+    }
+    ctx.commit('setBooking', booking)
+
   }
-}
+  }

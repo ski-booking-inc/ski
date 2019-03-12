@@ -13,5 +13,8 @@ export default {
     },
     setInput(state, userInput) {
         state.userInfo = userInput
+    },
+    setBooking(state, booking) {
+      state.userBookings.push(booking)
     }
 }

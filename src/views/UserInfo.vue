@@ -3,7 +3,7 @@
     <div class="heading">
         <h3>Och lite uppgifter om den åkade...</h3>
     </div>
-  <form class="text"> 
+  <form class="text">
          <div class="right">
           <label for="name">Namn *</label>
           <input id="form_name" type="text"  value="Namn" required="required" data-error=" Lägg till Namn." v-model="userInput.name">
@@ -38,82 +38,88 @@
 </template>
 
 <script>
-// @ is an alias to /src
+  // @ is an alias to /src
 
-export default {
-  name: 'userInfo',
-  data() {
-    return{
-      userInput: {
-        name: '',
-        weight: null,
-        length: null,
-        shoe:null,
-        helmet: false,
-        skigoogles: false,
-        lift: false,
+  export default {
+    name: 'userInfo',
+    data() {
+      return {
+        userInput: {
+          name: '',
+          weight: null,
+          length: null,
+          shoe: null,
+          helmet: false,
+          skigoogles: false,
+          lift: false,
+        }
+      }
+    },
+    methods: {
+      inputFromUser: function() {
+        this.$store.dispatch('addInput', this.userInput)
+        this.$store.dispatch('testing', this.userInput)
+        this.$router.push('/cart')
       }
     }
-  },
-  methods: {
-    inputFromUser: function (){
-      this.$store.dispatch('addInput', this.userInput)
-      this.$router.push('/cart')
-      }
-}
-}
-
+  }
 </script>
 
 <style lang="scss">
+  @import "../scss/main";
 
-@import "../scss/main";
+  html {
 
-html{
+    main {
+      .heading {
+        h3 {
+          font-size: 1rem;
+          font-weight: 900;
+        }
+      }
 
-main {
-  .heading {
-    h3 {
-      font-size: 1rem;
-      font-weight: 900;
+      .text {
+        flex-direction: column;
+
+        .right {
+          text-align: right;
+          padding: .5rem 15vw 0 0;
+        }
+
+        label {
+          font-size: 1.1rem;
+          font-weight: 900;
+        }
+
+        input {
+          width: 50%;
+          background: rgb(51, 57, 112);
+          color: white;
+          font-weight: 800;
+          border-radius: 10px;
+          padding: .5rem;
+        }
+      }
+
+      .box {
+        label {
+          font-size: 1.1rem;
+          font-weight: 900;
+          padding: 0 1rem;
+        }
+
+        .right {
+          text-align: right;
+          padding-right: 15vw;
+        }
+      }
+
+      #btn {
+        padding: .5rem 1rem;
+        background: cornflowerblue;
+        color: white;
+      }
     }
+
   }
-  .text {
-    flex-direction: column;
-      .right{
-      text-align: right;
-      padding: .5rem 15vw 0 0;
-     }
-      label {
-        font-size: 1.1rem;
-        font-weight: 900;
-      }
-      input {
-        width: 50%;
-        background: rgb(51, 57, 112);
-        color:white;
-        font-weight: 800;
-        border-radius: 10px;
-        padding: .5rem;
-      }
-    }
-    .box {
-      label {
-      font-size: 1.1rem;
-      font-weight: 900;
-      padding: 0 1rem;
-      }
-      .right{
-      text-align: right;
-      padding-right: 15vw;
-     }
-    }
-    #btn {
-      padding: .5rem 1rem;
-      background: cornflowerblue;
-      color: white;
-    }
-}
-
-}
 </style>
