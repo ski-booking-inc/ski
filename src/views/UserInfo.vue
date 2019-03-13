@@ -120,6 +120,11 @@
         color: white;
       }
     }
+    #btn {
+      padding: .5rem 1rem;
+      background: rgb(130, 150, 218);
+      color: white;
+    }
+}
 
-  }
 </style>

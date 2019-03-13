@@ -4,11 +4,15 @@
     align-items: center;
 }
 html {
-    background-image: url(../assets/img/bg.jpg);
+    background-image: url(../assets/img/bgAll.jpg);
     background-repeat: no-repeat;
-
     position: relative;
     //Photo by Konstantin Pudan on Unsplash
+}
+@media screen and (min-width: 525px){
+    html {
+        background-size: cover;
+    }
 }
 html::after {
     content: "";

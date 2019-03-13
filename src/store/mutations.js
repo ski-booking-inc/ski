@@ -27,4 +27,7 @@ export default {
         state.extras = extras
     },
 
+    setProd(state, testProd) {
+        state.testProd = testProd
+    }
 }

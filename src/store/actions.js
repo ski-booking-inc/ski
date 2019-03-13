@@ -36,6 +36,13 @@ export default {
   addDateDiff(ctx, dayDiff) {
     ctx.commit('setDateDiff', dayDiff)
   },
+  async createProduct(ctx, prod ) {
+    try {
+      await Axios.post('http://localhost:3000/products', prod)
+    } catch (err) {
+      console.err(err.stack);
+    }
+  },
   removeProduct(ctx, booking) {
     let array = this.state.userBookings;
     array.splice(array.findIndex(v => v.userInfo.name == booking.userInfo.name), 1);
