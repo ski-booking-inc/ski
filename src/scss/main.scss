@@ -6,7 +6,7 @@
 html {
     background-image: url(../assets/img/bg.jpg);
     background-repeat: no-repeat;
-    
+
     position: relative;
     //Photo by Konstantin Pudan on Unsplash
 }
@@ -20,25 +20,36 @@ html::after {
     bottom: 0;
     right: 0;
     position: absolute;
-    z-index: -1;  
+    z-index: -1;
 }
 body {
     @extend %center;
 
-a {
-    margin: 0;
-    &.btn {
-        width: 13rem;
-        margin: .3rem;
-        background: rgb(130, 150, 218);
-        height: 3.8rem;
-        border-radius: 3px;
-        color: white;
-        text-decoration: none;
-        text-transform: uppercase;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    a {
+        margin: 0;
+        &.btn {
+            width: 13rem;
+            margin: .3rem;
+            background: rgb(130, 150, 218);
+            height: 3.8rem;
+            border-radius: 3px;
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .green {
+                background: rgb(139, 219, 159);
+                height: 2.8rem;
+            }
+
+        }
+
+        .blue {
+            background: lightblue;
+            height: 2.8rem;
+        }
     }
-}
 }

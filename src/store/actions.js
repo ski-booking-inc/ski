@@ -27,15 +27,18 @@ export default {
     let chosenProduct = this.state.chosenProduct;
     let chosenDates = this.state.dates;
     let booking = {
-      booking: {
-        chosenProduct: chosenProduct._id,
+        chosenProduct: chosenProduct,
         chosenDates: chosenDates,
         userInfo: userInput
-      }
     }
     ctx.commit('setBooking', booking)
   },
-  addDateDiff (ctx, dayDiff) {
+  addDateDiff(ctx, dayDiff) {
     ctx.commit('setDateDiff', dayDiff)
+  },
+  removeProduct(ctx, booking) {
+    let array = this.state.userBookings;
+    array.splice(array.findIndex(v => v.userInfo.name == booking.userInfo.name), 1);
+    ctx.commit('removedProducts', array)
   }
 }

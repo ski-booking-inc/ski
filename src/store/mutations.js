@@ -19,5 +19,12 @@ export default {
     },
     setDateDiff(state, dayDiff) {
         state.dayDiff = dayDiff
-    }
+    },
+    removedProduct(state, array) {
+        state.userBookings = array
+    },
+    setExtras(state, extras) {
+        state.extras = extras
+    },
+
 }
