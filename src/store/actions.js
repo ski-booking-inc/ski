@@ -43,6 +43,9 @@ export default {
       console.err(err.stack);
     }
   },
+  removeProd(id){
+    return  Axios.delete(`http://localhost:3000/products/${id}`)
+  },
   removeProduct(ctx, booking) {
     let array = this.state.userBookings;
     array.splice(array.findIndex(v => v.userInfo.name == booking.userInfo.name), 1);

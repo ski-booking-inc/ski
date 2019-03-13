@@ -18,6 +18,8 @@
                       <td>{{ prod.category }}</td>
                       <td>{{ prod.packages.total }}</td>
                       <td>{{ prod.packages.booked }}</td> 
+                      <!-- <td><button @click="editProd"><img src="../assets/img/edit.svg" alt="edit"></button></td> -->
+                      <td><button @click="removeProd(prod._id)"><img src="../assets/img/baseline-delete-24px.svg" alt="Ta Bort"></button></td>
                       </tr>
                   </tbody>
               </table>
@@ -27,7 +29,7 @@
         <h3>Bookings</h3> 
       </div>
       <div class="editAdmin">
-        <h3>Add/Edit/Delete</h3>
+        <h3>Add</h3>
         <input type="text" placeholder="Package Name..." v-model="addProducts.article">
         <input type="text" placeholder="Nybörjare, Medel, Proffs" v-model="addProducts.category">
         <input type="text" placeholder="Price..." v-model="addProducts.price">
@@ -50,8 +52,8 @@ export default {
  },
  data() {
    return {
-      addProducts: {
-        article: '',
+     addProducts: {
+       article: '',
         category: '',
         age:'',
         info:'',
@@ -68,7 +70,10 @@ export default {
       await this.$store.dispatch('createProduct', this.addProducts);
       await this.$store.dispatch('getProducts');
             this.clearInput();
-
+},
+  async removeProd(id) {
+     this.$store.dispatch('removeProd',id);
+      await this.$store.dispatch('getProducts');
    },
      clearInput(){
       this.addProducts.article ='',
