@@ -47,7 +47,6 @@ export default {
   name: 'admin',
  beforeMount(){
    this.$store.dispatch('getProducts');
-   //this.$store.state.adminProducts = []
  },
  data() {
    return {

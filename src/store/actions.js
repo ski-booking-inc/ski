@@ -26,13 +26,8 @@ export default {
   async createProduct(ctx, prod ) {
     try {
       await Axios.post('http://localhost:3000/products', prod)
-      // ctx.dispatch('getProducts');
     } catch (err) {
       console.err(err.stack);
     }
-  },
-  // async getProducts(ctx) {
-  //   let prod = await Axios.get('http://localhost:3000/products')
-  //   ctx.commit('setProd', prod.data)
-  // }
+  }
 }
