@@ -4,6 +4,5 @@ export default {
     productKeys: [],
     chosenProduct: {},
     userInfo: {},
-    dates: {},
-    testProd: {}
+    dates: {}
 }
