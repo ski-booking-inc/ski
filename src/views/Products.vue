@@ -112,6 +112,7 @@ export default {
           this.isBooked = true
           console.log('Bokad')
         } else {
+          this.isBooked = false
           console.log('Inte bokad')
         }
       }
