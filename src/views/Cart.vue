@@ -4,7 +4,7 @@
     <product v-for='(booking, index) in userBookings' :key='index' :booking='booking'/>
     <p>Total summa: {{ totalSum }}</p>
     <a class="btn green" href="#" @click="$router.push('/products')">Lägg till nytt paket</a>
-    <a class="btn blue" href="#" @click="$router.push('/products')">Boka</a>
+    <a class="btn blue" href="#" @click="addBooking">Boka</a>
   </div>
 </template>
 
@@ -62,6 +62,12 @@
       }
       let sumExtras = ((liftcount * this.extras.lift) + (helmetcount * this.extras.helmet) + (skigooglescount * this.extras.skigoogles)) * this.dayDiff
       this.totalSum = sumExtras + sum
+    },
+    methods: {
+      addBooking(){
+        this.$store.dispatch('setBooking', this.userBookings)
+        console.log(this.userBookings)
+      }
     }
   };
 </script>
