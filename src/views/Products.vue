@@ -1,8 +1,8 @@
 <template>
   <main class="products">
     <h2>Välj Datum</h2>
-    <date-pick v-model="dates.startDate" :format="'YYYY.MM.DD'" :isDateDisabled="isFutureDate"></date-pick>
-    <date-pick v-model="dates.stopDate" :format="'YYYY.MM.DD'" :isDateDisabled="isFutureDate"></date-pick>
+    <date-pick v-model="dates.startDate" :format="'YYYY-MM-DD'" :isDateDisabled="isFutureDate"></date-pick>
+    <date-pick v-model="dates.stopDate" :format="'YYYY-MM-DD'" :isDateDisabled="isFutureDate"></date-pick>
     <section class="products">
       <h2 v-if="show">Välj utrustning</h2>
       <a
@@ -24,6 +24,9 @@
         @click="addProduct('Skidor Längd', 1, 2)"
       >Skidor Längd</a>
     </section>
+    <section>
+      <a href="#" class="btn" @click="checkDates">Kolla datum</a>
+    </section>
     <router-view/>
   </main>
 </template>
@@ -43,10 +46,10 @@ export default {
       select2: undefined,
       show: true,
       dates: {
-        startDate: '',
-        stopDate: ''
-        }
-    }
+        startDate: "",
+        stopDate: ""
+      }
+    };
   },
   methods: {
     addProduct(article, num1, num2) {
@@ -62,8 +65,8 @@ export default {
       const currentDate = new Date();
       return date < currentDate;
     },
-    addDates () {
-      this.$store.dispatch('setDates', this.dates)
+    addDates() {
+      this.$store.dispatch("setDates", this.dates);
     },
     dateDiff() {
       var dt1 = new Date(this.dates.startDate);
@@ -73,8 +76,20 @@ export default {
           Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate())) /
           (1000 * 60 * 60 * 24)
       );
-      this.$store.dispatch('addDateDiff', dayDiff);
+      this.$store.dispatch("addDateDiff", dayDiff);
       console.log(dayDiff);
+    },
+    checkDates() {
+      var getDaysArray = function(startDate, stopDate) {
+        for (var arr = [], dt = startDate;dt <= stopDate;dt.setDate(dt.getDate() + 1)) {
+          arr.push(new Date(dt));
+        }
+        return arr;
+      };
+      var daylist = getDaysArray(new Date(this.dates.startDate),new Date(this.dates.stopDate));
+      var hej = daylist.map(v => v.toISOString().slice(0, 10));
+      console.log(hej)
+      console.log(this.dates.startDate)
     }
   }
 };
