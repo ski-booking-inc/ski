@@ -25,7 +25,7 @@
       >Skidor Längd</a>
     </section>
     <section>
-      <a href="#" class="btn" @click="checkDates">Kolla datum</a>
+      <a href="#" class="btn" @click="getDatesArray">Kolla datum</a>
     </section>
     <router-view/>
   </main>
@@ -51,6 +51,11 @@ export default {
       },
       datesArray: []
     };
+  },
+  computed: {
+    dbBookings(){
+      return this.$store.getters.dbBookings
+    }
   },
   methods: {
     addProduct(article, num1, num2) {
@@ -80,7 +85,7 @@ export default {
       this.$store.dispatch("addDateDiff", dayDiff);
       console.log(dayDiff);
     },
-    checkDates() {
+    getDatesArray() {
       var getDaysArray = function(startDate, stopDate) {
         for (var arr = [], dt = startDate;dt <= stopDate;dt.setDate(dt.getDate() + 1)) {
           arr.push(new Date(dt));
@@ -90,6 +95,7 @@ export default {
       var daylist = getDaysArray(new Date(this.dates.startDate),new Date(this.dates.stopDate));
       this.datesArray = daylist.map(v => v.toISOString().slice(0, 10));
     }
+
   }
 };
 </script>

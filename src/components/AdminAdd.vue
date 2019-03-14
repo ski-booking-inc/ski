@@ -2,6 +2,7 @@
         <div class="editAdmin">
             <h3>Add</h3>
                 <input type="text" placeholder="Name..." v-model="addProducts.article">
+                <input type="text" placeholder="Art nr" v-model="addProducts.artnr">
                 <input type="text" placeholder="Nivå Nybörjare, Medel, Proffs" v-model="addProducts.category">
                 <input type="text" placeholder="Pris..." v-model="addProducts.price">
                 <input type="text" placeholder="Ålder? 0-6, 7-15, +16" v-model="addProducts.age">
@@ -22,12 +23,12 @@ export default {
    return {
      addProducts: {
        article: '',
+       artnr: '',
         category: '',
         age:'',
         info:'',
         price:'',
-        booked: false
-        }
+      }
    }
 },
  methods: {
@@ -38,6 +39,7 @@ export default {
 },
      clearInput(){
       this.addProducts.article ='',
+      this.addProducts.artnr ='',
       this.addProducts.category ='',
       this.addProducts.info ='',
       this.addProducts.age ='',

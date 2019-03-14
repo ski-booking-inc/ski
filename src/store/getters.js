@@ -28,7 +28,6 @@ export default {
     let total = state.userBookings
     let theTruth = [];
     for (let i = 0; i < total.length; i++) {
-      console.log(total[0])
       if (total[i].userInfo.lift) {
         theTruth.push(state.extras.lift)
       }

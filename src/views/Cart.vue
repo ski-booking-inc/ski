@@ -11,8 +11,6 @@
 <script>
   import product from "@/components/Product.vue";
 
-  // @ is an alias to /src
-
   export default {
     name: "cart",
     data() {
@@ -51,7 +49,6 @@
     methods: {
       addBooking(){
         this.$store.dispatch('setBooking', this.userBookings)
-        console.log(this.userBookings)
       }
     }
   };
