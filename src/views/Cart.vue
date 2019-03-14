@@ -35,34 +35,19 @@
       },
       getExtras() {
         return this.$store.getters.getExtras;
-      },
-      extras() {
-        return this.$store.getters.extras;
       }
     },
     beforeMount() {
       let sum = 0;
-      let liftcount = 0;
-      let helmetcount = 0;
-      let skigooglescount = 0;
+      let sumExtras = 0;
 
       for (let i = 0; i < this.userBookings.length; i++) {
-        sum = +this.userBookings[i].chosenProduct.price * this.dayDiff
+        sum =+ this.userBookings[i].chosenProduct.price * this.dayDiff
       }
-      for (let j = 0; j < this.getExtras.length; j++) {
-        if (this.getExtras[j] === 'lift') {
-          liftcount++
-        }
-        if (this.getExtras[j] === 'helmet') {
-          helmetcount++
-        }
-        if (this.getExtras[j] === 'skigoogles') {
-          skigooglescount++
-        }
-      }
-      let sumExtras = ((liftcount * this.extras.lift) + (helmetcount * this.extras.helmet) + (skigooglescount * this.extras.skigoogles)) * this.dayDiff
-      this.totalSum = sumExtras + sum
+      this.getExtras.forEach(item => sumExtras += item)
+      this.totalSum = (sumExtras + sum) * this.dayDiff
     },
+
     methods: {
       addBooking(){
         this.$store.dispatch('setBooking', this.userBookings)

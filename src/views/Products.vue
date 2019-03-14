@@ -48,7 +48,8 @@ export default {
       dates: {
         startDate: "",
         stopDate: ""
-      }
+      },
+      datesArray: []
     };
   },
   methods: {
@@ -87,9 +88,7 @@ export default {
         return arr;
       };
       var daylist = getDaysArray(new Date(this.dates.startDate),new Date(this.dates.stopDate));
-      var hej = daylist.map(v => v.toISOString().slice(0, 10));
-      console.log(hej)
-      console.log(this.dates.startDate)
+      this.datesArray = daylist.map(v => v.toISOString().slice(0, 10));
     }
   }
 };

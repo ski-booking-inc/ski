@@ -30,13 +30,13 @@ export default {
     for (let i = 0; i < total.length; i++) {
       console.log(total[0])
       if (total[i].userInfo.lift) {
-        theTruth.push('lift')
+        theTruth.push(state.extras.lift)
       }
       if (total[i].userInfo.helmet) {
-        theTruth.push('helmet')
+        theTruth.push(state.extras.helmet)
       }
       if (total[i].userInfo.skigoogles) {
-        theTruth.push('skigoogles')
+        theTruth.push(state.extras.skigoogles)
       }
     }
     return theTruth;
