@@ -11,6 +11,8 @@ export default {
   name: "App",
   beforeMount() {
     this.$store.dispatch("getProducts");
+    this.$store.dispatch('dbBookings');
+
   }
 };
 </script>

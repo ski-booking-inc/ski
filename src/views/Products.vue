@@ -26,6 +26,7 @@
     </section>
     <section>
       <a href="#" class="btn" @click="getDatesArray">Kolla datum</a>
+      <a href="#" class="btn" @click="checkIfBooked">Kolla om bokad</a>
     </section>
     <router-view/>
   </main>
@@ -49,12 +50,16 @@ export default {
         startDate: "",
         stopDate: ""
       },
-      datesArray: []
+      datesArray: [],
+      isBooked: false
     };
   },
   computed: {
     dbBookings(){
       return this.$store.getters.dbBookings
+    },
+    chosenProduct(){
+      return this.$store.getters.getChosenProduct
     }
   },
   methods: {
@@ -94,8 +99,24 @@ export default {
       };
       var daylist = getDaysArray(new Date(this.dates.startDate),new Date(this.dates.stopDate));
       this.datesArray = daylist.map(v => v.toISOString().slice(0, 10));
-    }
+    },
+    checkIfBooked(){
+      let x = this.dbBookings;
+      let y = this.chosenProduct;
+      let d = this.datesArray;
+      let array = [];
+      let filtered = x.filter(v => v.artnr === y.artnr)
 
+      for(let i=0; i<filtered.length; i++){
+        if(d.includes(filtered[i].chosenDates.startDate) || d.includes(filtered[i].chosenDates.stopDate)) {
+          this.isBooked = true
+          console.log('Bokad')
+        } else {
+          console.log('Inte bokad')
+        }
+      }
+
+    }
   }
 };
 </script>
