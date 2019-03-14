@@ -1,93 +1,25 @@
 <template>
     <main class="admin">
-      <div class="productAdmin">
-        <div>
-            <h3>Products</h3>
-              <table cellspacing="0" class="table">
-                  <thead>
-                      <tr>
-                          <th>Namn:</th>
-                          <th>Nivå:</th>
-                          <th>Totalt antal:</th>
-                          <th>Antal uthyrda:</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr v-for="prod in products" :key="prod._id">
-                      <td>{{ prod.article }}</td>
-                      <td>{{ prod.category }}</td>
-                      <td>{{ prod.packages.total }}</td>
-                      <td>{{ prod.packages.booked }}</td> 
-                      <!-- <td><button @click="editProd"><img src="../assets/img/edit.svg" alt="edit"></button></td> -->
-                      <td><button @click="removeProd(prod._id)"><img src="../assets/img/baseline-delete-24px.svg" alt="Ta Bort"></button></td>
-                      </tr>
-                  </tbody>
-              </table>
-        </div>
-      </div>
-      <div class="bookingAdmin">
-        <h3>Bookings</h3> 
-      </div>
-      <div class="editAdmin">
-        <h3>Add</h3>
-        <input type="text" placeholder="Package Name..." v-model="addProducts.article">
-        <input type="text" placeholder="Nybörjare, Medel, Proffs" v-model="addProducts.category">
-        <input type="text" placeholder="Price..." v-model="addProducts.price">
-        <input type="text" placeholder="0-6, 7-16, 17+" v-model="addProducts.age">
-        <input type="text" placeholder="How many package..." v-model="addProducts.packages.total">
-        <textarea  placeholder="Info..." v-model="addProducts.info"></textarea>
-        <div>
-          <a href="#" class="btn" @click="createProduct">Add</a>
-        </div>
-      </div>
+      <AdminProducts/>
+      <AdminAdd/>
+      <AdminBooking/>
     </main>
 </template>
 
 <script>
+  import AdminProducts from "@/components/AdminProducts.vue";
+  import AdminBooking from "@/components/AdminBooking.vue";
+  import AdminAdd from "@/components/AdminAdd.vue";
 
 export default {
   name: 'admin',
+  components:{
+    AdminProducts,
+    AdminBooking,
+    AdminAdd
+  },
  beforeMount(){
    this.$store.dispatch('getProducts');
- },
- data() {
-   return {
-     addProducts: {
-       article: '',
-        category: '',
-        age:'',
-        info:'',
-        price:'',
-        packages :{
-          total: '',
-          booked: ''
-        }
-      }
-    }
-  },
- methods: {
-    async createProduct(){
-      await this.$store.dispatch('createProduct', this.addProducts);
-      await this.$store.dispatch('getProducts');
-            this.clearInput();
-},
-  async removeProd(id) {
-     this.$store.dispatch('removeProd',id);
-      await this.$store.dispatch('getProducts');
-   },
-     clearInput(){
-      this.addProducts.article ='',
-      this.addProducts.category ='',
-      this.addProducts.info ='',
-      this.addProducts.age ='',
-      this.addProducts.price ='',
-      this.addProducts.packages.total =''
-    }
- },
- computed: {
-   products(){
-     return this.$store.state.products;
-   }
  }
 }
 </script>

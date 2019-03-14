@@ -43,7 +43,7 @@ export default {
       console.err(err.stack);
     }
   },
-  removeProd(id){
+  removeProd(ctx,id){
     return  Axios.delete(`http://localhost:3000/products/${id}`)
   },
   removeProduct(ctx, booking) {
