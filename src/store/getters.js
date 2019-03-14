@@ -27,19 +27,13 @@ export default {
     for (let i = 0; i < total.length; i++) {
       console.log(total[0])
       if (total[i].userInfo.lift) {
-        theTruth.push({
-          lift: true
-        })
+        theTruth.push('lift')
       }
       if (total[i].userInfo.helmet) {
-        theTruth.push({
-          helmet: true
-        })
+        theTruth.push('helmet')
       }
       if (total[i].userInfo.skigoogles) {
-        theTruth.push({
-          skigoogles: true
-        })
+        theTruth.push('skigoogles')
       }
     }
     return theTruth;

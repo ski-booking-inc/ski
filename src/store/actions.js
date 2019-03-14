@@ -50,5 +50,10 @@ export default {
     let array = this.state.userBookings;
     array.splice(array.findIndex(v => v.userInfo.name == booking.userInfo.name), 1);
     ctx.commit('removedProducts', array)
+  },
+  setBooking(ctx, bookings) {
+    bookings.forEach(v => Axios.post('http://localhost:3000/bookings', v))
+
+
   }
 }
