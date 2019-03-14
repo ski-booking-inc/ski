@@ -20,6 +20,7 @@ export default {
   },
  beforeMount(){
    this.$store.dispatch('getProducts');
+   this.$store.dispatch('dbBookings');
  }
 }
 </script>

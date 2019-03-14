@@ -2,6 +2,9 @@ export default {
     setProducts(state, products) {
         state.products = products;
     },
+    setDbBookings(state, dbBookings) {
+        state.dbBookings = dbBookings;
+    },
     addToProductKeys(state, payload) {
         state.productKeys.push(payload)
     },
@@ -26,7 +29,6 @@ export default {
     setExtras(state, extras) {
         state.extras = extras
     },
-
     setProd(state, testProd) {
         state.testProd = testProd
     }

@@ -13,8 +13,8 @@
                       <tr v-for="prod in products" :key="prod._id">
                       <td>{{ prod.article }}</td>
                       <td>{{ prod.category }}</td>
-                      <td><button><img src="../assets/img/edit.svg" alt="edit"></button></td> 
-                      <td><button @click="removeProd(prod._id)"><img src="../assets/img/baseline-delete-24px.svg" alt="Ta Bort"></button></td>
+                      <!-- <td><button><img src="../assets/img/edit.svg" alt="edit"></button></td>  -->
+                      <!-- <td><button @click="removeProd(prod._id)"><img src="../assets/img/baseline-delete-24px.svg" alt="Ta Bort"></button></td> -->
                       </tr>
                   </tbody>
               </table>
@@ -24,16 +24,17 @@
 
 <script>
 export default {
-name: 'AdminBooking',
+name: 'AdminProducts',
 data(){
     return {
     }
-},methods: {
-      async removeProd(id) {
-     this.$store.dispatch('removeProd',id);
-      await this.$store.dispatch('getProducts');
-   }
 },
+// methods: {
+//       async removeProd(id) {
+//      this.$store.dispatch('removeProd',id);
+//       await this.$store.dispatch('getProducts');
+//    }
+// },
 computed: {
     products(){
         return this.$store.state.products;

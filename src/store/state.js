@@ -6,6 +6,7 @@ export default {
     userInfo: {},
     dates: {},
     userBookings: [],
+    dbBookings: [],
     dayDiff: 0,
     extras: {
         lift: 499,

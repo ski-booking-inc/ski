@@ -21,6 +21,9 @@ export default {
   extras(state) {
     return state.extras;
   },
+  dbBookings(state){
+    return state.dbBookings;
+  },
   getExtras(state) {
     let total = state.userBookings
     let theTruth = [];

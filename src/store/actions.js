@@ -5,6 +5,11 @@ export default {
     let products = await Axios.get('http://localhost:3000/products');
     ctx.commit('setProducts', products.data)
   },
+  async dbBookings (ctx) {
+    let dbBookings = await Axios.get('http://localhost:3000/bookings');
+    ctx.commit('setDbBookings', dbBookings.data)
+    console.log(dbBookings);
+  },
   addProduct(ctx, payload) {
     ctx.commit('addToProductKeys', payload)
   },
@@ -53,7 +58,5 @@ export default {
   },
   setBooking(ctx, bookings) {
     bookings.forEach(v => Axios.post('http://localhost:3000/bookings', v))
-
-
-  }
+  },
 }
