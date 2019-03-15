@@ -38,6 +38,9 @@
       },
       extras() {
         return this.$store.getters.extras;
+      },
+      activeUser(){
+        return this.$store.getters.getActiveUser;
       }
     },
     beforeMount() {
@@ -67,6 +70,11 @@
       addBooking(){
         this.$store.dispatch('setBooking', this.userBookings)
         console.log(this.userBookings)
+        if (this.activeUser.name == null) {
+          this.$router.push('/login')
+        } else {
+          this.$router.push('/confirm')
+        }
       }
     }
   };

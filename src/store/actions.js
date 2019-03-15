@@ -72,7 +72,7 @@ export default {
       sessionStorage.setItem('vueauthdemo', token.authToken);
 
       // update activeUser for UI ( ex. "Greger is logged in." )
-      ctx.commit('setActiveUser', token.data.username);
+      ctx.commit('setActiveUser', {name: token.data.username, role: token.data.role});
 
       // Get items
       ctx.dispatch('getItems')

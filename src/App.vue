@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <!-- <transition name="fade"> -->
-      <p v-if="user"> <!--flytta detta till rätt, -->
+      <p v-if="user.name"> <!--flytta detta till rätt, -->
         User logged in as
-        <b>{{ user }}</b>
+        <b>{{ user.name }}</b>
       </p>
       <router-view/>
     <!-- </transition> -->

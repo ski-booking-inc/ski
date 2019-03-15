@@ -14,6 +14,9 @@ export default {
         helmet: 79
     },
     apiUrl: 'http://localhost:3000',
-    activeUser: null,
+    activeUser: {
+        name: null,
+        role: null
+    },
     rejected: false
 }

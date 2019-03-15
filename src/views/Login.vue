@@ -42,7 +42,23 @@ export default {
           username: this.username,
           password: this.password
         });
-        this.$router.push("/admin");
+        if (this.activeUser.role == 'admin') {
+          if (this.userBookings) { 
+            this.$router.push('/confirm')
+            console.log(this.activeUser.role)
+          } else {
+            this.$router.push('/admin')
+            // route till admin
+          }
+        } else {
+          if (this.userBookings) {
+            this.$router.push('/confirm')
+            // route till confirm 
+          } else {
+            this.$router.push('/main')
+            // route till main
+          }
+        }
       }
     }
   },
@@ -65,6 +81,12 @@ export default {
   computed: {
     rejected() {
       return this.$store.state.rejected;
+    },
+    checkBooking () {
+      return this.$store.getters.userBookings;
+    },
+    activeUser () {
+      return this.$store.getters.getActiveUser;
     }
   }
 };

@@ -59,16 +59,7 @@
       inputFromUser: function() {
         this.$store.dispatch('addInput', this.userInput)
         this.$store.dispatch('testing', this.userInput)
-        if (this.activeUser == null) {
-          this.$router.push('/login')
-        } else {
-          this.$router.push('/cart')
-        }
-      }
-    },
-    computed: {
-      activeUser(){
-        return this.$store.getters.getActiveUser;
+        this.$router.push('/cart')
       }
     }
   }
