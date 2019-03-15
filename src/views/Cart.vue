@@ -50,13 +50,13 @@
     },
 
     methods: {
-      addBooking(){
-        this.$store.dispatch('setBooking', this.userBookings)
-        console.log(this.userBookings)
+      addBooking(){        
         if (this.activeUser.name == null) {
           this.$router.push('/login')
         } else {
+          this.$store.dispatch('setBooking', this.userBookings)
           this.$router.push('/confirm')
+
         }
       }
     }

@@ -46,13 +46,13 @@ export default {
           if (this.checkBooking == false) {
             this.$router.push('/admin')
           } else {
-            this.$router.push('/confirm')
+            this.$router.push('/cart')
           }
         } else {
           if (this.checkBooking == false) {
             this.$router.push('/main')
           } else {
-            this.$router.push('/confirm')
+            this.$router.push('/cart')
           }
         }
       }
