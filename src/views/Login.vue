@@ -6,7 +6,7 @@
         type="text"
         class="username"
         placeholder="username"
-        :class="{ valid : validUsername, rejected : rejected}"
+        :class="{ valid : validUsername }"
       >
       <input
         v-model="password"
@@ -43,20 +43,16 @@ export default {
           password: this.password
         });
         if (this.activeUser.role == 'admin') {
-          if (this.userBookings) { 
-            this.$router.push('/confirm')
-            console.log(this.activeUser.role)
-          } else {
+          if (this.checkBooking == false) {
             this.$router.push('/admin')
-            // route till admin
+          } else {
+            this.$router.push('/confirm')
           }
         } else {
-          if (this.userBookings) {
-            this.$router.push('/confirm')
-            // route till confirm 
-          } else {
+          if (this.checkBooking == false) {
             this.$router.push('/main')
-            // route till main
+          } else {
+            this.$router.push('/confirm')
           }
         }
       }
@@ -71,7 +67,7 @@ export default {
       }
     },
     password(val) {
-      if (val.length > 6) {
+      if (val.length > 5) {
         this.validPassword = true;
       } else {
         this.validPassword = false;
@@ -107,24 +103,6 @@ export default {
     grid-template-columns: 1fr;
     box-shadow: 0 0 2rem pink;
 
-    @keyframes shake {
-      0% {
-        transform: translateX(0);
-      }
-      25%,
-      50% {
-        transform: translateX(-0.5rem);
-      }
-      75%,
-      100% {
-        transform: translateX(0.5rem);
-      }
-    }
-
-    &.rejected {
-      animation: shake 0.2s ease;
-      animation-iteration-count: 4;
-    }
 
     input {
       border: none;
@@ -148,4 +126,3 @@ export default {
   }
 }
 </style>
-

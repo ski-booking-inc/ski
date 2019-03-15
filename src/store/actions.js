@@ -64,7 +64,7 @@ export default {
 
     try {
 
-      // post username + password to /auth, receive auth token  
+      // post username + password to /auth, receive auth token
       let token = await Axios.post(`${ctx.state.apiUrl}/auth`, loginData)
       console.log(token);
 

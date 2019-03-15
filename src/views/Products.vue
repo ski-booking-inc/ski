@@ -25,10 +25,9 @@
       >Skidor Längd</a>
     </section>
     <section>
-      <a href="#" class="btn" @click="getDatesArray">Kolla datum</a>
-      <a href="#" class="btn" @click="checkIfBooked">Kolla om bokad</a>
+      <router-view/>
     </section>
-    <router-view/>
+    <a href="#" class="btn" @click="dateFunctions">Kolla om bokad</a>
   </main>
 </template>
 
@@ -90,6 +89,11 @@ export default {
       this.$store.dispatch("addDateDiff", dayDiff);
       console.log(dayDiff);
     },
+    async dateFunctions(){
+      await this.getDatesArray()
+      await this.checkIfBooked()
+      this.$router.push('/userInfo')
+    },
     getDatesArray() {
       var getDaysArray = function(startDate, stopDate) {
         for (var arr = [], dt = startDate;dt <= stopDate;dt.setDate(dt.getDate() + 1)) {
@@ -104,13 +108,13 @@ export default {
       let x = this.dbBookings;
       let y = this.chosenProduct;
       let d = this.datesArray;
-      let array = [];
       let filtered = x.filter(v => v.artnr === y.artnr)
 
       for(let i=0; i<filtered.length; i++){
         if(d.includes(filtered[i].chosenDates.startDate) || d.includes(filtered[i].chosenDates.stopDate)) {
           this.isBooked = true
           console.log('Bokad')
+          break;
         } else {
           this.isBooked = false
           console.log('Inte bokad')
