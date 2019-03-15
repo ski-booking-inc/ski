@@ -63,7 +63,6 @@ export default {
   async login(ctx, loginData) {
 
     try {
-
       // post username + password to /auth, receive auth token
       let token = await Axios.post(`${ctx.state.apiUrl}/auth`, loginData)
       console.log(token);
@@ -85,6 +84,16 @@ export default {
       }, 1000)
 
       console.error(err);
+    }
+  },
+  // Signup grejer
+  async signup(ctx, signupData) {
+    // varför har vi try på detta och create product?
+    try {
+      await Axios.post('http://localhost:3000/users', signupData)
+      ctx.dispatch('login', signupData) 
+      } catch (err) {
+        console.err(err.stack);
     }
   },
   async getItems(ctx) {

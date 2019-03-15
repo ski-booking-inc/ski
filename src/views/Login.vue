@@ -1,25 +1,10 @@
 <template>
   <main id="login">
-    <article class="modal">
-      <input
-        v-model="username"
-        type="text"
-        class="username"
-        placeholder="username"
-        :class="{ valid : validUsername }"
-      >
-      <input
-        v-model="password"
-        type="password"
-        placeholder="password"
-        :class="{ valid : validPassword }"
-      >
-      <a
-        href="#"
-        class="btn"
-        @click="login"
-        :class="{ ready : validPassword && validUsername }"
-      >Login</a>
+    <article class="login">
+      <input v-model="username" type="text" class="username" placeholder="username" :class="{ valid : validUsername }">
+      <input v-model="password" type="password" placeholder="password" :class="{ valid : validPassword }">
+      <a href="#" class="btn" @click="login" :class="{ ready : validPassword && validUsername }">Login</a>
+      <a href="#" class="btn" @click="signup" :class="{ ready : validPassword && validUsername }">Signup</a>
     </article>
   </main>
 </template>
@@ -54,6 +39,21 @@ export default {
           } else {
             this.$router.push('/cart')
           }
+        }
+      }
+    },
+    signup() {
+      if (this.validUsername && this.validPassword) {
+        this.$store.dispatch("signup", {
+          username: this.username,
+          password: this.password,
+          role: 'user'
+        });
+
+        if (this.checkBooking == false) {
+          this.$router.push('/main')
+        } else {
+          this.$router.push('/cart')
         }
       }
     }
@@ -95,7 +95,7 @@ export default {
   @extend %center;
   background: #222;
 
-  .modal {
+  .login {
     background: white;
     border-radius: 3px;
     width: 18rem;
