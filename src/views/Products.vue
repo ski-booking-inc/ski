@@ -25,7 +25,8 @@
       >Skidor Längd</a>
     </section>
     <section>
-      <a href="#" class="btn" @click="checkDates">Kolla datum</a>
+      <a href="#" class="btn" @click="getDatesArray">Kolla datum</a>
+      <a href="#" class="btn" @click="checkIfBooked">Kolla om bokad</a>
     </section>
     <router-view/>
   </main>
@@ -48,8 +49,18 @@ export default {
       dates: {
         startDate: "",
         stopDate: ""
-      }
+      },
+      datesArray: [],
+      isBooked: false
     };
+  },
+  computed: {
+    dbBookings(){
+      return this.$store.getters.dbBookings
+    },
+    chosenProduct(){
+      return this.$store.getters.getChosenProduct
+    }
   },
   methods: {
     addProduct(article, num1, num2) {
@@ -79,7 +90,7 @@ export default {
       this.$store.dispatch("addDateDiff", dayDiff);
       console.log(dayDiff);
     },
-    checkDates() {
+    getDatesArray() {
       var getDaysArray = function(startDate, stopDate) {
         for (var arr = [], dt = startDate;dt <= stopDate;dt.setDate(dt.getDate() + 1)) {
           arr.push(new Date(dt));
@@ -87,9 +98,25 @@ export default {
         return arr;
       };
       var daylist = getDaysArray(new Date(this.dates.startDate),new Date(this.dates.stopDate));
-      var hej = daylist.map(v => v.toISOString().slice(0, 10));
-      console.log(hej)
-      console.log(this.dates.startDate)
+      this.datesArray = daylist.map(v => v.toISOString().slice(0, 10));
+    },
+    checkIfBooked(){
+      let x = this.dbBookings;
+      let y = this.chosenProduct;
+      let d = this.datesArray;
+      let array = [];
+      let filtered = x.filter(v => v.artnr === y.artnr)
+
+      for(let i=0; i<filtered.length; i++){
+        if(d.includes(filtered[i].chosenDates.startDate) || d.includes(filtered[i].chosenDates.stopDate)) {
+          this.isBooked = true
+          console.log('Bokad')
+        } else {
+          this.isBooked = false
+          console.log('Inte bokad')
+        }
+      }
+
     }
   }
 };

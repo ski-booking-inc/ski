@@ -15,6 +15,7 @@ export default {
   name: "App",
   beforeMount() {
     this.$store.dispatch("getProducts");
+    this.$store.dispatch('dbBookings');
   },
   computed: { // flytta även till rätt (userpage.vue)
     user() {
