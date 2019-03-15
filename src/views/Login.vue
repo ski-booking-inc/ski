@@ -43,19 +43,19 @@ export default {
           password: this.password
         });
         if (this.activeUser.role == 'admin') {
-          if (this.userBookings) { 
-            this.$router.push('/confirm')
-            console.log(this.activeUser.role)
-          } else {
+          if (this.checkBooking == null) { 
             this.$router.push('/admin')
+          } else {
+            this.$router.push('/confirm')
             // route till admin
           }
         } else {
-          if (this.userBookings) {
-            this.$router.push('/confirm')
+          console.log(this.checkBooking)
+          if (this.checkBooking == false) {
+            this.$router.push('/main')
             // route till confirm 
           } else {
-            this.$router.push('/main')
+            this.$router.push('/confirm')
             // route till main
           }
         }
@@ -71,7 +71,7 @@ export default {
       }
     },
     password(val) {
-      if (val.length > 6) {
+      if (val.length > 3) {
         this.validPassword = true;
       } else {
         this.validPassword = false;

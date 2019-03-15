@@ -104,7 +104,6 @@ export default {
       let x = this.dbBookings;
       let y = this.chosenProduct;
       let d = this.datesArray;
-      let array = [];
       let filtered = x.filter(v => v.artnr === y.artnr)
 
       for(let i=0; i<filtered.length; i++){
