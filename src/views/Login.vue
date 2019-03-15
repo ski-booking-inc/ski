@@ -67,7 +67,7 @@ export default {
       }
     },
     password(val) {
-      if (val.length > 5) {
+      if (val.length > 3) {
         this.validPassword = true;
       } else {
         this.validPassword = false;
