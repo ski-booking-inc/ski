@@ -1,5 +1,5 @@
 <template>
-          <div class="bookingAdmin">
+          <div class="bookingAdmin adminTable">
         <div>
             <h3>Bokning</h3>
               <table cellspacing="0" class="table">

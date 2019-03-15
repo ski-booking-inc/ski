@@ -6,10 +6,10 @@
     </section>
     <section>
       <a class="btn" href="#" @click="$router.push('/products')">Boka utrustning</a>
-      <a class="btn" href="#" @click="$router.push('/userpage')">Mina bokningar</a>
+      <a class="btn" href="#" @click="$router.push('/login')">Mina bokningar</a>
     </section>
     <section class="logo">
-      <img src="../assets/img/Vector.png" alt="admin" @click="$router.push('/admin')">
+      <img src="../assets/img/Vector.png" alt="admin" @click="$router.push('/login')">
     </section>
     <router-view/>
   </div>

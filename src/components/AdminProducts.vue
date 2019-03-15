@@ -1,5 +1,5 @@
 <template>
-          <div class="productAdmin">
+          <div class="productAdmin adminTable">
         <div>
             <h3>Products</h3>
               <table cellspacing="0" class="table">
@@ -14,7 +14,7 @@
                       <td>{{ prod.article }}</td>
                       <td>{{ prod.category }}</td>
                       <!-- <td><button><img src="../assets/img/edit.svg" alt="edit"></button></td>  -->
-                      <!-- <td><button @click="removeProd(prod._id)"><img src="../assets/img/baseline-delete-24px.svg" alt="Ta Bort"></button></td> -->
+                      <td><button @click="removeProd(prod._id)"><img src="../assets/img/baseline-delete-24px.svg" alt="Ta Bort"></button></td>
                       </tr>
                   </tbody>
               </table>
@@ -29,12 +29,12 @@ data(){
     return {
     }
 },
-// methods: {
-//       async removeProd(id) {
-//      this.$store.dispatch('removeProd',id);
-//       await this.$store.dispatch('getProducts');
-//    }
-// },
+methods: {
+      async removeProd(id) {
+     this.$store.dispatch('removeProd',id);
+      await this.$store.dispatch('getProducts');
+   }
+},
 computed: {
     products(){
         return this.$store.state.products;

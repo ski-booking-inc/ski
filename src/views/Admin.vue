@@ -27,14 +27,12 @@ export default {
 <style lang="scss">
 @import "../scss/main";
 $baseline: 100px;
-
 body {
   margin: 0 auto;
     display: flex;
     flex-direction: column;
     @extend%center;
     max-width: 768px;
-
     .admin {
       display: grid;
       grid-template-columns: 2fr 1fr;
@@ -43,22 +41,39 @@ body {
       "productAdmin editAdmin"
       "bookingAdmin editAdmin";
       width: 100vw;
-      
-
-      .productAdmin{
+      a {
+        &.btnAdmin {
+          padding: 1rem 3rem;
+          color: #fff;
+          background: rgb(62, 80, 129);
+          text-decoration: none;
+          border-radius: 4px;
+        }
+        &.btnAdmin:hover {
+          background: rgb(139, 28, 115);
+        }
+      }
+      .bookingAdmin {
+        grid-area: bookingAdmin;
+        background: rgba($color: #000000, $alpha: 0.3);
+        border: 5px solid rgba(255, 255, 255, 0.336);
+        margin: 1rem;
+      }
+      .productAdmin {
         grid-area: productAdmin;
         background: rgba($color: #000000, $alpha: 0.3);
-
-        h3 {
-          margin: .5rem 0 0 0;
-        }
+        border: 5px solid rgba(255, 255, 255, 0.336);
+        margin: 1rem;
+      }
+      .adminTable {
+         h3 {
+            margin: .5rem 0 0 0;
+          }
         
-
          table {
             grid-area: table;
             padding: .1rem;
             margin: 0 auto;
-
             thead {
                 tr {
                     th {
@@ -81,20 +96,19 @@ body {
                 }
             }
         }
-
       }
-
       .editAdmin{
         grid-area: editAdmin;
-        margin: 0 auto;
         padding: 0 1rem 1rem 1rem;
         background: rgba($color: #000000, $alpha: 0.3);
-
+        border: 5px solid rgba(255, 255, 255, 0.336);
+        margin: 1rem;
+        @extend%center;
+          display:block; 
         h3 {
           margin: .5rem 0 0 0;
           padding-bottom: 1.5rem;
         }
-
         input, textarea {
           width: 80%;
           padding: .5rem;
@@ -104,19 +118,13 @@ body {
           max-height: 50px;
           min-width: 200px;
           min-height: 20px;
-          display: block;
         }
-        .btn {
-          width:inherit;
+        textarea {
+          margin-bottom: 2rem;
         }
-      }
-
-      .bookingAdmin {
-        background: fuchsia;
-        grid-area: bookingAdmin;
       }
     }
-  @media screen and (max-width: 650px){
+  @media screen and (max-width: 615px){
   .admin{
     grid-template-columns: 1fr;
     grid-template-rows: auto;
@@ -128,4 +136,3 @@ body {
   }
 }
 </style>
-

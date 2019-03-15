@@ -40,5 +40,8 @@ export default {
       }
     }
     return theTruth;
+  },
+  getActiveUser (state) {
+    return state.activeUser;
   }
 }

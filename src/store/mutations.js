@@ -9,7 +9,7 @@ export default {
         state.productKeys.push(payload)
     },
     setProduct(state, payload) {
-      state.chosenProduct = payload
+        state.chosenProduct = payload
     },
     selectedDates(state, dates) {
         state.dates = dates
@@ -18,7 +18,7 @@ export default {
         state.userInfo = userInput
     },
     setBooking(state, booking) {
-      state.userBookings.push(booking)
+        state.userBookings.push(booking)
     },
     setDateDiff(state, dayDiff) {
         state.dayDiff = dayDiff
@@ -31,5 +31,11 @@ export default {
     },
     setProd(state, testProd) {
         state.testProd = testProd
+    },
+    setActiveUser(state, user) {
+        state.activeUser = user;
+    },
+    toggleRejected(state) {
+        state.rejected = !state.rejected;
     }
 }

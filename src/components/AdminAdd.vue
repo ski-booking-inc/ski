@@ -7,7 +7,7 @@
                 <input type="text" placeholder="Ålder? 0-6, 7-15, +16" v-model="addProducts.age">
                 <textarea  placeholder="Info..." v-model="addProducts.info"></textarea>
             <div>
-            <a href="#" class="btn" @click="createProduct">Add</a>
+            <a href="#" class="btnAdmin" @click="createProduct">Add</a>
             </div>
             <div>
             <!-- <a href="#" class="btn" >Edit</a> -->
