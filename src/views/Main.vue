@@ -6,17 +6,44 @@
     </section>
     <section>
       <a class="btn" href="#" @click="$router.push('/products')">Boka utrustning</a>
-      <a class="btn" href="#" @click="$router.push('/login')">Mina bokningar</a>
-    </section>
-    <section class="logo">
-      <img src="../assets/img/Vector.png" alt="admin" @click="$router.push('/login')">
+      <a class="btn" v-if="showIsAdmin" href="#" @click="$router.push('/admin')">Admin</a>
+      <a class="btn" v-if="!showIsLogin" href="#" @click="$router.push('/login')">Logga in</a>
+      <a class="btn" v-if="showIsLogin" href="#" @click="$router.push('/main')">Logga ut</a>
     </section>
     <router-view/>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: 'main',
+  data(){
+    return {
+      showIsLogin: false,
+      showIsAdmin: false
+    }
+  },
+  computed: {
+    activeUser(){
+      return this.$store.getters.getActiveUser;
+    }
+  },
+  watch: {
+    activeUser() {
+    if(this.activeUser.role) {
+      console.log(this.activeUser.role)
+      this.showIsLogin = true
+    } else {
+      this.showIsLogin = false
+    }
+    if(this.activeUser.role == 'admin') {
+      this.showIsAdmin = true
+    } else {
+      this.showIsAdmin = false
+    }
+  }
+  }
+};
 </script>
 
 <style lang="scss">
@@ -30,9 +57,5 @@ export default {};
   color: white;
 }
 
-.logo {
-  align-self: start;
-  margin-top: 3rem;
-}
 
 </style>
