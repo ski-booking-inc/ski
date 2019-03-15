@@ -92,7 +92,11 @@ export default {
     async dateFunctions(){
       await this.getDatesArray()
       await this.checkIfBooked()
+      if(!this.isBooked){
       this.$router.push('/userInfo')
+    } else {
+      alert('Bokad')
+    }
     },
     getDatesArray() {
       var getDaysArray = function(startDate, stopDate) {
