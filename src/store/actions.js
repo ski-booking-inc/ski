@@ -19,8 +19,12 @@ export default {
     for (let i = 0; i < x.length; i++) {
       if (y[0] == x[i].article && y[1] == x[i].age && y[2] == x[i].category) {
         ctx.commit('setProduct', x[i])
+        break;
       }
     }
+  },
+  updateChosenProduct(ctx, newProduct) {
+    ctx.commit('setProduct', newProduct)
   },
   setDates(ctx, dates) {
     ctx.commit('selectedDates', dates)
@@ -91,7 +95,7 @@ export default {
     // varför har vi try på detta och create product?
     try {
       await Axios.post('http://localhost:3000/users', signupData)
-      ctx.dispatch('login', signupData) 
+      ctx.dispatch('login', signupData)
       } catch (err) {
         console.err(err.stack);
     }

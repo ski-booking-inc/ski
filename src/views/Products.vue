@@ -59,6 +59,9 @@ export default {
     },
     chosenProduct(){
       return this.$store.getters.getChosenProduct
+    },
+    products(){
+      return this.$store.getters.getProducts
     }
   },
   methods: {
@@ -108,22 +111,42 @@ export default {
       var daylist = getDaysArray(new Date(this.dates.startDate),new Date(this.dates.stopDate));
       this.datesArray = daylist.map(v => v.toISOString().slice(0, 10));
     },
-    checkIfBooked(){
+    async checkIfBooked(){
+      let p = this.products;
       let x = this.dbBookings;
       let y = this.chosenProduct;
       let d = this.datesArray;
+      let booked = [];
+
+      let prodArr = p.filter(v => v.artnr === y.artnr)
       let filtered = x.filter(v => v.artnr === y.artnr)
 
       for(let i=0; i<filtered.length; i++){
         if(d.includes(filtered[i].chosenDates.startDate) || d.includes(filtered[i].chosenDates.stopDate)) {
-          this.isBooked = true
-          console.log('Bokad')
-          break;
-        } else {
-          this.isBooked = false
-          console.log('Inte bokad')
+          booked.push(filtered[i])
         }
       }
+        if(booked.length == prodArr.length){
+          this.isBooked = true
+          console.log('Fullbokat')
+        }
+        if(booked.length == 0) {
+          this.isBooked = false
+          console.log('Ingen bokning på detta artnr')
+        }
+        if(booked.length > 0 && booked.length < prodArr.length) {
+          booked.forEach(function(element) {
+          for(let i=0; i<prodArr.length; i++){
+            if(element.productId == prodArr[i]._id){
+              let position = prodArr.indexOf(prodArr[i])
+              prodArr.splice(position,1)
+            }
+          }
+        })
+        await this.$store.dispatch('updateChosenProduct', prodArr[0])
+        this.isBooked = false
+        console.log('Bokningar finns på detta artnr, men ej fullbokat')
+        }
 
     }
   }

@@ -3,6 +3,9 @@ export default {
   getChosenProduct(state) {
     return state.chosenProduct;
   },
+  getProducts(state) {
+    return state.products;
+  },
   getUserInfo(state) {
     return state.userInfo;
   },
