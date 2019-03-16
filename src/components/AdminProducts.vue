@@ -11,7 +11,7 @@
             <th>Ålder:</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="scrolling-box">
           <tr v-for="prod in filterProd" :key="prod._id">
             <td>{{ prod.article }}</td>
             <td>{{ prod.category }}</td>
@@ -66,5 +66,10 @@ export default {
   margin-top: 1rem;
   font-size: 0.7rem;
   padding: 0.2rem 1rem;
+}
+.scrolling-box {
+  display: block;
+  overflow-y: scroll;
+  height: 50vh;
 }
 </style>
