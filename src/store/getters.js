@@ -45,5 +45,12 @@ export default {
   },
   getActiveUser (state) {
     return state.activeUser;
+  },
+  getProductById(state){
+    return (id) => {
+      return state.products.filter(
+        product => product._id == id
+      )[0]
+    }
   }
 }

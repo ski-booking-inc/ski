@@ -74,7 +74,14 @@ let router = new Router({
         {
           path: '/adminProducts',
           name: 'adminProducts',
-          component: () => import('./components/AdminProducts.vue')
+          component: () => import('./components/AdminProducts.vue'),
+          children: [
+            {
+              path: '/adminEdit/:id',
+              name: 'adminEdit',
+              component: () => import('./components/AdminEdit.vue')
+            }
+          ]
         }
       ]
     },

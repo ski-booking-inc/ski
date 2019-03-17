@@ -45,14 +45,12 @@
       }
 
       .bookingAdmin {
-        grid-area: bookingAdmin;
         background: rgba($color: #000000, $alpha: 0.3);
         border: 5px solid rgba(255, 255, 255, 0.336);
         margin: 1rem;
       }
 
       .productAdmin {
-        grid-area: productAdmin;
         background: rgba($color: #000000, $alpha: 0.3);
         border: 5px solid rgba(255, 255, 255, 0.336);
         margin: 1rem;

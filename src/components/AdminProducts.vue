@@ -12,7 +12,7 @@
           </tr>
         </thead>
         <tbody class="scrolling-box">
-          <tr v-for="prod in filterProd" :key="prod._id">
+          <tr v-for="prod in filterProd" :key="prod._id" @click="$router.push(`/adminEdit/${prod._id}`)">
             <td>{{ prod.article }}</td>
             <td>{{ prod.category }}</td>
             <td>{{ prod.age }}</td>
@@ -25,7 +25,9 @@
           </tr>
         </tbody>
       </table>
+
     </div>
+    <router-view />
   </div>
 </template>
 
