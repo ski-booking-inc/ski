@@ -59,9 +59,24 @@ let router = new Router({
       path: '/admin',
       name: 'admin',
       component: () => import('./views/Admin.vue'),
-      meta: {
-        requiresAuth: true
-      }
+      meta: { requiresAuth: true },
+      children: [
+        {
+          path: '/adminAdd',
+          name: 'adminAdd',
+          component: () => import('./components/AdminAdd.vue')
+        },
+        {
+          path: '/adminBooking',
+          name: 'adminBooking',
+          component: () => import('./components/AdminBooking.vue')
+        },
+        {
+          path: '/adminProducts',
+          name: 'adminProducts',
+          component: () => import('./components/AdminProducts.vue')
+        }
+      ]
     },
     {
       path: '/login',
