@@ -10,7 +10,7 @@
 export default {
   name: 'home',
   created(){
-     setTimeout( () => this.$router.push({ path: '/Main'}), 3000);
+     setTimeout( () => this.$router.push({ path: '/Main1'}), 3000);
    }
 }
 </script>

@@ -112,5 +112,8 @@ export default {
   async editProduct(ctx, productData){
     await Axios.put('http://localhost:3000/products/', productData)
     ctx.dispatch('getProducts')
+  },
+  logOut(ctx){
+    sessionStorage.removeItem('vueauthdemo')
   }
 }

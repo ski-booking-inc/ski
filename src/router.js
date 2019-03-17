@@ -12,9 +12,9 @@ let router = new Router({
       component: () => import('./views/Home.vue')
     },
     {
-      path: '/main',
-      name: 'main',
-      component: () => import('./views/Main.vue')
+      path: '/main1',
+      name: 'main1',
+      component: () => import('./views/Main1.vue')
     },
     {
       path: '/products',

@@ -57,24 +57,25 @@
       }
 
       .adminTable {
-        h3 {
-          margin: .5rem 0 0 0;
-        }
+         h3 {
+            margin: .5rem 0 0 0;
+          }
 
-        table {
-          grid-area: table;
-          padding: .1rem;
-          margin: 0 auto;
+         table {
+            grid-area: table;
+            padding: .1rem;
+            margin: 0 auto;
+            thead {
+                tr {
+                    th {
+                        color: darkmagenta;
+                        font-weight: 500;
+                        font-size: 1.1rem !important;
+                        border-bottom: 1px solid #fff;
+                        padding:1.5rem;
 
-          thead {
-            tr {
-              th {
-                color: darkmagenta;
-                font-weight: 500;
-                font-size: 1.1rem !important;
-                border-bottom: 1px solid #fff;
-                padding: 1.5rem;
-              }
+                    }
+                }
             }
           }
 

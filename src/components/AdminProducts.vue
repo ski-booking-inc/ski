@@ -5,7 +5,7 @@
       <input class="inputsearch" type="text" v-model="search" placeholder="Sök efter en produkt">
       <table cellspacing="0" class="table">
         <thead>
-          <tr>
+          <tr class="tableProd">
             <th>Namn:</th>
             <th>Nivå:</th>
             <th>Ålder:</th>
@@ -73,5 +73,8 @@ export default {
   display: block;
   overflow-y: scroll;
   height: 50vh;
+}
+.tableProd {
+  display: inline-block;
 }
 </style>
