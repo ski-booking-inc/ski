@@ -116,5 +116,6 @@ export default {
   },
   logOut(ctx){
     sessionStorage.removeItem('vueauthdemo')
+    ctx.commit('removeActiveUser', {name: null, role: null})
   }
 }

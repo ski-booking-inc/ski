@@ -2,9 +2,8 @@
   <div class="userPage">
     <h1>Mina bokningar</h1>
     <myProduct v-for='(booking, index) in myBookings' :key='index' :booking='booking'/>
-    <p>Total summa: ?</p>
-    <a class="btn green" href="#">Logga ut</a>
-    <a class="btn blue" href="#" >Hem</a>
+    <a class="btn green" href="#" @click="logOut">Logga ut</a>
+    <a class="btn blue" href="#" @click="$router.push('/main1')">Hem</a>
   </div>
 </template>
 
@@ -18,17 +17,15 @@
       myProduct
     },
     computed: {
-      //Hämta in myBookings från store
       myBookings(){
         return this.$store.getters.myBookings
       }
     },
-    beforeMount() {
-      //Dispatch en action i store som hämtar myBookings från DB
-    },
-
     methods: {
-      //Dispatch en action som deletar bokning
+      logOut(){
+       this.$store.dispatch("logOut")
+       this.$router.push('/main1')
+     }
     }
   };
 </script>

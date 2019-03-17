@@ -38,11 +38,8 @@ export default {
     }
   },
   methods: {
-     logOut(activeUser){
+     logOut(){
       this.$store.dispatch("logOut")
-      this.showIsLogin = false
-      this.showIsAdmin = false
-      this.$store.state.activeUser.name=null
       this.$router.push('/main1')
     }
   },

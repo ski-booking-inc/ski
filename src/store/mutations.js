@@ -37,5 +37,8 @@ export default {
     },
     toggleRejected(state) {
         state.rejected = !state.rejected;
+    },
+    removeActiveUser(state, activeUser) {
+        state.activeUser = activeUser
     }
 }
