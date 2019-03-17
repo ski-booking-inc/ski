@@ -28,8 +28,8 @@ export default {
   },
   data(){
     return {
-      showIsLogin: false,
-      showIsAdmin: false
+      showIsLogin: null,
+      showIsAdmin: null
     }
   },
   computed: {
@@ -57,7 +57,15 @@ export default {
       this.showIsAdmin = false
     }
   }
+},
+beforeMount(){
+  if(this.activeUser.role) {
+    this.showIsLogin = true
   }
+  if(this.activeUser.role == 'admin') {
+    this.showIsAdmin = true
+  }
+}
 };
 </script>
 

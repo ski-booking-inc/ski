@@ -4,6 +4,7 @@
         <a href="#" class="btn" @click="$router.push('/adminProducts')">Produkter</a>
         <a href="#" class="btn" @click="$router.push('/adminBooking')">Bokningar</a>
         <a href="#" class="btn" @click="$router.push('/adminAdd')">Lägg till produkt</a>
+        <a href="#" class="btn" @click="$router.push('/main1')">Tillbaka</a>
       </section>
       <router-view/>
     </main>
@@ -131,7 +132,7 @@
           margin-bottom: 2rem;
         }
       }
-    
+
 
 }
 </style>
