@@ -8,7 +8,7 @@
                 <input type="text" placeholder="Ålder" v-model="product.age">
                 <textarea  placeholder="Info" v-model="product.info"></textarea>
             <div>
-            <a href="#" class="btnAdmin" @click="editProduct, $router.push('/adminProducts')">Edit</a>
+            <a href="#" class="btnAdmin" @click="editProduct">Edit</a>
             </div>
       </div>
 </template>
@@ -26,6 +26,7 @@ computed: {
  methods: {
     editProduct(product, id){
       this.$store.dispatch('editProduct', this.product)
+      this.$router.push('/adminProducts')
       console.log(this.product)
 }
 

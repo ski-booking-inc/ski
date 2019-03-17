@@ -1,6 +1,6 @@
 <template>
     <main class="admin">
-      <section>
+      <section id="centerBTN">
         <a href="#" class="btn" @click="$router.push('/adminProducts')">Produkter</a>
         <a href="#" class="btn" @click="$router.push('/adminBooking')">Bokningar</a>
         <a href="#" class="btn" @click="$router.push('/adminAdd')">Lägg till produkt</a>
@@ -22,6 +22,12 @@
   @import "../scss/main";
   $baseline: 100px;
 
+#centerBTN {
+  a {
+  margin: 0 auto;
+  margin-bottom: 10px;
+  }
+}
   body {
     margin: 0 auto;
     display: flex;
@@ -102,6 +108,7 @@
         margin: 1rem;
         @extend%center;
         display: block;
+        max-width: 300px;
 
         h3 {
           margin: .5rem 0 0 0;
