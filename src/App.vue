@@ -1,12 +1,8 @@
 <template>
   <div id="app">
-    <!-- <transition name="fade"> -->
-      <p v-if="user.name"> <!--flytta detta till rätt, -->
-        User logged in as
-        <b>{{ user.name }}</b>
-      </p>
+    <transition name="fade"> 
       <router-view/>
-    <!-- </transition> -->
+    </transition> 
   </div>
 </template>
 
@@ -16,11 +12,6 @@ export default {
   beforeMount() {
     this.$store.dispatch("getProducts");
     this.$store.dispatch('dbBookings');
-  },
-  computed: { // flytta även till rätt (userpage.vue)
-    user() {
-      return this.$store.state.activeUser;
-    }
   }
 };
 </script>

@@ -1,5 +1,6 @@
 <template>
   <div class="main1">
+    <Who/>
     <section>
       <h1>Välkommen till Fjällgårdens skidanläggning</h1>
       <p>Hyr din utrustning hos oss på Fjällgården och få mer utav din semester. Vi anpassar utrustningen efter dina behov och du hämtar enkelt ut den precis vid backen.</p>
@@ -16,8 +17,14 @@
 </template>
 
 <script>
+
+import Who from "@/components/Who.vue";
+
 export default {
   name: 'main1',
+  components: {
+    Who
+  },
   data(){
     return {
       showIsLogin: false,
@@ -34,9 +41,7 @@ export default {
       this.$store.dispatch("logOut")
       this.showIsLogin = false
       this.showIsAdmin = false
-      this.$store.state.activeUser.
-        name=null
-      
+      this.$store.state.activeUser.name=null
       this.$router.push('/main1')
     }
   },

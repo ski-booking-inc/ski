@@ -1,5 +1,6 @@
 <template>
   <main class="products">
+    <Who/>
     <h2>Välj Datum</h2>
     <date-pick v-model="dates.startDate" :format="'YYYY-MM-DD'" :isDateDisabled="isFutureDate"></date-pick>
     <date-pick v-model="dates.stopDate" :format="'YYYY-MM-DD'" :isDateDisabled="isFutureDate"></date-pick>
@@ -34,11 +35,13 @@
 <script>
 import DatePick from "vue-date-pick";
 import "vue-date-pick/dist/vueDatePick.css";
+import Who from "@/components/Who.vue";
 
 export default {
   name: "products",
   components: {
-    DatePick
+    DatePick,
+    Who
   },
   data() {
     return {
