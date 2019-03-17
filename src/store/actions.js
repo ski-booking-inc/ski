@@ -109,6 +109,10 @@ export default {
     let items = await Axios.get(`${ctx.state.apiUrl}/items`, opt);
     console.log(items);
   },
+  async editProduct(ctx, productData){
+    await Axios.put('http://localhost:3000/products/', productData)
+    ctx.dispatch('getProducts')
+  },
   logOut(ctx){
     sessionStorage.removeItem('vueauthdemo')
   }

@@ -1,46 +1,35 @@
 <template>
     <main class="admin">
-      <AdminProducts/>
-      <AdminAdd/>
-      <AdminBooking/>
+      <section>
+        <a href="#" class="btn" @click="$router.push('/adminProducts')">Produkter</a>
+        <a href="#" class="btn" @click="$router.push('/adminBooking')">Bokningar</a>
+        <a href="#" class="btn" @click="$router.push('/adminAdd')">Lägg till produkt</a>
+      </section>
+      <router-view/>
     </main>
 </template>
 
 <script>
-  import AdminProducts from "@/components/AdminProducts.vue";
-  import AdminBooking from "@/components/AdminBooking.vue";
-  import AdminAdd from "@/components/AdminAdd.vue";
-
-export default {
-  name: 'admin',
-  components:{
-    AdminProducts,
-    AdminBooking,
-    AdminAdd
-  },
- beforeMount(){
-   this.$store.dispatch('getProducts');
-   this.$store.dispatch('dbBookings');
- }
-}
+  export default {
+    name: 'admin',
+    beforeMount() {
+      this.$store.dispatch('getProducts');
+      this.$store.dispatch('dbBookings');
+    }
+  }
 </script>
 <style lang="scss">
-@import "../scss/main";
-$baseline: 100px;
-body {
-  margin: 0 auto;
+  @import "../scss/main";
+  $baseline: 100px;
+
+  body {
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     @extend%center;
     max-width: 768px;
+
     .admin {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      grid-template-rows:auto auto;
-      grid-template-areas:
-      "productAdmin editAdmin"
-      "bookingAdmin editAdmin";
-      width: 100vw;
       a {
         &.btnAdmin {
           padding: 1rem 3rem;
@@ -49,27 +38,29 @@ body {
           text-decoration: none;
           border-radius: 4px;
         }
+
         &.btnAdmin:hover {
           background: rgb(139, 28, 115);
         }
       }
+
       .bookingAdmin {
-        grid-area: bookingAdmin;
         background: rgba($color: #000000, $alpha: 0.3);
         border: 5px solid rgba(255, 255, 255, 0.336);
         margin: 1rem;
       }
+
       .productAdmin {
-        grid-area: productAdmin;
         background: rgba($color: #000000, $alpha: 0.3);
         border: 5px solid rgba(255, 255, 255, 0.336);
         margin: 1rem;
       }
+
       .adminTable {
          h3 {
             margin: .5rem 0 0 0;
           }
-        
+
          table {
             grid-area: table;
             padding: .1rem;
@@ -82,35 +73,42 @@ body {
                         font-size: 1.1rem !important;
                         border-bottom: 1px solid #fff;
                         padding:1.5rem;
-                        
+
                     }
                 }
             }
-            tbody {
-                tr {
-                    td {
-                        color: rgba($color: #fff, $alpha: 0.8);
-                    }
-                    &:nth-child(2n){
-                        background:  #ffffff2c;
-                    }
-                }
+          }
+
+          tbody {
+            tr {
+              td {
+                color: rgba($color: #fff, $alpha: 0.8);
+              }
+
+              &:nth-child(2n) {
+                background: #ffffff2c;
+              }
             }
+          }
         }
       }
-      .editAdmin{
+
+      .editAdmin {
         grid-area: editAdmin;
         padding: 0 1rem 1rem 1rem;
         background: rgba($color: #000000, $alpha: 0.3);
         border: 5px solid rgba(255, 255, 255, 0.336);
         margin: 1rem;
         @extend%center;
-          display:block; 
+        display: block;
+
         h3 {
           margin: .5rem 0 0 0;
           padding-bottom: 1.5rem;
         }
-        input, textarea {
+
+        input,
+        textarea {
           width: 80%;
           padding: .5rem;
           margin: .4rem;
@@ -120,20 +118,12 @@ body {
           min-width: 200px;
           min-height: 20px;
         }
+
         textarea {
           margin-bottom: 2rem;
         }
       }
     }
-  @media screen and (max-width: 615px){
-  .admin{
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    grid-template-areas: 
-    "productAdmin"
-    "bookingAdmin"
-    "editAdmin";
-    }
-  }
+
 }
 </style>

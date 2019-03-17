@@ -30,7 +30,7 @@
 
 <script>
 export default {
-name:'AdminBooking',
+name:'adminBooking',
 data(){
     return{}
 },
