@@ -8,9 +8,10 @@
     <section>
       <a class="btn" href="#" @click="$router.push('/products')">Boka utrustning</a>
       <a class="btn" v-if="showIsAdmin" href="#" @click="$router.push('/admin')">Admin</a>
+      <a class="btn" v-if="showIsLogin" href="#" @click="$router.push('/userPage')">Mina bokningar</a>
       <a class="btn" v-if="!showIsLogin" href="#" @click="$router.push('/login')">Logga in</a>
       <a class="btn" v-if="showIsLogin" href="#" @click="logOut">Logga ut</a>
-      
+
     </section>
     <router-view/>
   </div>
