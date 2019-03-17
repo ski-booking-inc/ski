@@ -1,7 +1,7 @@
 <template>
   <div class="userPage">
     <h1>Mina bokningar</h1>
-    <myProduct v-for='(booking, index) in userBookings' :key='index' :booking='booking'/>
+    <myProduct v-for='(booking, index) in myBookings' :key='index' :booking='booking'/>
     <p>Total summa: ?</p>
     <a class="btn green" href="#">Logga ut</a>
     <a class="btn blue" href="#" >Hem</a>
@@ -19,6 +19,9 @@
     },
     computed: {
       //Hämta in myBookings från store
+      myBookings(){
+        return this.$store.getters.myBookings
+      }
     },
     beforeMount() {
       //Dispatch en action i store som hämtar myBookings från DB

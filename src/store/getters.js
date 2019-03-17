@@ -27,6 +27,9 @@ export default {
   dbBookings(state){
     return state.dbBookings;
   },
+  myBookings(state){
+    return state.dbBookings.filter(booking => booking.username === state.activeUser.name)
+  },
   getExtras(state) {
     let total = state.userBookings
     let theTruth = [];
