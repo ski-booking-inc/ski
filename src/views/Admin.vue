@@ -82,6 +82,7 @@ body {
                         font-size: 1.1rem !important;
                         border-bottom: 1px solid #fff;
                         padding:1.5rem;
+                        
                     }
                 }
             }

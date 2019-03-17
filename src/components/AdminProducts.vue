@@ -5,14 +5,14 @@
       <input class="inputsearch" type="text" v-model="search" placeholder="Sök efter en produkt">
       <table cellspacing="0" class="table">
         <thead>
-          <tr>
+          <tr class="tableProd">
             <th>Namn:</th>
             <th>Nivå:</th>
             <th>Ålder:</th>
           </tr>
         </thead>
         <tbody class="scrolling-box">
-          <tr v-for="prod in filterProd" :key="prod._id">
+          <tr  v-for="prod in filterProd" :key="prod._id">
             <td>{{ prod.article }}</td>
             <td>{{ prod.category }}</td>
             <td>{{ prod.age }}</td>
@@ -71,5 +71,8 @@ export default {
   display: block;
   overflow-y: scroll;
   height: 50vh;
+}
+.tableProd {
+  display: inline-block;
 }
 </style>
