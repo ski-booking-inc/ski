@@ -2,6 +2,7 @@
   <div class="productAdmin adminTable">
     <div>
       <h3>Produkter</h3>
+      <router-view />
       <input class="inputsearch" type="text" v-model="search" placeholder="Sök efter en produkt">
       <table cellspacing="0" class="table">
         <thead>
@@ -12,11 +13,11 @@
           </tr>
         </thead>
         <tbody class="scrolling-box">
-          <tr v-for="prod in filterProd" :key="prod._id" @click="$router.push(`/adminEdit/${prod._id}`)">
+          <tr v-for="prod in filterProd" :key="prod._id">
             <td>{{ prod.article }}</td>
             <td>{{ prod.category }}</td>
             <td>{{ prod.age }}</td>
-            <!-- <td><button><img src="../assets/img/edit.svg" alt="edit"></button></td>  -->
+            <td><button><img src="../assets/img/edit.svg" alt="edit" @click="$router.push(`/adminEdit/${prod._id}`)"></button></td>
             <td>
               <button @click="removeProd(prod._id)">
                 <img src="../assets/img/baseline-delete-24px.svg" alt="Ta Bort">
@@ -27,7 +28,6 @@
       </table>
 
     </div>
-    <router-view />
   </div>
 </template>
 
@@ -37,7 +37,8 @@ export default {
   data() {
     return {
       prod: [],
-      search: ""
+      search: "",
+      edit: false
     };
   },
   methods: {

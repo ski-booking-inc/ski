@@ -31,10 +31,11 @@
 
     .admin {
       a {
+          margin: 1rem;
         &.btnAdmin {
           padding: 1rem 3rem;
           color: #fff;
-          background: rgb(62, 80, 129);
+          background: rgb(18, 177, 52);
           text-decoration: none;
           border-radius: 4px;
         }
