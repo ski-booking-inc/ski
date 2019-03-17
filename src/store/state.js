@@ -16,7 +16,7 @@ export default {
     apiUrl: 'http://localhost:3000',
     activeUser: {
         name: null,
-        role: null
+        role: null,
     },
     rejected: false
 }

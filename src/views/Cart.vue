@@ -50,14 +50,22 @@
     },
 
     methods: {
-      addBooking(){        
+      async addBooking(){
         if (this.activeUser.name == null) {
           this.$router.push('/login')
         } else {
+          //lägg till username till varje Bokning, glöm inte async
+          await this.addUsername()
           this.$store.dispatch('setBooking', this.userBookings)
           this.$router.push('/confirm')
 
         }
+      },
+      addUsername(){
+        for(let i=0; i<this.userBookings.length; i++){
+          this.userBookings[i].username = this.activeUser.name
+        }
+        console.log(this.userBookings)
       }
     }
   };

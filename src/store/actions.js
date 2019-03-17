@@ -38,7 +38,8 @@ export default {
     let booking = {
       chosenProduct: chosenProduct,
       chosenDates: chosenDates,
-      userInfo: userInput
+      userInfo: userInput,
+      username: ""
     }
     ctx.commit('setBooking', booking)
   },
