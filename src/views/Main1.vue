@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="main1">
     <section>
       <h1>Välkommen till Fjällgårdens skidanläggning</h1>
       <p>Hyr din utrustning hos oss på Fjällgården och få mer utav din semester. Vi anpassar utrustningen efter dina behov och du hämtar enkelt ut den precis vid backen.</p>
@@ -8,7 +8,8 @@
       <a class="btn" href="#" @click="$router.push('/products')">Boka utrustning</a>
       <a class="btn" v-if="showIsAdmin" href="#" @click="$router.push('/admin')">Admin</a>
       <a class="btn" v-if="!showIsLogin" href="#" @click="$router.push('/login')">Logga in</a>
-      <a class="btn" v-if="showIsLogin" href="#" @click="$router.push('/main')">Logga ut</a>
+      <a class="btn" v-if="showIsLogin" href="#" @click="logOut">Logga ut</a>
+      
     </section>
     <router-view/>
   </div>
@@ -16,7 +17,7 @@
 
 <script>
 export default {
-  name: 'main',
+  name: 'main1',
   data(){
     return {
       showIsLogin: false,
@@ -26,6 +27,17 @@ export default {
   computed: {
     activeUser(){
       return this.$store.getters.getActiveUser;
+    }
+  },
+  methods: {
+     logOut(activeUser){
+      this.$store.dispatch("logOut")
+      this.showIsLogin = false
+      this.showIsAdmin = false
+      this.$store.state.activeUser.
+        name=null
+      
+      this.$router.push('/main1')
     }
   },
   watch: {
@@ -49,7 +61,7 @@ export default {
 <style lang="scss">
 @import "../scss/main";
 
-.main {
+.main1 {
   margin: 0 1.5rem;
   @extend %center;
   flex-direction: column;

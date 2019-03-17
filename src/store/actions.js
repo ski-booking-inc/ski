@@ -108,5 +108,8 @@ export default {
     }
     let items = await Axios.get(`${ctx.state.apiUrl}/items`, opt);
     console.log(items);
+  },
+  logOut(ctx){
+    sessionStorage.removeItem('vueauthdemo')
   }
 }

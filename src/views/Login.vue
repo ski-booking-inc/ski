@@ -35,7 +35,7 @@ export default {
           }
         } else {
           if (this.checkBooking == false) {
-            this.$router.push('/main')
+            this.$router.push('/main1')
           } else {
             this.$router.push('/cart')
           }
@@ -51,7 +51,7 @@ export default {
         });
 
         if (this.checkBooking == false) {
-          this.$router.push('/main')
+          this.$router.push('/main1')
         } else {
           this.$router.push('/cart')
         }
