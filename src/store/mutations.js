@@ -40,5 +40,8 @@ export default {
     },
     removeActiveUser(state, activeUser) {
         state.activeUser = activeUser
+    },
+    emptyBookings(state) {
+        state.userBookings.length = 0;
     }
 }

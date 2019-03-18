@@ -51,6 +51,7 @@
           await this.addUsername()
           this.$store.dispatch('setBooking', this.userBookings)
           this.$router.push('/confirm')
+          this.$store.dispatch('emptyBookings')
         }
       },
       addUsername(){

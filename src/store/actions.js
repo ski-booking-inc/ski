@@ -42,6 +42,9 @@ export default {
     }
     ctx.commit('setBooking', booking)
   },
+  emptyBookings(ctx) {
+    ctx.commit('emptyBookings')
+  },
   addDateDiff(ctx, dayDiff) {
     ctx.commit('setDateDiff', dayDiff)
   },
@@ -66,7 +69,7 @@ export default {
     } catch (err) {
         console.err(err.stack);
     }
-   
+
   },
   removeProduct(ctx, booking) {
     let array = this.state.userBookings;
