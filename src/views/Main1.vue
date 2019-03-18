@@ -11,7 +11,6 @@
       <a class="btn" v-if="showIsLogin" href="#" @click="$router.push('/userPage')">Mina bokningar</a>
       <a class="btn" v-if="!showIsLogin" href="#" @click="$router.push('/login')">Logga in</a>
       <a class="btn" v-if="showIsLogin" href="#" @click="logOut">Logga ut</a>
-
     </section>
     <router-view/>
   </div>
@@ -43,6 +42,7 @@ export default {
       this.$router.push('/main1')
     }
   },
+
   watch: {
     activeUser() {
     if(this.activeUser.role) {
