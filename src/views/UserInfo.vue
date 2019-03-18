@@ -6,19 +6,19 @@
   <form class="text">
          <div class="right">
           <label for="name">Namn *</label>
-          <input id="form_name" type="text"  value="Namn" required="required" data-error=" Lägg till Namn." v-model="userInput.name">
+          <input id="form_name" type="text"  value="Namn" minlength="2" v-validate="'required|alpha'"  v-model="userInput.name">
          </div>
          <div class="right">
           <label for="form_weight">Vikt *</label>
-          <input id="form_weight" type="Number" value="Vikt"  required="required" data-error=" Lägg till din vikt." v-model="userInput.weight">
+          <input id="form_weight" type="Number" value="Vikt" minlength="2" v-validate="'required|numeric'" v-model="userInput.weight">
          </div>
          <div class="right">
           <label for="form_lenght">Längd *</label>
-          <input id="form_length" type="Number" value="Läng"  required="required" data-error=" Lägg till din längd." v-model="userInput.length">
+          <input id="form_length" type="Number" value="Läng" minlength="2" rv-validate="'required|numeric'" v-model="userInput.length">
          </div>
          <div class="right">
           <label for="form_shoe">Skostorlek *</label>
-          <input id="form_shoe" type="Number" value="shoe"  required="required" data-error=" Lägg till din skostorlek." v-model="userInput.shoe">
+          <input id="form_shoe" type="Number" value="shoe" minlength="2" v-validate="'required|numeric'" v-model="userInput.shoe">
          </div>
   </form>
         <hr/>
@@ -32,7 +32,6 @@
       <input id="lift" type="checkbox" value="lift"  v-model="userInput.lift"><br>
     </div>
   </form>
-  {{userInput}}
   <div><input id="btn" type="button" value="Lägg till" @click="inputFromUser()"></div>
   </main>
 </template>
@@ -57,11 +56,22 @@
     },
     methods: {
       inputFromUser: function() {
+        
+        this.$validator.validateAll().then((result) => {
+          if (result) {
         this.$store.dispatch('addInput', this.userInput)
         this.$store.dispatch('testing', this.userInput)
         this.$router.push('/cart')
+         return;
+        }
+        this.alert();
+      });
+      },
+      alert() {
+      this.$swal("Vi behöver all info ifylld för att gå vidare.", "Var god, fyll i det du missat.", "warning")
       }
     }
+    
   }
 </script>
 
