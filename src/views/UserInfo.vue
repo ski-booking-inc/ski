@@ -29,7 +29,7 @@
           <label for="lift">Liftkort? + 1099:-</label>
           <input id="lift" type="checkbox" value="lift"  v-model="userInput.lift"><br>
         </div> 
-      <button type="submit">Lägg till</button>
+      <button id="btn" type="submit">Lägg till</button>
     </form>
   </main>
 </template>

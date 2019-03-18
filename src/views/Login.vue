@@ -1,10 +1,12 @@
 <template>
   <main id="login">
     <article class="login">
-      <input v-model="username" type="text" class="username" placeholder="username" :class="{ valid : validUsername }">
+      <input v-model="username" type="text" class="username" placeholder="username" :class="{ valid : validUsername, rejected : rejected}">
       <input v-model="password" type="password" placeholder="password" :class="{ valid : validPassword }">
-      <a href="#" class="btn" @click="login" :class="{ ready : validPassword && validUsername }">Login</a>
-      <a href="#" class="btn" @click="signup" :class="{ ready : validPassword && validUsername }">Signup</a>
+      <p>Fyll i och tryck logga in för att börja boka.</p>
+      <a href="#" class="btn" @click="login" :class="{ ready : validPassword && validUsername }">Logga in</a>
+      <p>Har du inget konto? Fyll i och tryck Registrera för att skapa konto.</p>
+      <a href="#" class="btn" @click="signup" :class="{ ready : validPassword && validUsername }">Registrera</a>
     </article>
   </main>
 </template>
@@ -16,8 +18,8 @@ export default {
     return {
       username: "",
       password: "",
-      validUsername: true,
-      validPassword: true
+      validUsername: false,
+      validPassword: false
     };
   },
   methods: {
@@ -91,10 +93,6 @@ export default {
 <style lang="scss">
 @import "../scss/main";
 
-#login {
-  @extend %center;
-  background: #222;
-
   .login {
     background: white;
     border-radius: 3px;
@@ -103,26 +101,21 @@ export default {
     grid-template-columns: 1fr;
     box-shadow: 0 0 2rem pink;
 
-
+    .valid {
+      background: rgba(0, 128, 0, 0.212);
+    }
+    .rejected{
+      background: rgba(255, 0, 0, 0.151);
+    }
     input {
       border: none;
-      padding: 1rem;
+      padding: .5rem;
       font-size: 1rem;
       height: 2rem;
-      box-sizing: border-box;
-      background: pink;
       border-top: 1px solid yellow;
-      transition: red 0.2s ease;
-
-      // &:focus {
-      //   outline: none;
-      //   background: rgba($color: $red, $alpha: 0.2);
-      // }
-
-      // &.valid {
-      //   background: rgba($color: $green, $alpha: 0.2);
-      // }
+      background: lightblue;
+ 
     }
   }
-}
+
 </style>
