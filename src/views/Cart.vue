@@ -1,7 +1,7 @@
 <template>
   <div class="cart">
     <h1>Cart</h1>
-    <product v-for='(booking, index) in userBookings' :key='index' :booking='booking'/>
+    <product v-for='(booking, index) in userBookings' :key='index' :booking='booking' @countTotalSum="countTotalSum"/>
     <p>Total summa: {{ totalSum }}</p>
     <a class="btn green" href="#" @click="$router.push('/products')">Lägg till nytt paket</a>
     <a class="btn blue" href="#" @click="addBooking">Boka</a>
@@ -39,14 +39,7 @@
       }
     },
     beforeMount() {
-      let sum = 0;
-      let sumExtras = 0;
-
-      for (let i = 0; i < this.userBookings.length; i++) {
-        sum =+ this.userBookings[i].chosenProduct.price * this.dayDiff
-      }
-      this.getExtras.forEach(item => sumExtras += item)
-      this.totalSum = (sumExtras + sum) * this.dayDiff
+      this.countTotalSum()
     },
 
     methods: {
@@ -66,6 +59,16 @@
           this.userBookings[i].username = this.activeUser.name
         }
         console.log(this.userBookings)
+      },
+      countTotalSum(){
+        let sum = 0;
+        let sumExtras = 0;
+
+        for (let i = 0; i < this.userBookings.length; i++) {
+          sum =+ this.userBookings[i].chosenProduct.price * this.dayDiff
+        }
+        this.getExtras.forEach(item => sumExtras += item)
+        this.totalSum = (sumExtras + sum) * this.dayDiff
       }
     }
   };

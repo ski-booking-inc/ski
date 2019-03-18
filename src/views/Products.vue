@@ -26,7 +26,7 @@
       >Skidor Längd</a>
     </section>
     <section>
-      <router-view/>
+      <router-view />
     </section>
     <a href="#" class="btn" @click="dateFunctions">Kolla om bokad</a>
   </main>
