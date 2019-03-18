@@ -1,7 +1,7 @@
 <template>
   <main>
     <section>
-      <h2>{{ booking.userInfo.name }}</h2>
+      <h2>{{ booking.userInfo.name  }}</h2>
       <p>{{ product[0].article }}</p>
       <p>{{ booking.chosenDates.startDate }} - {{ booking.chosenDates.stopDate }}</p>
     </section>
@@ -21,7 +21,7 @@
     </section>
     <section>
       <aside class>
-        <img @click="removeItem" src="../assets/img/baseline-delete-24px.svg" alt="delete">
+        <button class="btn" @click="removeItem">Avboka</button>
       </aside>
       <aside class>
         <img
@@ -60,10 +60,9 @@ export default {
     }
   },
   methods: {
-    removeItem() {
-      console.log(this.product)
-      //dispatch en action som skickar delete till Mongo
-      //this.$store.dispatch("removeProduct", this.booking);
+    removeItem(booking) {
+      let id = this.booking._id;
+      this.$store.dispatch("removeBooking", id);
     },
     dateDiff(){
       var dt1 = new Date(this.booking.chosenDates.startDate);

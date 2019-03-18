@@ -8,7 +8,6 @@ export default {
   async dbBookings(ctx) {
     let dbBookings = await Axios.get('http://localhost:3000/bookings');
     ctx.commit('setDbBookings', dbBookings.data)
-    console.log(dbBookings);
   },
   addProduct(ctx, payload) {
     ctx.commit('addToProductKeys', payload)
@@ -53,8 +52,21 @@ export default {
       console.err(err.stack);
     }
   },
-  removeProd(ctx, id) {
-    return Axios.delete(`http://localhost:3000/products/${id}`)
+  async removeProd(ctx, id) {
+    try {
+      await Axios.delete(`http://localhost:3000/products/${id}`)
+    } catch (err){
+      console.err(err.stack);
+    }
+  },
+  async removeBooking(ctx, id) {
+    try {
+      await Axios.delete(`http://localhost:3000/bookings/${id}`)
+      ctx.dispatch('dbBookings')
+    } catch (err) {
+        console.err(err.stack);
+    }
+   
   },
   removeProduct(ctx, booking) {
     let array = this.state.userBookings;

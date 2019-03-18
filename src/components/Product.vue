@@ -63,5 +63,10 @@ export default {
 @import "../scss/main";
 main {
   border: 1px solid black;
+  aside {
+    img {
+      cursor: pointer;
+    }
+  }
 }
 </style>

@@ -90,10 +90,15 @@ export default {
       var dayDiff = Math.floor(
         (Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) -
           Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate())) /
-          (1000 * 60 * 60 * 24)
+          (1000 * 60 * 60 * 24)          
       );
+      if (dayDiff == 0){
+        dayDiff = dayDiff + 1;
+      } else
+      {
+        
+      }
       this.$store.dispatch("addDateDiff", dayDiff);
-      console.log(dayDiff);
     },
     async dateFunctions(){
       await this.getDatesArray()
