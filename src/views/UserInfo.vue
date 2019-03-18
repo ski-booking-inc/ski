@@ -3,43 +3,42 @@
     <div class="heading">
         <h3>Och lite uppgifter om den åkade...</h3>
     </div>
-  <form class="text">
-         <div class="right">
-          <label for="name">Namn *</label>
-          <input id="form_name" type="text"  value="Namn" minlength="2" v-validate="'required|alpha'"  v-model="userInput.name">
-         </div>
-         <div class="right">
-          <label for="form_weight">Vikt *</label>
-          <input id="form_weight" type="Number" value="Vikt" minlength="2" v-validate="'required|numeric'" v-model="userInput.weight">
-         </div>
-         <div class="right">
-          <label for="form_lenght">Längd *</label>
-          <input id="form_length" type="Number" value="Läng" minlength="2" rv-validate="'required|numeric'" v-model="userInput.length">
-         </div>
-         <div class="right">
-          <label for="form_shoe">Skostorlek *</label>
-          <input id="form_shoe" type="Number" value="shoe" minlength="2" v-validate="'required|numeric'" v-model="userInput.shoe">
-         </div>
-  </form>
+    <form class="text" @submit.prevent="onSubmit">
+      <div class="right" :class="{error: errors.has('name')}">
+        <label>Name:</label>
+        <input type="text" name="name" v-validate="'required'" v-model="userInput.name">
+      </div>
+      <div class="right" :class="{error: errors.has('weight')}">
+        <label>Vikt:</label>
+        <input type="number" name="weight" v-validate="'required'" v-model="userInput.weight">
+      </div>
+      <div class="right" :class="{error: errors.has('length')}">
+        <label>Längd: </label>
+        <input type="number" name="length" v-validate="'required'" v-model="userInput.length">
+      </div>
+      <div class="right" :class="{error: errors.has('shoe')}">
+        <label>Skostorlek</label>
+        <input type="number" name="shoe" v-validate="'required'" v-model="userInput.shoe">
+      </div>
         <hr/>
-  <form class="box">
-    <div class="right">
-      <label for="helmet">Hjälm? | Gratis</label>
-      <input id="helmet" type="checkbox"  value="helmet"  v-model="userInput.helmet"><br>
-      <label for="skigoogles">Skidglasögon? | + 49:-</label>
-      <input id="skigoogles" type="checkbox" value="skigoogles"  v-model="userInput.skigoogles"><br>
-      <label for="lift">Liftkort? | + 1099 :-</label>
-      <input id="lift" type="checkbox" value="lift"  v-model="userInput.lift"><br>
-    </div>
-  </form>
-  <div><input id="btn" type="button" value="Lägg till" @click="inputFromUser()"></div>
+        <div class="box">
+          <label for="helmet">Hjälm? Gratis</label>
+          <input id="helmet" type="checkbox"  value="helmet"  v-model="userInput.helmet"><br>
+          <label for="skigoogles">Skidglasögon? + 49:-</label>
+          <input id="skigoogles" type="checkbox" value="skigoogles"  v-model="userInput.skigoogles"><br>
+          <label for="lift">Liftkort? + 1099:-</label>
+          <input id="lift" type="checkbox" value="lift"  v-model="userInput.lift"><br>
+        </div> 
+      <button type="submit">Lägg till</button>
+    </form>
   </main>
 </template>
 
 <script>
   // @ is an alias to /src
+import VeeValidate from "vee-validate";
 
-  export default {
+export default {
     name: 'userInfo',
     data() {
       return {
@@ -54,25 +53,21 @@
         }
       }
     },
-    methods: {
-      inputFromUser: function() {
-        
-        this.$validator.validateAll().then((result) => {
-          if (result) {
-        this.$store.dispatch('addInput', this.userInput)
-        this.$store.dispatch('testing', this.userInput)
-        this.$router.push('/cart')
-         return;
+  methods: {
+    onSubmit() {
+      this.$validator.validateAll().then(result => {
+        if (result) {
+          this.inputFromUser();
         }
-        this.alert();
       });
-      },
-      alert() {
-      this.$swal("Vi behöver all info ifylld för att gå vidare.", "Var god, fyll i det du missat.", "warning")
-      }
+    },
+    inputFromUser: function() {
+      this.$store.dispatch('addInput', this.userInput)
+      this.$store.dispatch('testing', this.userInput)
+      this.$router.push('/cart')
     }
-    
   }
+}
 </script>
 
 <style lang="scss">
@@ -81,6 +76,9 @@
   html {
 
     main {
+      div.error {
+        color: #be0300;
+      }
       .heading {
         h3 {
           font-size: 1rem;
@@ -112,8 +110,9 @@
       }
 
       .box {
+        display: flex;
         label {
-          font-size: 1.1rem;
+          font-size: 1rem;
           font-weight: 900;
           padding: 0 1rem;
         }
