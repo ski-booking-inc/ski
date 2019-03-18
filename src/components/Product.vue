@@ -55,6 +55,7 @@ export default {
   methods: {
     removeItem() {
       this.$store.dispatch("removeProduct", this.booking);
+      this.$emit('countTotalSum')
     }
   }
 };
