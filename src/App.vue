@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <transition name="fade"> 
+    <transition name="fade">
       <router-view/>
-    </transition> 
+    </transition>
   </div>
 </template>
 
@@ -17,6 +17,9 @@ export default {
 </script>
 
 <style lang="scss">
+body {
+margin: 0;
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -30,5 +33,6 @@ export default {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
 }
 </style>
