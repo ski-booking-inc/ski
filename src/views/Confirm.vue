@@ -1,12 +1,14 @@
 <template>
   <div class="confirm">
-    <img src="../assets/img/circle.png" alt="logo">
+  <section class="textbox">
+    <img src="../assets/img/skilogo.png" alt="logo">
     <section>
+      <h1>Tack för din bokning!</h1>
       <p>Välkommen, vi ser fram emot att se dig i backen! Din bekräftelse finns inne på mina sidor!</p>
     </section>
-    <section class="back">
-      <a class="knapp" href="#" @click="$router.push('/main1')">X</a>
+    <a class="knapp" href="#" @click="$router.push('/main1')">X</a>
     </section>
+
     <router-view/>
   </div>
 </template>
@@ -21,35 +23,46 @@ export default {
 @import "../scss/main";
 
 .confirm {
-  margin: 7em 3rem 0 3em;
-  border-radius: 3em;
+  background-image:url('../assets/img/mountains.jpg');
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  @extend %center;
   flex-direction: column;
-  max-height: 100vh;
-  color: white;
-  background: hsla(0, 0%, 100%, 0.62);
+
+  .textbox {
+    background: #ffff;
+    opacity: .9;
+    flex: 1;
+    margin: 2rem 1.5rem 2rem 1.5rem;
+    border-radius: 15px;
+    padding: .5rem;
+  }
+
+  img {
+    width: 13rem;
+    margin-top: 4rem;
+  }
+  p {
+    margin-bottom: 5rem;
+  }
+
 }
 
 p {
   margin: 2em;
 }
-
-.back {
-  align-self: center;
-  margin-top: 3rem;
   .knapp {
     border-radius: 50%;
-    background: #86d6f8;
-    padding: 10px 15px;
+    background: #ff794f;
+    padding: 12px 18px;
     text-decoration: none;
     color: white;
     font-weight: bold;
+    font-size: 1.7rem;
     box-shadow: 0 0 3px #7cd1f9;
   }
-}
 
-img {
-  padding: 5em 0 0 0;
-  height: 5em;
-  width: 5em;
-}
 </style>

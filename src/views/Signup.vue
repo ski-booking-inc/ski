@@ -1,11 +1,12 @@
 <template>
-  <main id="signup">
-    <article class="signup">
-      <input v-model="username" type="text" class="username" placeholder="username" :class="{ valid : validUsername, rejected : rejected}">
-      <input v-model="password" type="password" placeholder="password" :class="{ valid : validPassword }">
+  <main class="signup">
+  <img src="../assets/img/snowboarder.jpg" alt="skier">
+    <article>
+      <input v-model="username" type="text" class="username" placeholder="Användarnamn" :class="{ valid : validUsername, rejected : rejected}">
+      <input v-model="password" type="password" placeholder="Lösenord" :class="{ valid : validPassword }">
       <p>Fyll i och tryck Registrera för att skapa konto.</p>
-      <a href="#" class="btn" @click="signup" :class="{ ready : validPassword && validUsername }">Registrera</a>
     </article>
+    <a href="#" class="btn" @click="signup" :class="{ ready : validPassword && validUsername }">Registrera</a>
   </main>
 </template>
 
@@ -71,12 +72,21 @@ export default {
 @import "../scss/main";
 
   .signup {
+    @extend %center;
+    flex-direction: column;
+    justify-content: flex-end;
     background: white;
-    border-radius: 3px;
-    width: 18rem;
-    display: grid;
-    grid-template-columns: 1fr;
-    box-shadow: 0 0 2rem pink;
+    height: 100vh;
+
+    article {
+      flex:1;
+    }
+
+    img {
+      left: 0;
+      width: 100vw;
+      flex: 1;
+    }
 
     .valid {
       background: rgba(0, 128, 0, 0.212);
@@ -89,9 +99,11 @@ export default {
       padding: .5rem;
       font-size: 1rem;
       height: 2rem;
-      border-top: 1px solid yellow;
-      background: lightblue;
- 
+      border-top: 1px solid gray;
+      border-radius: 4px;
+      background: lightgray;
+      margin-top: 1rem;
+
     }
   }
 
