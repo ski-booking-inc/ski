@@ -10,11 +10,10 @@ body {
     a {
         &.btn {
             @extend %center;
-            width: 13rem;
-            margin: .3rem;
-            background: rgb(130, 150, 218);
+            width: 100vw;
+            background: #22447a;
+            margin-top: .5rem;
             height: 3.8rem;
-            border-radius: 3px;
             color: white;
             text-decoration: none;
             text-transform: uppercase;

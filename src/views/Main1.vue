@@ -1,7 +1,7 @@
 <template>
   <div class="main1">
-    <Who/>
-    <section>
+    <Who class="who"/>
+    <section class="textbox">
       <h1>Välkommen till Fjällgårdens skidanläggning</h1>
       <p>Hyr din utrustning hos oss på Fjällgården och få mer utav din semester. Vi anpassar utrustningen efter dina behov och du hämtar enkelt ut den precis vid backen.</p>
     </section>
@@ -77,7 +77,29 @@ beforeMount(){
   @extend %center;
   flex-direction: column;
   max-height: 100vh;
-  color: white;
+  background-image:url('../assets/img/mountains.jpg');
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  justify-content: flex-end;
+  position: relative;
+
+  .who {
+    position: absolute;
+    top: 20px;
+  }
+
+  .textbox {
+    background: #ffff;
+    opacity: .9;
+    flex: 1;
+    margin: 8rem 1.5rem 0 1.5rem;
+    border-radius: 15px;
+    padding: .5rem;
+
+  }
 }
 
 

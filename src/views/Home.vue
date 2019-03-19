@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <p>Hej!</p>
+    <img src="../assets/img/skilogo.png" alt="logo">
   </div>
 </template>
 
@@ -9,23 +9,27 @@
 
 export default {
   name: 'home',
-/*  created(){
-     setTimeout( () => this.$router.push({ path: '/Main1'}), 8000);
-   }*/
+  created(){
+     setTimeout( () => this.$router.push({ path: '/Main1'}), 2500);
+   }
 }
 </script>
 <style scoped lang="scss">
+  @import "../scss/main";
 
   .home {
     background-image:url('../assets/img/mountains.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    @extend %center;
 
-background-size: cover;
-background-position: center;
-margin: 0;
-height: 100vh;
-width: 100vw;
-
-
+    img {
+      width: 13rem;
+      margin-top: -5rem;
+    }
   }
 
 </style>

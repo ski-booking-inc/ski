@@ -93,9 +93,6 @@ export default {
       // update activeUser for UI ( ex. "Greger is logged in." )
       ctx.commit('setActiveUser', {name: token.data.username, role: token.data.role});
 
-      // Get items
-      ctx.dispatch('getItems')
-
     } catch (err) {
 
       ctx.commit('toggleRejected');
@@ -122,8 +119,6 @@ export default {
         authorization: `Bearer ${sessionStorage.getItem('vueauthdemo')}`
       }
     }
-    let items = await Axios.get(`${ctx.state.apiUrl}/items`, opt);
-    console.log(items);
   },
   async editProduct(ctx, productData){
     await Axios.put('http://localhost:3000/products/', productData)
