@@ -1,19 +1,17 @@
 <template>
-  <main id="login">
-    <article class="login">
+  <main id="signup">
+    <article class="signup">
       <input v-model="username" type="text" class="username" placeholder="username" :class="{ valid : validUsername, rejected : rejected}">
       <input v-model="password" type="password" placeholder="password" :class="{ valid : validPassword }">
-      <p>Fyll i och tryck logga in för att börja boka.</p>
-      <a href="#" class="btn" @click="login" :class="{ ready : validPassword && validUsername }">Logga in</a>
-      <p>Har du inget konto? tryck Registrera för att skapa konto.</p>
-      <a href="#" class="btn" @click="$router.push('./signup')">Registrera</a>
+      <p>Fyll i och tryck Registrera för att skapa konto.</p>
+      <a href="#" class="btn" @click="signup" :class="{ ready : validPassword && validUsername }">Registrera</a>
     </article>
   </main>
 </template>
 
 <script>
 export default {
-  name: "login",
+  name: "signup",
   data() {
     return {
       username: "",
@@ -23,24 +21,18 @@ export default {
     };
   },
   methods: {
-    login() {
+    signup() {
       if (this.validUsername && this.validPassword) {
-        this.$store.dispatch("login", {
+        this.$store.dispatch("signup", {
           username: this.username,
-          password: this.password
+          password: this.password,
+          role: 'user'
         });
-        if (this.activeUser.role == 'admin') {
-          if (this.checkBooking == false) {
-            this.$router.push('/admin')
-          } else {
-            this.$router.push('/cart')
-          }
+
+        if (this.checkBooking == false) {
+          this.$router.push('/main1')
         } else {
-          if (this.checkBooking == false) {
-            this.$router.push('/main1')
-          } else {
-            this.$router.push('/cart')
-          }
+          this.$router.push('/cart')
         }
       }
     }
@@ -78,7 +70,7 @@ export default {
 <style lang="scss">
 @import "../scss/main";
 
-  .login {
+  .signup {
     background: white;
     border-radius: 3px;
     width: 18rem;

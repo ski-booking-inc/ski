@@ -28,7 +28,7 @@
     <section>
       <router-view />
     </section>
-    <a href="#" class="btn" @click="dateFunctions">Kolla om bokad</a>
+    <a href="#" class="btn" @click="dateFunctions">Gå vidare</a>
   </main>
 </template>
 

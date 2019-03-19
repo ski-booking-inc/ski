@@ -27,7 +27,6 @@ computed: {
     editProduct(product, id){
       this.$store.dispatch('editProduct', this.product)
       this.$router.push('/adminProducts')
-      console.log(this.product)
     }
   }
 }
