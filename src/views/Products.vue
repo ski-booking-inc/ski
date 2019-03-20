@@ -172,6 +172,8 @@ export default {
 <style lang="scss">
 @import "../scss/main";
 .products{
+  .containerTest {
+    padding: 0 4rem !important;
 
   h2 {
    padding: .4rem;
@@ -188,6 +190,7 @@ export default {
     height: 2rem;
     margin: .3rem;
   }
+}
 }
 
 

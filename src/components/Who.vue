@@ -1,6 +1,6 @@
 <template>
     <section class="who">
-      <p v-if="user.name"><b>{{ user.name }}</b> är inloggad.</p>
+      <p v-if="user.name"><b>{{ user.name }}</b> är inloggad</p>
     </section>
 </template>
 

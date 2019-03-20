@@ -84,7 +84,6 @@
 
   .cart {
     .containerTest {
-      padding: 0 2rem !important;
       overflow: scroll;
 
       .btn-orange {

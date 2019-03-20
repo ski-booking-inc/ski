@@ -30,8 +30,8 @@
               <label for="lift">Liftkort | 499:-</label>
               <input  id="lift" type="checkbox" value="lift" v-model="userInput.lift">
             </div>
-          </div> 
-          <button id="btn" type="submit">Lägg i varukorg</button> 
+          </div>
+          <button id="btn" type="submit">Lägg i varukorg</button>
       </form>
     </section>
   </main>
@@ -94,7 +94,6 @@ html {
     }
 
     h1 {
-      font-size: 2rem;
       margin-top: 0;
       text-align: center;
     }
@@ -102,7 +101,7 @@ html {
     div.error {
       color: #ff794f;
     }
-    
+
     .base {
     background: #6e94d1;
     opacity: .9;
@@ -122,7 +121,7 @@ html {
           padding: .7rem;
           width: 10rem;
           height: 1rem;
-          border:2px solid white; 
+          border:2px solid white;
         }
       }
       .box {
@@ -133,15 +132,15 @@ html {
         label {
           font-size: 1rem;
           padding: 0;
-        } 
+        }
         input {
           display: flex;
           float: left;
           margin: 0 1rem 0 4.5rem;
-        } 
+        }
       }
     }
-    #btn{   
+    #btn{
       align-self: flex-end;
       width: 20rem;
       font-size: 1rem;

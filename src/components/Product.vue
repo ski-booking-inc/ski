@@ -26,7 +26,7 @@
         <p>{{ booking.chosenProduct.info }}</p>
       </section>
       <section class="extra">
-        <p v-if="booking.userInfo.lift">Liftkort 499:-</p>
+        <p v-if="booking.userInfo.lift">Liftkort 1999:-</p>
         <p v-if="booking.userInfo.helmet">Hjälm 49:-</p>
         <p v-if="booking.userInfo.skigoogles">Skidglasögon 69:-</p>
       </section>
@@ -65,66 +65,5 @@ export default {
 </script>
 <style lang="scss">
 @import "../scss/main";
-.product {
-  background-color: white;
-  color: black;
 
-  .user {
-    padding: 0 3rem 0 3rem;
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: auto;
-    grid-template-areas:
-    "cat cat cat age age age"
-    "length length weigth weigth shoe shoe"
-    "info info info info info info"
-    "extra extra extra extra extra extra";
-
-    p {
-      margin: .3rem;
-      padding: .2rem;
-    }
-
-    .cat {
-      grid-area: cat;
-      border: 1px solid lightgray;
-    }
-    .age {
-      grid-area: age;
-      border: 1px solid lightgray;
-
-    }
-    .length {
-      grid-area: length;
-      border: 1px solid lightgray;
-
-    }
-    .weigth {
-      grid-area: weigth;
-      border: 1px solid lightgray;
-
-    }
-    .shoe {
-      grid-area: shoe;
-      border: 1px solid lightgray;
-
-    }
-    .info {
-      grid-area: info;
-      border: 1px solid lightgray;
-
-    }
-    .extra {
-      grid-area: extra;
-      border: 1px solid lightgray;
-
-    }
-
-
-  }
-
-}
 </style>

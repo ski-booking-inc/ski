@@ -1,32 +1,43 @@
 <template>
   <main class="myproduct">
-    <section>
+    <section class="user">
       <h2>{{ booking.userInfo.name  }}</h2>
       <p>{{ product[0].article }}</p>
       <p>{{ booking.chosenDates.startDate }} - {{ booking.chosenDates.stopDate }}</p>
-    </section>
-    <section v-if="!show">
       <h3>{{ dayDiff}} dagar {{ product[0].price * dayDiff}}:-</h3>
-      <p>{{ product.category }}</p>
+    </section>
+    <section class="grid" v-if="!show">
+      <section class="cat">
+        <p>{{ product[0].category }}</p>
+      </section>
+      <section class="age">
       <p>{{ product[0].age }}</p>
-      <p>{{ product[0].info }}</p>
+      </section>
+        <section class="length">
       <p>{{ booking.userInfo.length }} cm</p>
+      </section>
+        <section class="weigth">
       <p>{{ booking.userInfo.weight }} kg</p>
+      </section>
+      <section class="shoe">
       <p>Stl {{ booking.userInfo.shoe }}</p>
+      </section>
+      <section class="info">
+      <p>{{ product[0].info }}</p>
+        </section>
+        <section class="extra">
       <p v-if="booking.userInfo.lift">Liftkort 499:-</p>
       <p v-if="booking.userInfo.helmet">Hjälm 49:-</p>
       <p v-if="booking.userInfo.skigoogles">Skidglasögon 69:-</p>
-      <h3>Totalsumma: {{ total }}:-</h3>
-
+      </section>
     </section>
+    <h3>Totalsumma: {{ total }}:-</h3>
+    <a href="#" class="btn-orange" @click="removeItem">Avboka</a>
+
     <section>
-      <aside class>
-        <button class="btn" @click="removeItem">Avboka</button>
-      </aside>
-      <aside class>
         <img v-if="show" @click="show=false" src="../assets/img/baseline-arrow_downward-24px.svg" alt="arrow">
         <img v-if="!show" @click="show=true" src="../assets/img/baseline-arrow_upward-24px.svg" alt="arrow">
-      </aside>
+
     </section>
   </main>
 </template>

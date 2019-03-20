@@ -3,9 +3,10 @@
     <section class="containerTest">
     <h1>Mina bokningar</h1>
     <myProduct v-for='(booking, index) in myBookings' :key='index' :booking='booking'/>
+
+    </section>
     <a class="btn green" href="#" @click="logOut">Logga ut</a>
     <a class="btn blue" href="#" @click="$router.push('/main1')">Hem</a>
-    </section>
   </main>
 </template>
 
@@ -34,5 +35,7 @@
 <style lang="scss" scoped>
   @import "../scss/main";
 
-
+  .containerTest {
+    overflow: scroll;
+  }
 </style>
