@@ -1,10 +1,9 @@
 <template>
   <main class="signup">
-  <img src="../assets/img/snowboarder.jpg" alt="skier">
-    <article>
+    <article class="field">
+      <h2>Fyll i för att registrera dig</h2>
       <input v-model="username" type="text" class="username" placeholder="Användarnamn" :class="{ valid : validUsername, rejected : rejected}">
       <input v-model="password" type="password" placeholder="Lösenord" :class="{ valid : validPassword }">
-      <p>Fyll i och tryck Registrera för att skapa konto.</p>
     </article>
     <a href="#" class="btn" @click="signup" :class="{ ready : validPassword && validUsername }">Registrera</a>
   </main>
@@ -71,41 +70,44 @@ export default {
 <style lang="scss">
 @import "../scss/main";
 
-  .signup {
-    @extend %center;
-    flex-direction: column;
-    justify-content: flex-end;
-    background: white;
-    height: 100vh;
+.signup {
+  background-image:url('../assets/img/skier.jpg');
+  background-size: cover;
+  background-position: left;
+  height: 100vh;
+  width: 100vw;
+  @extend %center;
+  flex-direction: column;
 
-    article {
-      flex:1;
-    }
+.field {
+    background: #fd825c;
+    opacity: .9;
+    flex: 1;
+    color: white;
+    margin: 10rem 1.5rem 13rem 1.5rem;
+    border-radius: 15px;
 
-    img {
-      left: 0;
-      width: 100vw;
-      flex: 1;
-    }
-
-    .valid {
-      background: rgba(0, 128, 0, 0.212);
-    }
-    .rejected{
-      background: rgba(255, 0, 0, 0.151);
-    }
-    input {
-      border: none;
-      padding: .5rem;
-      font-size: 1rem;
-      height: 2rem;
-      border-top: 1px solid gray;
-      border-radius: 4px;
-      background: lightgray;
-      margin: .5rem;
-      border: 1px solid black;
-
+    h2 {
+      margin: 2.5rem 0 1.5rem 0;
     }
   }
+
+  .valid {
+    background: rgb(229, 249, 218);
+  }
+  .rejected{
+    background: rgba(255, 0, 0, 0.151);
+  }
+  input {
+    border: none;
+    padding: .5rem;
+    font-size: 1rem;
+    height: 2rem;
+    border-top: 1px solid white;
+    border-radius: 4px;
+    background: white;
+    margin: .5rem;
+  }
+}
 
 </style>
