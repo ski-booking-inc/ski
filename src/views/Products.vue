@@ -3,7 +3,7 @@
     <Who/>
 
     <section class="containerTest">
-    <h2>Välj Datum</h2>
+    <h2>Välj datum</h2>
     <h3>Från: </h3>
     <date-pick v-model="dates.startDate" :format="'YYYY-MM-DD'" :isDateDisabled="isFutureDate"></date-pick>
     <h3>Till: </h3>
@@ -187,6 +187,7 @@ export default {
   }
     input {
     border-radius: 5px;
+    border: none;
     height: 2rem;
     margin: .3rem;
   }

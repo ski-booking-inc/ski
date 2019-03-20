@@ -2,7 +2,6 @@
     <main class="admin">
       <section id="adminButtons">
       <img src="../assets/img/skilogo.png" alt="logo">
-
         <a href="#" class="btn" @click="$router.push('/adminProducts')">Produkter</a>
         <a href="#" class="btn" @click="$router.push('/adminBooking')">Bokningar</a>
         <a href="#" class="btn" @click="$router.push('/adminAdd')">Lägg till produkt</a>
@@ -39,7 +38,6 @@
         opacity: .9;
         margin: 0rem 1.5rem 0 1.5rem;
         border-radius: 15px;
-        padding: .5rem;
       }
       #adminButtons{
         flex-direction: row;

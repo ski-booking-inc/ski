@@ -86,6 +86,7 @@ export default {
     max-height: 50px;
     min-width: 200px;
     min-height: 20px;
+    border: 1px solid gray;
   }
 
   textarea {

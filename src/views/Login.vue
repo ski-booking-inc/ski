@@ -4,7 +4,7 @@
       <h1>Logga in</h1>
       <input v-model="username" type="text" placeholder="Användarnamn" :class="{ valid : validUsername, rejected : rejected}">
       <input v-model="password" type="password" placeholder="Lösenord" :class="{ valid : validPassword }">
-      <p>Har du inget konto?, <a href="#" @click="$router.push('./signup')">tryck här</a> </p>
+      <p>Har du inget konto? <a href="#" @click="$router.push('./signup')">tryck här</a> </p>
     </section>
     <a href="#" class="btn" @click="login" :class="{ ready : validPassword && validUsername }">Logga in</a>
   </main>
@@ -93,6 +93,14 @@ export default {
     color: white;
     margin: 10rem 1.5rem 13rem 1.5rem;
     border-radius: 15px;
+
+    p {
+      a {
+        color: #ff794f;
+        text-decoration: none;
+        font-weight: 600;
+      }
+    }
   }
 
   .valid {

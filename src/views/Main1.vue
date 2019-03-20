@@ -2,8 +2,9 @@
   <div class="main1">
     <Who class="who"/>
     <section class="textbox">
-      <h1>Välkommen till Fjällgårdens skidanläggning</h1>
-      <p>Hyr din utrustning hos oss på Fjällgården och få mer utav din semester. Vi anpassar utrustningen efter dina behov och du hämtar enkelt ut den precis vid backen.</p>
+      <h1>Välkommen till Fjällgården!</h1>
+      <p>Hyr din utrustning hos oss på Fjällgården och få mer utav din semester. Vi anpassar utrustningen efter dina behov och du hämtar enkelt ut den precis vid liften.</p>
+      <p>Vi är nyöppnade, har noll erfarenhet, men vi har skitsnygga grejer som gör dig awesome i backen</p>
     </section>
     <section>
       <a class="btn" href="#" @click="$router.push('/products')">Boka utrustning</a>
