@@ -2,7 +2,6 @@
   <main class="productAdmin adminTable">
   <h1>Produkter</h1>
     <section>
-      <router-view />
       <input class="inputsearch" type="text" v-model="search" placeholder="Sök efter en produkt">
       <table cellspacing="0" class="table">
         <thead class="align-left">
@@ -32,6 +31,8 @@
       </table>
 
     </section>
+    <router-view />
+
   </main>
 </template>
 
@@ -83,12 +84,12 @@ export default {
     height: 1.5rem;
     border: 1px solid gray;
     border-radius: 4px;
-    margin-top: 1rem;
+    margin: 1rem;
   }
   .scrolling-box {
     display: block;
     overflow-y: scroll;
-    height: 50vh;
+    height: 40vh;
   }
   .align-left {
   text-align: left;

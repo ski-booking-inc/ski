@@ -6,28 +6,33 @@
             <a href="#" class="btn-orange" @click="bookingStatus = 'new'">Nya Bokningar</a>
             <a href="#" class="btn-orange" @click="bookingStatus = 'all'">Alla Bokningar</a>
         </section>
-              <table cellspacing="0" class="table">
-                  <thead>
-                      <tr>
-                          <th>Kund</th>
-                          <th>Start Datum:</th>
-                          <th>Slut Datum:</th>
-                          <th>Produkt</th>
-                          <th>Skidglasögon</th>
-                          <th>Liftkort</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr v-for="user in filteredBookings" :key="user._id">
-                      <td>{{ user.username }}</td>
-                      <td>{{ user.chosenDates.startDate }}</td>
-                      <td>{{ user.chosenDates.stopDate }}</td>
-                      <td>{{ user.artnr }}</td>
-                      <td>{{ user.userInfo.skigoogles }}</td>
-                      <td>{{ user.userInfo.lift }}</td>
-                      </tr>
-                  </tbody>
-              </table>
+        <table cellspacing="0" class="table">
+            <thead>
+                <tr>
+                    <th>Kund</th>
+                    <th>Start</th>
+                    <th>Slut</th>
+                    <th>Produkt</th>
+                    <th>Märkning</th>
+                    <th>Skidglasögon</th>
+                    <th>Liftkort</th>
+                    <th>Hjälm</th>
+                </tr>
+            </thead>
+            <tbody class="scrolling-box align-left">
+                <tr v-for="user in filteredBookings" :key="user._id">
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.chosenDates.startDate }}</td>
+                    <td>{{ user.chosenDates.stopDate }}</td>
+                    <td>{{ user.artnr }}</td>
+                    <td>{{ user.userInfo.name }}</td>
+                    <td>{{ user.userInfo.skigoogles }}</td>
+                    <td>{{ user.userInfo.lift }}</td>
+                    <td>{{ user.userInfo.helmet }}</td>
+
+                </tr>
+            </tbody>
+        </table>
 
       </main>
 </template>
@@ -93,11 +98,12 @@ computed: {
 
     section {
       @extend %center;
+      margin: 2rem;
 
       .btn-orange {
         @extend %center;
         width: 10rem;
-        background: orange;
+        background: #ff794f;
         margin: .2rem;
         height: 2.5rem;
         color: white;
@@ -106,6 +112,14 @@ computed: {
         font-size: .8rem;
         border-radius: 4px;
       }
+    }
+    .scrolling-box {
+      display: block;
+      overflow-y: scroll;
+      height: 40vh;
+    }
+    .align-left {
+    text-align: left;
     }
   }
 

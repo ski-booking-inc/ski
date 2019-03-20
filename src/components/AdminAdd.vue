@@ -66,7 +66,7 @@ export default {
   .btn-orange {
     @extend %center;
     width: 10rem;
-    background: orange;
+    background: #ff794f;
     margin: .2rem;
     height: 2.5rem;
     color: white;

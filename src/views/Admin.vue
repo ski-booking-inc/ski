@@ -71,12 +71,15 @@
             margin: 0 auto;
             thead {
                 tr {
+                  @extend%center;
+                  justify-content: space-between;
+                  border-bottom: 1px solid gray;
+
+
                     th {
-                        color: black;
-                        font-weight: 500;
-                        font-size: 1.1rem !important;
-                        border-bottom: 1px solid gray;
-                        padding:1.5rem;
+                        font-weight: 800;
+                        font-size: .9rem;
+                        padding: .5rem;
 
                     }
                 }
@@ -86,10 +89,10 @@
           tbody {
             tr {
             border-bottom: 1px solid gray;
-              td {
-              border-bottom: 1px solid gray;
 
-                color: black;
+              td {
+                border-bottom: 1px solid gray;
+                font-size: .8rem;
                 padding: .4rem;
               }
 
