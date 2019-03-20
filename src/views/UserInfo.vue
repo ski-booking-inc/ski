@@ -1,6 +1,6 @@
 <template>
   <main class="userInfo">
-    <section class="base">
+    <section class="containerTest">
       <form @submit.prevent="onSubmit">
         <h1>Åkaruppgifter</h1>
         <div class="right" :class="{error: errors.has('name')}">
@@ -22,12 +22,14 @@
         <hr>
           <div class="box">
             <h1>Tillval</h1>
-            <input id="helmet" type="checkbox" value="helmet" v-model="userInput.helmet">
-            <label for="helmet">Hjälm | 49:-</label>
-            <input id="skigoogles" type="checkbox" value="skigoogles" v-model="userInput.skigoogles">
-            <label for="skigoogles">Skidglasögon | 69:-</label>
-            <input  id="lift" type="checkbox" value="lift" v-model="userInput.lift">
-            <label for="lift">Liftkort | 1999:-</label>
+            <div>
+              <label for="helmet">Hjälm | 49:-</label>
+              <input id="helmet" type="checkbox" value="helmet" v-model="userInput.helmet"><br>
+              <label for="skigoogles">Skidglasögon | 69:-</label>
+              <input id="skigoogles" type="checkbox" value="skigoogles" v-model="userInput.skigoogles"><br>
+              <label for="lift">Liftkort | 1999:-</label>
+              <input  id="lift" type="checkbox" value="lift" v-model="userInput.lift">
+            </div>
           </div> 
           <button id="btn" type="submit">Lägg i varukorg</button> 
       </form>
@@ -76,15 +78,15 @@ export default {
 
 html {
   .userInfo {
-    background-image:url('../assets/img/mountains.jpg');
+    background-image:url('../assets/img/skier.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: left;
     height: 100vh;
     width: 100vw;
     @extend %center;
     flex-direction: column;
 
-    hr{
+    hr {
       border: 0;
       margin-top: 1em;
       height: 2px;
@@ -102,13 +104,6 @@ html {
     }
     
     .base {
-    background: #22447a;
-    opacity: .95;
-    border-radius: 5px;
-    color: white;
-    margin: 2rem 1.5rem 0 1.5rem;
-    padding: 1rem 0 0 0;
-
       .right {
         label {
           font-size: 1.1rem;
@@ -132,8 +127,13 @@ html {
         label {
           font-size: 1rem;
           font-weight: 900;
-          padding: 0 5rem;
-        }  
+          padding: 0;
+        } 
+        input {
+          display: flex;
+          float: left;
+          margin: 0 1rem 0 4.5rem;
+        } 
       }
     }
     #btn{   
