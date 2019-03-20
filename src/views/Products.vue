@@ -1,14 +1,14 @@
 <template>
   <main class="products">
     <Who/>
-   
+
     <section class="containerTest">
-    <h1>Välj Datum</h1>
+    <h2>Välj Datum</h2>
     <h3>Från: </h3>
     <date-pick v-model="dates.startDate" :format="'YYYY-MM-DD'" :isDateDisabled="isFutureDate"></date-pick>
     <h3>Till: </h3>
     <date-pick v-model="dates.stopDate" :format="'YYYY-MM-DD'" :isDateDisabled="isFutureDate"></date-pick>
-      <h1 v-if="show">Välj utrustning</h1>
+      <h2 v-if="show">Välj utrustning</h2>
       <a
         class="btnChoose"
         :class="[{hide1:select1 == 1}, {hide2:select2 == 1}]"
@@ -175,13 +175,16 @@ export default {
 <style lang="scss">
 @import "../scss/main";
 .products{
-  h1 {
+
+  h2 {
    padding: .4rem;
    margin: .1rem;
+   font-size: 1.5rem;
+
   }
   h3 {
     margin: .1rem;
-    padding: .2rem;
+    font-size: .8rem;
   }
     input {
     border-radius: 5px;
