@@ -1,34 +1,39 @@
 <template>
   <main class="products">
     <Who/>
-    <h2>Välj Datum</h2>
+   
+    <section class="containerTest">
+    <h1>Välj Datum</h1>
+    <h3>Från: </h3>
     <date-pick v-model="dates.startDate" :format="'YYYY-MM-DD'" :isDateDisabled="isFutureDate"></date-pick>
+    <h3>Till: </h3>
     <date-pick v-model="dates.stopDate" :format="'YYYY-MM-DD'" :isDateDisabled="isFutureDate"></date-pick>
-    <section class="products">
-      <h2 v-if="show">Välj utrustning</h2>
+      <h1 v-if="show">Välj utrustning</h1>
       <a
-        class="btn"
+        class="btnChoose"
         :class="[{hide1:select1 == 1}, {hide2:select2 == 1}]"
         href="#"
         @click="addProduct('Skidor Alpin', 2, 3)"
       >Skidor Alpin</a>
       <a
-        class="btn"
+        class="btnChoose"
         :class="[{hide1:select1 == 2}, {hide2:select2 == 2}]"
         href="#"
         @click="addProduct('Snowboard', 1, 3)"
       >Snowboard</a>
       <a
-        class="btn"
+        class="btnChoose"
         :class="[{hide1:select1 == 3}, {hide2:select2 == 3}]"
         href="#"
         @click="addProduct('Skidor Längd', 1, 2)"
       >Skidor Längd</a>
+      <section>
+        <router-view />
+      </section>
     </section>
-    <section>
-      <router-view @showButton="showButton"/>
-    </section>
+    <span>
     <a href="#" class="btn" @click="dateFunctions">Gå vidare</a>
+    </span>
   </main>
 </template>
 
@@ -169,14 +174,21 @@ export default {
 
 <style lang="scss">
 @import "../scss/main";
-
-.products {
-  @extend %center;
-  flex-direction: column;
-
-  .hide1,
-  .hide2 {
-    display: none !important;
+.products{
+  h1 {
+   padding: .4rem;
+   margin: .1rem;
+  }
+  h3 {
+    margin: .1rem;
+    padding: .2rem;
+  }
+    input {
+    border-radius: 5px;
+    height: 2rem;
+    margin: .3rem;
   }
 }
+
+
 </style>

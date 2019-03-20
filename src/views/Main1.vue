@@ -76,7 +76,6 @@ beforeMount(){
   margin: 0 1.5rem;
   @extend %center;
   flex-direction: column;
-  max-height: 100vh;
   background-image:url('../assets/img/mountains.jpg');
   background-size: cover;
   background-position: center;
@@ -98,9 +97,6 @@ beforeMount(){
     margin: 8rem 1.5rem 0 1.5rem;
     border-radius: 15px;
     padding: .5rem;
-
   }
 }
-
-
 </style>

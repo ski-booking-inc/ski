@@ -58,6 +58,7 @@ export default {
     },
   methods: {
     onSubmit() {
+    // när man trycker på submit, så körs veeValidate och kollar i vårt fall så längden på inputet är rätt, annars får man ett fel.
       this.$validator.validateAll().then(result => {
         if (result) {
           this.inputFromUser();
@@ -65,6 +66,7 @@ export default {
       });
     },
     inputFromUser: function() {
+      // här skickar vi informationen till actions, som skickas till mongo. Och vi skickas vidare till cart.
       this.$store.dispatch('addInput', this.userInput)
       this.$store.dispatch('testing', this.userInput)
       this.$router.push('/cart')
