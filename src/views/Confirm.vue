@@ -4,7 +4,7 @@
     <img src="../assets/img/skilogo.png" alt="logo">
     <section>
       <h1>Tack för din bokning!</h1>
-      <p>Välkommen, vi ser fram emot att se dig i backen! Din bekräftelse finns inne på mina sidor!</p>
+      <p>Välkommen, vi ser fram emot att se dig i backen! Din bekräftelse finns under mina bokningar!</p>
     </section>
     <a class="knapp" href="#" @click="$router.push('/main1')">X</a>
     </section>
