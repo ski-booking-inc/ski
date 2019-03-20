@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="myproduct">
     <section>
       <h2>{{ booking.userInfo.name  }}</h2>
       <p>{{ product[0].article }}</p>
@@ -24,18 +24,8 @@
         <button class="btn" @click="removeItem">Avboka</button>
       </aside>
       <aside class>
-        <img
-          v-if="show"
-          @click="show=false"
-          src="../assets/img/baseline-arrow_downward-24px.svg"
-          alt="arrow"
-        >
-        <img
-          v-if="!show"
-          @click="show=true"
-          src="../assets/img/baseline-arrow_upward-24px.svg"
-          alt="arrow"
-        >
+        <img v-if="show" @click="show=false" src="../assets/img/baseline-arrow_downward-24px.svg" alt="arrow">
+        <img v-if="!show" @click="show=true" src="../assets/img/baseline-arrow_upward-24px.svg" alt="arrow">
       </aside>
     </section>
   </main>
@@ -96,7 +86,5 @@ export default {
 </script>
 <style lang="scss">
 @import "../scss/main";
-main {
-  border: 1px solid black;
-}
+
 </style>

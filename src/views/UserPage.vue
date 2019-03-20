@@ -1,10 +1,12 @@
 <template>
-  <div class="userPage">
+  <main class="userPage">
+    <section class="containerTest">
     <h1>Mina bokningar</h1>
     <myProduct v-for='(booking, index) in myBookings' :key='index' :booking='booking'/>
     <a class="btn green" href="#" @click="logOut">Logga ut</a>
     <a class="btn blue" href="#" @click="$router.push('/main1')">Hem</a>
-  </div>
+    </section>
+  </main>
 </template>
 
 <script>
@@ -32,9 +34,5 @@
 <style lang="scss" scoped>
   @import "../scss/main";
 
-  p {
-    color: peachpuff;
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
+
 </style>

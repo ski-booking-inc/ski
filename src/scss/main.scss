@@ -7,11 +7,70 @@
 body {
     @extend %center;
 
+    .product, .myproduct {
+      background-color: white;
+      color: black;
+
+      .user {
+        padding: 0 3rem 0 3rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas:
+        "cat cat cat age age age"
+        "length length weigth weigth shoe shoe"
+        "info info info info info info"
+        "extra extra extra extra extra extra";
+
+        p {
+          margin: .3rem;
+          padding: .2rem;
+        }
+
+        .cat {
+          grid-area: cat;
+          border: 1px solid lightgray;
+        }
+        .age {
+          grid-area: age;
+          border: 1px solid lightgray;
+
+        }
+        .length {
+          grid-area: length;
+          border: 1px solid lightgray;
+
+        }
+        .weigth {
+          grid-area: weigth;
+          border: 1px solid lightgray;
+
+        }
+        .shoe {
+          grid-area: shoe;
+          border: 1px solid lightgray;
+
+        }
+        .info {
+          grid-area: info;
+          border: 1px solid lightgray;
+
+        }
+        .extra {
+          grid-area: extra;
+          border: 1px solid lightgray;
+        }
+      }
+    }
+
     .who {
       top: 0;
     }
 
-    .products, .cart {
+    .products, .cart, .userPage {
         margin: 0 1.5rem;
         @extend %center;
         flex-direction: column;
@@ -66,7 +125,7 @@ body {
 
 
             //Logga in
-            &.ready { 
+            &.ready {
                 background: #199d59;
                 color: #cfcfcf;
             }
