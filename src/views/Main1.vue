@@ -83,12 +83,8 @@ beforeMount(){
   height: 100vh;
   width: 100vw;
   justify-content: flex-end;
-  position: relative;
 
-  .who {
-    position: absolute;
-    top: 20px;
-  }
+
 
   .textbox {
     background: #ffff;

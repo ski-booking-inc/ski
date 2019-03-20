@@ -23,15 +23,10 @@ export default {
 
 .who {
   color: white;
-
-  // padding:  .5rem ;
-  // border-radius: 5px;
-  // background: white;
-  // opacity: 0.9;
-  // p {
-  //   padding: 0;
-  //   margin: 0;
-  // }
+   p {
+     padding: 0;
+     margin-bottom: .5rem;
+   }
 }
 
 </style>

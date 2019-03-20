@@ -7,7 +7,11 @@
 body {
     @extend %center;
 
-    .products {
+    .who {
+      top: 0;
+    }
+
+    .products, .cart {
         margin: 0 1.5rem;
         @extend %center;
         flex-direction: column;
@@ -18,7 +22,7 @@ body {
         background-image:url('../assets/img/mountains.jpg');
         background-size: cover;
         background-position: center;
-        
+
         .containerTest {
           display: flex;
           align-items: center;
@@ -30,7 +34,7 @@ body {
           margin: .5rem 1.5rem 0 1.5rem;
           border-radius: 15px;
           padding: 0 4rem;
-    
+
       .hide1,
       .hide2 {
         display: none !important;

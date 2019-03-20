@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="product">
     <section>
       <h2>{{ booking.userInfo.name }}</h2>
       <p>{{ booking.chosenProduct.article }}</p>
@@ -62,8 +62,9 @@ export default {
 </script>
 <style lang="scss">
 @import "../scss/main";
-main {
-  border: 1px solid black;
+.product {
+  background-color: white;
+  color: black;
   aside {
     img {
       cursor: pointer;

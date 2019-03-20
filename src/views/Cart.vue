@@ -1,15 +1,19 @@
 <template>
-  <div class="cart">
-    <h1>Cart</h1>
-    <product v-for='(booking, index) in userBookings' :key='index' :booking='booking' @countTotalSum="countTotalSum"/>
-    <p>Total summa: {{ totalSum }}</p>
-    <a class="btn green" href="#" @click="$router.push('/products')">Lägg till nytt paket</a>
+  <main class="cart">
+    <Who/>
+    <section class="containerTest">
+      <h1>Cart</h1>
+      <product v-for='(booking, index) in userBookings' :key='index' :booking='booking' @countTotalSum="countTotalSum"/>
+      <p>Total summa: {{ totalSum }}</p>
+      <a class="btn-orange" href="#" @click="$router.push('/products')">Lägg till nytt paket</a>
+    </section>
     <a class="btn blue" href="#" @click="addBooking">Boka</a>
-  </div>
+  </main>
 </template>
 
 <script>
   import product from "@/components/Product.vue";
+  import Who from "@/components/Who.vue";
 
   export default {
     name: "cart",
@@ -19,7 +23,8 @@
       }
     },
     components: {
-      product
+      product,
+      Who
     },
     computed: {
       userBookings() {
@@ -77,9 +82,8 @@
 <style lang="scss" scoped>
   @import "../scss/main";
 
-  p {
-    color: peachpuff;
-    font-size: 1.5rem;
-    font-weight: bold;
+  .cart {
+
   }
+
 </style>
