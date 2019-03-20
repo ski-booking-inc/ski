@@ -2,8 +2,8 @@
   <main class="cart">
     <Who/>
     <section class="containerTest">
-      <h1>Cart</h1>
-      <product v-for='(booking, index) in userBookings' :key='index' :booking='booking' @countTotalSum="countTotalSum"/>
+      <h1>Varukorg</h1>
+      <product class="product" v-for='(booking, index) in userBookings' :key='index' :booking='booking' @countTotalSum="countTotalSum"/>
       <p>Total summa: {{ totalSum }}</p>
       <a class="btn-orange" href="#" @click="$router.push('/products')">Lägg till nytt paket</a>
     </section>
@@ -83,6 +83,28 @@
   @import "../scss/main";
 
   .cart {
+    .containerTest {
+      padding: 0 2rem !important;
+      overflow: scroll;
+
+      .btn-orange {
+        @extend %center;
+        width: 10rem;
+        background: #ff794f;
+        margin: .2rem;
+        height: 2.5rem;
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: .8rem;
+        border-radius: 4px;
+      }
+
+      .product {
+        margin-top: .7rem;
+      }
+    }
+
 
   }
 
