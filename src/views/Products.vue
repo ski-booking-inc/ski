@@ -26,7 +26,7 @@
       >Skidor Längd</a>
     </section>
     <section>
-      <router-view />
+      <router-view @showButton="showButton"/>
     </section>
     <a href="#" class="btn" @click="dateFunctions">Gå vidare</a>
   </main>
@@ -108,6 +108,9 @@ export default {
     } else {
         this.alert()
     }
+    },
+    showButton(){
+      console.log('Hek')
     },
     alert() {
       this.$swal("Fullbokat", "Prova nåt annat", "warning")

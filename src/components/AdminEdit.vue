@@ -39,4 +39,5 @@ computed: {
 textarea {
   margin-bottom: 2rem;
 }
+
 </style>

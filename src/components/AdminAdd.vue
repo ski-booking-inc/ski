@@ -1,19 +1,16 @@
 <template>
-        <div class="editAdmin">
-            <h3>Add</h3>
-                <input type="text" placeholder="Name..." v-model="addProducts.article">
+        <main class="addAdmin">
+            <h1>Lägg till produkt</h1>
+                <input type="text" placeholder="Produkt" v-model="addProducts.article">
                 <input type="text" placeholder="Art nr" v-model="addProducts.artnr">
-                <input type="text" placeholder="Nivå Nybörjare, Medel, Proffs" v-model="addProducts.category">
-                <input type="text" placeholder="Pris..." v-model="addProducts.price">
-                <input type="text" placeholder="Ålder? 0-6, 7-15, +16" v-model="addProducts.age">
-                <textarea  placeholder="Info..." v-model="addProducts.info"></textarea>
+                <input type="text" placeholder="Kategori" v-model="addProducts.category">
+                <input type="text" placeholder="Pris" v-model="addProducts.price">
+                <input type="text" placeholder="Ålder" v-model="addProducts.age">
+                <textarea  placeholder="Info" v-model="addProducts.info"></textarea>
             <div>
-            <a href="#" class="btnAdmin" @click="createProduct">Add</a>
+            <a href="#" class="btn-orange" @click="createProduct">Lägg till</a>
             </div>
-            <div>
-            <!-- <a href="#" class="btn" >Edit</a> -->
-            </div>
-      </div>
+        </main>
 </template>
 
 <script>
@@ -49,6 +46,50 @@ export default {
 }
 </script>
 
-<style>
+<style scoped lang="scss">
+  @import "../scss/main";
 
+.addAdmin {
+  padding: 0 1rem 1rem 1rem;
+  background: white;
+  border: 5px solid rgba(255, 255, 255, 0.336);
+  margin: 1rem;
+  @extend%center;
+  flex-direction: column;
+  max-width: 300px;
+
+  h3 {
+    margin: .5rem 0 0 0;
+    padding-bottom: 1.5rem;
+  }
+
+  .btn-orange {
+    @extend %center;
+    width: 10rem;
+    background: orange;
+    margin: .2rem;
+    height: 2.5rem;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: .8rem;
+    border-radius: 4px;
+  }
+
+  input,
+  textarea {
+    width: 80%;
+    padding: .5rem;
+    margin: .4rem;
+    border-radius: 3px;
+    max-width: 200px;
+    max-height: 50px;
+    min-width: 200px;
+    min-height: 20px;
+  }
+
+  textarea {
+    margin-bottom: 2rem;
+  }
+}
 </style>
