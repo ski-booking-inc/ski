@@ -6,19 +6,19 @@
     <form class="text" @submit.prevent="onSubmit">
       <div class="right" :class="{error: errors.has('name')}">
         <label>Name:</label>
-        <input type="text" name="name" v-validate="'required'" v-model="userInput.name">
+        <input type="text" minlength="2" name="name" v-validate="'required'" v-model="userInput.name">
       </div>
       <div class="right" :class="{error: errors.has('weight')}">
         <label>Vikt:</label>
-        <input type="number" name="weight" v-validate="'required'" v-model="userInput.weight">
+        <input type="number" minlength="2" maxlength="3" name="weight" v-validate="'required'" v-model="userInput.weight">
       </div>
       <div class="right" :class="{error: errors.has('length')}">
         <label>Längd: </label>
-        <input type="number" name="length" v-validate="'required'" v-model="userInput.length">
+        <input type="number" minlength="2" maxlength="3" name="length" v-validate="'required'" v-model="userInput.length">
       </div>
       <div class="right" :class="{error: errors.has('shoe')}">
         <label>Skostorlek</label>
-        <input type="number" name="shoe" v-validate="'required'" v-model="userInput.shoe">
+        <input type="number" minlength="2" maxlength="2" name="shoe" v-validate="'required'" v-model="userInput.shoe">
       </div>
         <hr/>
         <div class="box">
@@ -55,6 +55,7 @@ export default {
     },
   methods: {
     onSubmit() {
+    // när man trycker på submit, så körs veeValidate och kollar i vårt fall så längden på inputet är rätt, annars får man ett fel.
       this.$validator.validateAll().then(result => {
         if (result) {
           this.inputFromUser();
@@ -62,6 +63,7 @@ export default {
       });
     },
     inputFromUser: function() {
+      // här skickar vi informationen till actions, som skickas till mongo. Och vi skickas vidare till cart.
       this.$store.dispatch('addInput', this.userInput)
       this.$store.dispatch('testing', this.userInput)
       this.$router.push('/cart')

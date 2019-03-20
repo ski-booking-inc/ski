@@ -1,9 +1,6 @@
 <template>
-    <section>
-      <p v-if="user.name">
-        User logged in as
-        <b>{{ user.name }}</b>
-      </p>
+    <section class="who">
+      <p v-if="user.name"><b>{{ user.name }}</b> är inloggad.</p>
     </section>
 </template>
 
@@ -16,6 +13,7 @@ export default {
   },
   computed: {
     user() {
+      // hämtar in och skriver ut vem som är inloggad
       return this.$store.state.activeUser;
     }
   }
@@ -23,6 +21,17 @@ export default {
 </script>
 <style scoped lang="scss">
 
+.who {
+  color: white;
 
+  // padding:  .5rem ;
+  // border-radius: 5px;
+  // background: white;
+  // opacity: 0.9;
+  // p {
+  //   padding: 0;
+  //   margin: 0;
+  // }
+}
 
 </style>

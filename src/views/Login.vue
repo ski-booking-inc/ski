@@ -109,7 +109,7 @@ export default {
       border-top: 1px solid gray;
       border-radius: 4px;
       background: lightgray;
-      margin-top: 1rem;
+      margin: .5rem;
 
     }
   }

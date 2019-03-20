@@ -1,10 +1,12 @@
 <template>
-  <section class="level">
+<main class="level">
+  <section class="container">
     <h2 v-if="show">Välj din åknivå</h2>
-    <a class="btn" :class="[{hide1:select1 == 1}, {hide2:select2 == 1}]" @click="addCategory('Nybörjare', 2, 3)" href="#">Nybörjare</a>
-    <a class="btn" :class="[{hide1:select1 == 2}, {hide2:select2 == 2}]" @click="addCategory('Medelmåtta', 1, 2)" href="#">Medelmåtta</a>
-    <a class="btn" :class="[{hide1:select1 == 3}, {hide2:select2 == 3}]" @click="addCategory('Proffs', 2, 3)" href="#">Proffs</a>
+    <a class="btnChoose" :class="[{hide1:select1 == 1}, {hide2:select2 == 1}]" @click="addCategory('Nybörjare', 2, 3)" href="#">Nybörjare</a>
+    <a class="btnChoose" :class="[{hide1:select1 == 2}, {hide2:select2 == 2}]" @click="addCategory('Medelmåtta', 1, 2)" href="#">Medelmåtta</a>
+    <a class="btnChoose" :class="[{hide1:select1 == 3}, {hide2:select2 == 3}]" @click="addCategory('Proffs', 2, 3)" href="#">Proffs</a>
   </section>
+</main>
 </template>
 
 <script>
@@ -32,12 +34,4 @@ export default {
 <style lang="scss">
 @import "../scss/main";
 
-.level {
-  @extend %center;
-  flex-direction: column;
-
-  .hide1, .hide2 {
-    display: none !important;
-  }
-}
 </style>
