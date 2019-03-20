@@ -91,7 +91,7 @@ beforeMount(){
     background: #ffff;
     opacity: .9;
     flex: 1;
-    margin: 8rem 1.5rem 0 1.5rem;
+    margin: 1rem 1.5rem 0 1.5rem;
     border-radius: 15px;
     padding: .5rem;
   }

@@ -91,8 +91,9 @@ export default {
     opacity: .9;
     flex: 1;
     color: white;
-    margin: 10rem 1.5rem 13rem 1.5rem;
+    margin: 5rem 1.5rem 0 1.5rem;
     border-radius: 15px;
+    padding: 4rem 3rem 0 3rem;
 
     p {
       a {
