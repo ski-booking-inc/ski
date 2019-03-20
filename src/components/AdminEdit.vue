@@ -1,16 +1,18 @@
 <template>
-        <div class="adminEdit">
+        <main class="adminEdit">
             <h3>Redigera produkt</h3>
+              <section>
                 <input type="text" placeholder="Produkt" v-model="product.article">
                 <input type="text" placeholder="Art nr" v-model="product.artnr">
                 <input type="text" placeholder="Kategori" v-model="product.category">
                 <input type="text" placeholder="Pris" v-model="product.price">
                 <input type="text" placeholder="Ålder" v-model="product.age">
-                <textarea  placeholder="Info" v-model="product.info"></textarea>
-            <div>
-            <a href="#" class="btnAdmin" @click="editProduct">Edit</a>
-            </div>
-      </div>
+                <input type="text"  placeholder="Info" v-model="product.info"></textarea>
+              </section>
+              <section>
+                <a href="#" class="btn-orange" @click="editProduct">Klar</a>
+              </section>
+      </main>
 </template>
 
 <script>
@@ -32,11 +34,45 @@ computed: {
 }
 </script>
 
-<style>
+<style lang="scss">
+  @import "../scss/main";
+
 .adminEdit{
   margin: 2rem;
+
+  section {
+    @extend%center;
+  width: 40vw;
+  flex-wrap: wrap;
+
+  .btn-orange {
+    @extend %center;
+    width: 10rem;
+    background: #ff794f;
+    margin: .2rem;
+    height: 2.5rem;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: .8rem;
+    border-radius: 4px;
+  }
+
+
+  input {
+    width: 25%;
+    padding: .5rem;
+    margin: .4rem;
+    border-radius: 3px;
+    height: 1rem;
+
+  }
+
+  textarea {
+    margin-bottom: 2rem;
+  }
 }
-textarea {
-  margin-bottom: 2rem;
 }
+
+
 </style>

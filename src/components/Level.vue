@@ -26,6 +26,8 @@ export default {
       this.show = false
       this.$store.dispatch('addProduct', category)
       this.$store.dispatch('findMatch')
+      this.$emit('showButton')
+
     }
   }
 };

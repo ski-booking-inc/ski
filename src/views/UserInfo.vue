@@ -1,36 +1,37 @@
 <template>
   <main class="userInfo">
-    <div class="heading">
-        <h3>Och lite uppgifter om den åkade...</h3>
-    </div>
-    <form class="text" @submit.prevent="onSubmit">
-      <div class="right" :class="{error: errors.has('name')}">
-        <label>Name:</label>
-        <input type="text" minlength="2" name="name" v-validate="'required'" v-model="userInput.name">
-      </div>
-      <div class="right" :class="{error: errors.has('weight')}">
-        <label>Vikt:</label>
-        <input type="number" minlength="2" maxlength="3" name="weight" v-validate="'required'" v-model="userInput.weight">
-      </div>
-      <div class="right" :class="{error: errors.has('length')}">
-        <label>Längd: </label>
-        <input type="number" minlength="2" maxlength="3" name="length" v-validate="'required'" v-model="userInput.length">
-      </div>
-      <div class="right" :class="{error: errors.has('shoe')}">
-        <label>Skostorlek</label>
-        <input type="number" minlength="2" maxlength="2" name="shoe" v-validate="'required'" v-model="userInput.shoe">
-      </div>
-        <hr/>
-        <div class="box">
-          <label for="helmet">Hjälm? Gratis</label>
-          <input id="helmet" type="checkbox"  value="helmet"  v-model="userInput.helmet"><br>
-          <label for="skigoogles">Skidglasögon? + 49:-</label>
-          <input id="skigoogles" type="checkbox" value="skigoogles"  v-model="userInput.skigoogles"><br>
-          <label for="lift">Liftkort? + 1099:-</label>
-          <input id="lift" type="checkbox" value="lift"  v-model="userInput.lift"><br>
-        </div> 
-      <button id="btn" type="submit">Lägg till</button>
-    </form>
+    <section class="base">
+      <form @submit.prevent="onSubmit">
+        <h1>Åkaruppgifter</h1>
+        <div class="right" :class="{error: errors.has('name')}">
+          <label>Namn</label><br>
+          <input type="text" minlength="2" name="name" v-validate="'required'" v-model="userInput.name">
+        </div>
+        <div class="right" :class="{error: errors.has('weight')}">
+          <label>Vikt(kg)</label><br>
+          <input type="number" minlength="2" maxlength="3" name="weight" v-validate="'required'" v-model="userInput.weight">
+        </div>
+        <div class="right" :class="{error: errors.has('length')}">
+          <label>Längd(cm)</label><br>
+          <input type="number" minlength="2" maxlength="3" name="length" v-validate="'required'" v-model="userInput.length">
+        </div>
+        <div class="right" :class="{error: errors.has('shoe')}">
+          <label>Skostorlek</label><br>
+          <input type="number" minlength="2" maxlength="2" name="shoe" v-validate="'required'" v-model="userInput.shoe">
+        </div>
+        <hr>
+          <div class="box">
+            <h1>Tillval</h1>
+            <input id="helmet" type="checkbox" value="helmet" v-model="userInput.helmet">
+            <label for="helmet">Hjälm | 49:-</label>
+            <input id="skigoogles" type="checkbox" value="skigoogles" v-model="userInput.skigoogles">
+            <label for="skigoogles">Skidglasögon | 69:-</label>
+            <input  id="lift" type="checkbox" value="lift" v-model="userInput.lift">
+            <label for="lift">Liftkort | 1999:-</label>
+          </div> 
+          <button id="btn" type="submit">Lägg i varukorg</button> 
+      </form>
+    </section>
   </main>
 </template>
 
@@ -73,69 +74,83 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../scss/main";
+@import "../scss/main";
 
-  html {
+html {
+  .userInfo {
+    background-image:url('../assets/img/mountains.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    @extend %center;
+    flex-direction: column;
 
-    main {
-      div.error {
-        color: #be0300;
-      }
-      .heading {
-        h3 {
-          font-size: 1rem;
-          font-weight: 900;
-        }
-      }
+    hr{
+      border: 0;
+      margin-top: 1em;
+      height: 2px;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0));
+    }
 
-      .text {
-        flex-direction: column;
+    h1 {
+      font-size: 2rem;
+      margin-top: 0;
+      text-align: center;
+    }
 
-        .right {
-          text-align: right;
-          padding: .5rem 15vw 0 0;
-        }
+    div.error {
+      color: #ff794f;
+    }
+    
+    .base {
+    background: #22447a;
+    opacity: .95;
+    border-radius: 5px;
+    color: white;
+    margin: 2rem 1.5rem 0 1.5rem;
+    padding: 1rem 0 0 0;
 
+      .right {
         label {
           font-size: 1.1rem;
-          font-weight: 900;
         }
-
         input {
-          width: 50%;
-          background: rgb(51, 57, 112);
-          color: white;
+          background: white;
+          color:black;
           font-weight: 800;
           border-radius: 10px;
-          padding: .5rem;
+          padding: .7rem;
+          width: 10rem;
+          height: 1rem;
+          border:2px solid white; 
         }
       }
-
       .box {
+        text-align: left;
         display: flex;
+        flex-direction: column;
+
         label {
           font-size: 1rem;
           font-weight: 900;
-          padding: 0 1rem;
-        }
-
-        .right {
-          text-align: right;
-          padding-right: 15vw;
-        }
-      }
-
-      #btn {
-        padding: .5rem 1rem;
-        background: cornflowerblue;
-        color: white;
+          padding: 0 5rem;
+        }  
       }
     }
-    #btn {
-      padding: .5rem 1rem;
-      background: rgb(130, 150, 218);
+    #btn{   
+      align-self: flex-end;
+      width: 20rem;
+      font-size: 1rem;
+      background: #ff794f;
+      margin-top: 2.5em;
+      height: 3.8rem;
       color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+      border: none;
     }
+  }
 }
 
 </style>

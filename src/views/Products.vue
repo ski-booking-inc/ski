@@ -114,6 +114,9 @@ export default {
         this.alert()
     }
     },
+    showButton(){
+      console.log('Hek')
+    },
     alert() {
       this.$swal("Fullbokat", "Prova nåt annat", "warning")
       },
