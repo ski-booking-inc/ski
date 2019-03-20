@@ -65,6 +65,7 @@ computed: {
     margin: .4rem;
     border-radius: 3px;
     height: 1rem;
+    border: 1px solid gray;
 
   }
 
