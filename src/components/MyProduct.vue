@@ -13,7 +13,7 @@
       <p>{{ booking.userInfo.length }} cm</p>
       <p>{{ booking.userInfo.weight }} kg</p>
       <p>Stl {{ booking.userInfo.shoe }}</p>
-      <p v-if="booking.userInfo.lift">Liftkort 1999:-</p>
+      <p v-if="booking.userInfo.lift">Liftkort 499:-</p>
       <p v-if="booking.userInfo.helmet">Hjälm 49:-</p>
       <p v-if="booking.userInfo.skigoogles">Skidglasögon 69:-</p>
       <h3>Totalsumma: {{ total }}:-</h3>

@@ -11,7 +11,7 @@ export default {
     extras: {
         lift: 499,
         skigoogles: 69,
-        helmet: 79
+        helmet: 49
     },
     apiUrl: 'http://localhost:3000',
     activeUser: {

@@ -98,10 +98,7 @@ export default {
           (1000 * 60 * 60 * 24)
       );
       if (dayDiff == 0){
-        dayDiff = dayDiff + 1;
-      } else
-      {
-
+        dayDiff ++;
       }
       this.$store.dispatch("addDateDiff", dayDiff);
     },
