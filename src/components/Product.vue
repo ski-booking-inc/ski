@@ -31,6 +31,8 @@
         <p v-if="booking.userInfo.skigoogles">Skidglasögon 69:-</p>
       </section>
       </section>
+      <article class="aside">
+
       <section class="arrow">
         <img v-if="show" @click="show=false" src="../assets/img/baseline-arrow_downward-24px.svg" alt="arrow">
         <img v-if="!show" @click="show=true" src="../assets/img/baseline-arrow_upward-24px.svg" alt="arrow">
@@ -38,7 +40,7 @@
       <section class="bin">
         <img @click="removeItem" src="../assets/img/baseline-delete-24px.svg" alt="delete">
       </section>
-
+      </article>
   </main>
 </template>
 <script>
@@ -65,5 +67,9 @@ export default {
 </script>
 <style lang="scss">
 @import "../scss/main";
-
+.aside {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 </style>
