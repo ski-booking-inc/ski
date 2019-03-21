@@ -33,6 +33,7 @@
     </section>
     <span>
     <a href="#" class="btn" @click="dateFunctions">Gå vidare</a>
+    <a href="#" class="btn" @click="$router.push('/products'),select1 = undefined ,select2 = undefined">Börja om bokningen</a>
     </span>
   </main>
 </template>
@@ -58,7 +59,9 @@ export default {
         stopDate: ""
       },
       datesArray: [],
-      isBooked: false
+      isBooked: false,
+      paraOne: 'Fullbokat',
+      paraTwo: 'Var god välj ett nytt datum'
     };
   },
   computed: {
@@ -97,9 +100,19 @@ export default {
           Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate())) /
           (1000 * 60 * 60 * 24)
       );
-      if (dayDiff == 0){
-        dayDiff ++;
+
+      if (dayDiff <= 0){
+        // om man bokar mindre än 1 dygn eller hörge inlämnings datum än utlämning, så får man här 
+        // felmedelande och får börja om.
+         this.isBooked = true
+         this.paraOne = 'Ogiltligt Datum'
+         this.paraTwo = 'Du kan inte hyra över dagen via appen eller lämna tillbaka produkten innan du hyrt dem.'
+         this.alert(this.paraOne, this.paraTwo)
+         this.select1 = undefined
+         this.select2 = undefined
+         this.$router.push('/products')
       } 
+      else 
       this.$store.dispatch("addDateDiff", dayDiff);
     },
     async dateFunctions(){
@@ -115,7 +128,7 @@ export default {
       console.log('Hek')
     },
     alert() {
-      this.$swal("Fullbokat", "Prova nåt annat", "warning")
+      this.$swal(this.paraOne, this.paraTwo,"warning")
       },
     getDatesArray() {
       var getDaysArray = function(startDate, stopDate) {
@@ -200,9 +213,7 @@ export default {
             font-size: 1.3rem;
           }
         }
-}
-      
-    
+    }  
 }
 
 
