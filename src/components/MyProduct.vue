@@ -97,6 +97,10 @@ export default {
 </script>
 <style lang="scss">
 @import "../scss/main";
+h2 {
+  font-size: 1rem;
+  margin: .3rem;
+}
 .btn-orange {
    margin: 0 auto !important;
    margin-bottom: .1rem;

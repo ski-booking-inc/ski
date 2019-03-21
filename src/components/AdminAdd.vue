@@ -62,20 +62,6 @@ export default {
     margin: .5rem 0 0 0;
     padding-bottom: 1.5rem;
   }
-
-  .btn-orange {
-    @extend %center;
-    width: 10rem;
-    background: #ff794f;
-    margin: .2rem;
-    height: 2.5rem;
-    color: white;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: .8rem;
-    border-radius: 4px;
-  }
-
   input,
   textarea {
     width: 80%;

@@ -69,7 +69,7 @@ computed: {
    getTodaysDate(){
      var today = new Date();
       var dd = today.getDate();
-      var mm = today.getMonth()+1; //January is 0!
+      var mm = today.getMonth()+1;
       var yyyy = today.getFullYear();
 
       if(dd<10) {
@@ -100,18 +100,6 @@ computed: {
       @extend %center;
       margin: 2rem;
 
-      .btn-orange {
-        @extend %center;
-        width: 10rem;
-        background: #ff794f;
-        margin: .2rem;
-        height: 2.5rem;
-        color: white;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-size: .8rem;
-        border-radius: 4px;
-      }
     }
     .scrolling-box {
       display: block;

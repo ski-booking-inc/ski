@@ -6,7 +6,7 @@
       <h1>Tack för din bokning!</h1>
       <p>Välkommen, vi ser fram emot att se dig i backen! Din bekräftelse finns under Mina bokningar!</p>
     </section>
-    <a class="knapp" href="#" @click="$router.push('/main1')">X</a>
+    <a class="knapp" href="#" @click="$router.push('/home')">X</a>
     </section>
 
     <router-view/>
@@ -61,7 +61,7 @@ p {
   .knapp {
     border-radius: 50%;
     background: #ff794f;
-    padding: 12px 18px;
+    padding: 8px 14px;
     text-decoration: none;
     color: white;
     font-weight: bold;

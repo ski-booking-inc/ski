@@ -2,7 +2,7 @@
   <main class="products">
     <Who/>
 
-    <section class="containerTest">
+    <section class="opacityBox">
     <h2>Välj datum</h2>
     <h3>Från: </h3>
     <date-pick v-model="dates.startDate" :format="'YYYY-MM-DD'" :isDateDisabled="isFutureDate"></date-pick>
@@ -99,7 +99,7 @@ export default {
       );
       if (dayDiff == 0){
         dayDiff ++;
-      }
+      } 
       this.$store.dispatch("addDateDiff", dayDiff);
     },
     async dateFunctions(){
@@ -172,7 +172,7 @@ export default {
 <style lang="scss">
 @import "../scss/main";
 .products{
-  .containerTest {
+  .opacityBox {
     padding: 0 4rem !important;
 
   h2 {

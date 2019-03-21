@@ -1,10 +1,10 @@
 <template>
   <main class="cart">
     <Who/>
-    <section class="containerTest">
+    <section class="opacityBox">
       <h1>Varukorg</h1>
       <product class="product" v-for='(booking, index) in userBookings' :key='index' :booking='booking' @countTotalSum="countTotalSum"/>
-      <p>Total summa: {{ totalSum }}</p>
+      <p>Total summa: {{ totalSum }}:-</p>
       <a class="btn-orange" href="#" @click="$router.push('/products')">Lägg till nytt paket</a>
     </section>
     <a class="btn blue" href="#" @click="addBooking">Boka</a>
@@ -83,28 +83,18 @@
   @import "../scss/main";
 
   .cart {
-    .containerTest {
+    .opacityBox {
       overflow: scroll;
 
-      // .btn-orange {
-      //   @extend %center;
-      //   width: 10rem;
-      //   background: #ff794f;
-      //   margin: .2rem;
-      //   height: 2.5rem;
-      //   color: white;
-      //   text-decoration: none;
-      //   text-transform: uppercase;
-      //   font-size: .8rem;
-      //   border-radius: 4px;
-      // }
-
       .product {
-        margin-top: .7rem;
+        margin-top: .1rem;
+      }
+      a {
+        &.btn-orange {
+          margin-bottom: .2rem;
+        }
       }
     }
-
-
   }
 
 </style>

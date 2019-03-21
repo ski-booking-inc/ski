@@ -8,13 +8,13 @@ let router = new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: () => import('./views/Home.vue')
+      name: 'loading',
+      component: () => import('./views/Loading.vue')
     },
     {
-      path: '/main1',
-      name: 'main1',
-      component: () => import('./views/Main1.vue')
+      path: '/home',
+      name: 'home',
+      component: () => import('./views/Home.vue')
     },
     {
       path: '/products',

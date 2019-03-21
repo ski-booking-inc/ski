@@ -30,7 +30,7 @@ export default {
         });
 
         if (this.checkBooking == false) {
-          this.$router.push('/main1')
+          this.$router.push('/home')
         } else {
           this.$router.push('/cart')
         }

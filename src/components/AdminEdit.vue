@@ -7,7 +7,7 @@
                 <input type="text" placeholder="Kategori" v-model="product.category">
                 <input type="text" placeholder="Pris" v-model="product.price">
                 <input type="text" placeholder="Ålder" v-model="product.age">
-                <input type="text"  placeholder="Info" v-model="product.info"></textarea>
+                <input type="text"  placeholder="Info" v-model="product.info">
               </section>
               <section>
                 <a href="#" class="btn-orange" @click="editProduct">Klar</a>
@@ -44,20 +44,6 @@ computed: {
     @extend%center;
   width: 40vw;
   flex-wrap: wrap;
-
-  .btn-orange {
-    @extend %center;
-    width: 10rem;
-    background: #ff794f;
-    margin: .2rem;
-    height: 2.5rem;
-    color: white;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: .8rem;
-    border-radius: 4px;
-  }
-
 
   input {
     width: 25%;

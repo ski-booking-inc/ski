@@ -5,7 +5,7 @@
         <a href="#" class="btn" @click="$router.push('/adminProducts')">Produkter</a>
         <a href="#" class="btn" @click="$router.push('/adminBooking')">Bokningar</a>
         <a href="#" class="btn" @click="$router.push('/adminAdd')">Lägg till produkt</a>
-        <a href="#" class="btn" @click="$router.push('/main1')">Tillbaka</a>
+        <a href="#" class="btn" @click="$router.push('/home')">Tillbaka</a>
       </section>
       <section class="container">
       <router-view/>
