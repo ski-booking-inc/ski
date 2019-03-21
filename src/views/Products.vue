@@ -32,8 +32,10 @@
       </section>
     </section>
     <span>
-    <a href="#" class="btn" @click="dateFunctions">Gå vidare</a>
-    <a href="#" class="btn" @click="$router.push('/products'),select1 = undefined ,select2 = undefined">Börja om bokningen</a>
+      <ul>
+        <li><a href="#" class="btn" @click="$router.push('/products'),select1 = undefined ,select2 = undefined">Börja om</a></li>
+        <li><a href="#" class="btn" @click="dateFunctions">Gå vidare</a></li>
+      </ul>
     </span>
   </main>
 </template>
@@ -188,32 +190,55 @@ export default {
   .opacityBox {
     padding: 0 4rem !important;
 
-  h2 {
-   padding: .3rem;
-   margin: .1rem;
-   font-size: 1.5rem;
-
-  }
-  h3 {
+    h2 {
+    padding: .3rem;
+    margin: .1rem;
+    font-size: 1.5rem;
+    }
+    h3 {
     margin: .1rem;
     font-size: .7rem;
-  }
+    }
     input {
     border-radius: 5px;
     border: none;
     height: 1.8rem;
     margin: .3rem;
-  }
-    @media screen and (min-width: 480px){
-          input {
-            height: 1rem;
+    }
+  }  
+  span {
+    width: 100vw;
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+         li {
+          display:block;
+          margin: 0;
         }
-          h2 {
-            padding: .2rem;
-            font-size: 1.3rem;
+    }
+  }
+      @media screen and (min-width: 480px){
+            input {
+              height: 1rem;
+              }
+            h2 {
+              padding: .2rem;
+              font-size: 1.3rem;
+              }
+            span {
+              width: 420px;
+            ul {
+              list-style: none;
+              margin: 0;
+              padding: 0;
+            li {
+              display: inline-block;
+              margin: .3rem;
+            }
           }
         }
-    }  
+      }
 }
 
 
