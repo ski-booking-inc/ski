@@ -9,31 +9,31 @@
     <h3>Till: </h3>
     <date-pick v-model="dates.stopDate" :format="'YYYY-MM-DD'" :isDateDisabled="isFutureDate"></date-pick>
       <h2 v-if="show">Välj utrustning</h2>
-      <a
+     <button
         class="btnChoose"
         :class="[{hide1:select1 == 1}, {hide2:select2 == 1}]"
         href="#"
-        @click="addProduct('Skidor Alpin', 2, 3)"
-      >Skidor Alpin</a>
-      <a
+        @click="addProduct('Skidor Alpin', 2, 3)" :disabled = isDisabled
+      >Skidor Alpin</button>
+      <button
         class="btnChoose"
         :class="[{hide1:select1 == 2}, {hide2:select2 == 2}]"
         href="#"
-        @click="addProduct('Snowboard', 1, 3)"
-      >Snowboard</a>
-      <a
+        @click="addProduct('Snowboard', 1, 3)" :disabled = isDisabled
+      >Snowboard</button>
+      <button
         class="btnChoose"
         :class="[{hide1:select1 == 3}, {hide2:select2 == 3}]"
         href="#"
-        @click="addProduct('Skidor Längd', 1, 2)"
-      >Skidor Längd</a>
+        @click="addProduct('Skidor Längd', 1, 2)" :disabled = isDisabled
+      >Skidor Längd</button>
       <section>
         <router-view />
       </section>
     </section>
     <span>
       <ul>
-        <li><a href="#" class="btn" @click="$router.push('/products'),select1 = undefined ,select2 = undefined">Börja om</a></li>
+        <li><a href="#" class="btn orange" @click="$router.push('/products'),select1 = undefined ,select2 = undefined, isDisabled = false">Börja om</a></li>
         <li><a href="#" class="btn" @click="dateFunctions">Gå vidare</a></li>
       </ul>
     </span>
@@ -53,6 +53,7 @@ export default {
   },
   data() {
     return {
+      isDisabled: false,
       select1: undefined,
       select2: undefined,
       show: true,
@@ -79,6 +80,8 @@ export default {
   },
   methods: {
     addProduct(article, num1, num2) {
+      console.log('fgh')
+      this.isDisabled = true;
       this.select1 = num1;
       this.select2 = num2;
       this.show = false;
@@ -215,6 +218,9 @@ export default {
          li {
           display:block;
           margin: 0;
+          .orange {
+            background: #ff794f;
+          }
         }
     }
   }

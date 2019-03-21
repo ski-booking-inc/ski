@@ -2,9 +2,9 @@
 <main class="level">
   <section class="container">
     <h2 v-if="show">Välj din åknivå</h2>
-    <a class="btnChoose" :class="[{hide1:select1 == 1}, {hide2:select2 == 1}]" @click="addCategory('Nybörjare', 2, 3)" href="#">Nybörjare</a>
-    <a class="btnChoose" :class="[{hide1:select1 == 2}, {hide2:select2 == 2}]" @click="addCategory('Medelmåtta', 1, 2)" href="#">Medelmåtta</a>
-    <a class="btnChoose" :class="[{hide1:select1 == 3}, {hide2:select2 == 3}]" @click="addCategory('Proffs', 2, 3)" href="#">Proffs</a>
+    <button class="btnChoose" :class="[{hide1:select1 == 1}, {hide2:select2 == 1}]" @click="addCategory('Nybörjare', 2, 3)"  href="#" :disabled = isDisabled>Nybörjare</button>
+    <button class="btnChoose" :class="[{hide1:select1 == 2}, {hide2:select2 == 2}]" @click="addCategory('Medelmåtta', 1, 2)" href="#" :disabled = isDisabled>Medelmåtta</button>
+    <button class="btnChoose" :class="[{hide1:select1 == 3}, {hide2:select2 == 3}]" @click="addCategory('Proffs', 2, 3)" href="#" :disabled = isDisabled>Proffs</button>
   </section>
 </main>
 </template>
@@ -14,6 +14,7 @@ export default {
   name: "level",
   data(){
     return {
+      isDisabled: false,
       select1: undefined,
       select2: undefined,
       show: true
@@ -21,6 +22,7 @@ export default {
   },
   methods: {
     addCategory(category, num1, num2){
+      this.isDisabled = true;
       this.select1 = num1
       this.select2 = num2
       this.show = false
