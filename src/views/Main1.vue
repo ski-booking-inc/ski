@@ -95,5 +95,10 @@ beforeMount(){
     border-radius: 15px;
     padding: .5rem;
   }
+      @media screen and (min-width: 480px){
+      .textbox {
+        width: 400px;
+      }
+    }
 }
 </style>

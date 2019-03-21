@@ -48,7 +48,11 @@ export default {
   p {
     margin-bottom: 5rem;
   }
-
+  @media screen and (min-width: 480px){
+    .textbox {
+        width: 400px;
+      }
+    }
 }
 
 p {

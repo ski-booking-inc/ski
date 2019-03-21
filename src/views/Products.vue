@@ -176,22 +176,33 @@ export default {
     padding: 0 4rem !important;
 
   h2 {
-   padding: .4rem;
+   padding: .3rem;
    margin: .1rem;
    font-size: 1.5rem;
 
   }
   h3 {
     margin: .1rem;
-    font-size: .8rem;
+    font-size: .7rem;
   }
     input {
     border-radius: 5px;
     border: none;
-    height: 2rem;
+    height: 1.8rem;
     margin: .3rem;
   }
+    @media screen and (min-width: 480px){
+          input {
+            height: 1rem;
+        }
+          h2 {
+            padding: .2rem;
+            font-size: 1.3rem;
+          }
+        }
 }
+      
+    
 }
 
 

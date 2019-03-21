@@ -86,18 +86,18 @@
     .containerTest {
       overflow: scroll;
 
-      .btn-orange {
-        @extend %center;
-        width: 10rem;
-        background: #ff794f;
-        margin: .2rem;
-        height: 2.5rem;
-        color: white;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-size: .8rem;
-        border-radius: 4px;
-      }
+      // .btn-orange {
+      //   @extend %center;
+      //   width: 10rem;
+      //   background: #ff794f;
+      //   margin: .2rem;
+      //   height: 2.5rem;
+      //   color: white;
+      //   text-decoration: none;
+      //   text-transform: uppercase;
+      //   font-size: .8rem;
+      //   border-radius: 4px;
+      // }
 
       .product {
         margin-top: .7rem;
