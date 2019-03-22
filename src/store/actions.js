@@ -147,5 +147,8 @@ export default {
   //Toggle button in Products view
   showButton(ctx, payload) {
     ctx.commit('showButton', payload)
+  },
+  emptyProductKeys(ctx) {
+    ctx.commit('emptyProductKeys')
   }
 }

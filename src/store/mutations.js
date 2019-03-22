@@ -40,5 +40,9 @@ export default {
     },
     showButton(state, payload) {
       state.showButton = payload;
-    }
+    },
+    emptyProductKeys(state) {
+        state.productKeys.length = 0;
+    },
+
 }

@@ -135,6 +135,7 @@
         this.select2 = undefined
         this.isDisabled = false
         this.$store.dispatch('showButton', false)
+        this.$store.dispatch('emptyProductKeys')
       },
       //Creates array with all booked dates
       getDatesArray() {
