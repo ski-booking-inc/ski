@@ -67,11 +67,11 @@
       //Trigger function to add chosen product to state, hide non chosen buttons,
       //Trigger date functions and changes route
       addProduct(article, num1, num2) {
-        this.dateDiff();
         this.isDisabled = true;
         this.select1 = num1;
         this.select2 = num2;
         this.show = false;
+        this.dateDiff();
         this.$store.dispatch("addProduct", article);
         this.addDates();
       },
@@ -92,7 +92,6 @@
           (Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) -
             Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate())) /
           (1000 * 60 * 60 * 24)
-
         );
         //Error message if chosen dates are the same or start is later than stop
         //Resets
@@ -114,7 +113,7 @@
       async dateFunctions() {
         await this.getDatesArray()
         await this.checkIfBooked()
-        //If product is available, route to next page, if not: alert 
+        //If product is available, route to next page, if not: alert
         if (!this.isBooked) {
           this.$router.push('/userInfo')
         } else {
