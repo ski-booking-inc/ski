@@ -1,4 +1,4 @@
-module.exports.isAuthenticated = () => {
+const isAuthenticated = () => {
 
   if (sessionStorage.getItem(['loginSession'])) {
     //Logged in
@@ -8,3 +8,5 @@ module.exports.isAuthenticated = () => {
     return false;
   }
 }
+
+export default isAuthenticated;
