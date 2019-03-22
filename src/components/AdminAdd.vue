@@ -1,16 +1,22 @@
 <template>
-        <main class="addAdmin">
-            <h1>Lägg till produkt</h1>
-                <input type="text" placeholder="Produkt" v-model="addProducts.article">
-                <input type="text" placeholder="Art nr" v-model="addProducts.artnr">
-                <input type="text" placeholder="Kategori" v-model="addProducts.category">
-                <input type="text" placeholder="Pris" v-model="addProducts.price">
-                <input type="text" placeholder="Ålder" v-model="addProducts.age">
-                <textarea  placeholder="Info" v-model="addProducts.info"></textarea>
-            <div>
-            <a href="#" class="btn-orange" @click="createProduct">Lägg till</a>
-            </div>
-        </main>
+  <main class="addAdmin">
+    <h1>Lägg till produkt</h1>
+    <label>Produkt</label>
+    <input type="text" placeholder="Produkt" v-model="addProducts.article">
+    <label>Art nr</label>
+    <input type="text" placeholder="Art nr" v-model="addProducts.artnr">
+    <label>Kategori</label>
+    <input type="text" placeholder="Kategori" v-model="addProducts.category">
+    <label>Pris</label>
+    <input type="text" placeholder="Pris" v-model="addProducts.price">
+    <label>Ålder</label>
+    <input type="text" placeholder="Ålder" v-model="addProducts.age">
+    <label>Info</label>
+    <textarea  placeholder="Info" v-model="addProducts.info"></textarea>
+    <section>
+      <a href="#" class="btn-orange" @click="createProduct">Lägg till</a>
+    </section>
+  </main>
 </template>
 
 <script>
@@ -29,11 +35,12 @@ export default {
    }
 },
  methods: {
+   //Trigger function to send new product to mongo db
     async createProduct(){
       await this.$store.dispatch('createProduct', this.addProducts);
       await this.$store.dispatch('getProducts');
             this.clearInput();
-},
+    },
      clearInput(){
       this.addProducts.article ='',
       this.addProducts.artnr ='',
@@ -42,7 +49,7 @@ export default {
       this.addProducts.age ='',
       this.addProducts.price =''
     }
-}
+  }
 }
 </script>
 
@@ -62,6 +69,11 @@ export default {
     margin: .5rem 0 0 0;
     padding-bottom: 1.5rem;
   }
+
+  label {
+    font-size: .8rem;
+  }
+
   input,
   textarea {
     width: 80%;

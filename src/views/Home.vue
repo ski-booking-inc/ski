@@ -18,87 +18,86 @@
 </template>
 
 <script>
+  import Who from "@/components/Who.vue";
 
-import Who from "@/components/Who.vue";
+  export default {
+    name: 'home',
+    components: {
+      Who
+    },
+    data() {
+      return {
+        showIsLogin: null,
+        showIsAdmin: null
+      }
+    },
+    computed: {
+      activeUser() {
+        return this.$store.getters.getActiveUser;
+      }
+    },
+    methods: {
+      logOut() {
+        this.$store.dispatch("logOut")
+        this.$router.push('/home')
+      }
+    },
 
-export default {
-  name: 'home',
-  components: {
-    Who
-  },
-  data(){
-    return {
-      showIsLogin: null,
-      showIsAdmin: null
+    watch: {
+      //Check which role is logged in and show different buttons
+      activeUser() {
+        if (this.activeUser.role) {
+          this.showIsLogin = true
+        } else {
+          this.showIsLogin = false
+        }
+        if (this.activeUser.role == 'admin') {
+          this.showIsAdmin = true
+        } else {
+          this.showIsAdmin = false
+        }
+      }
+    },
+    //Check if somebody i logged in and show different button from beginning
+    beforeMount() {
+      if (this.activeUser.role) {
+        this.showIsLogin = true
+      }
+      if (this.activeUser.role == 'admin') {
+        this.showIsAdmin = true
+      }
     }
-  },
-  computed: {
-    activeUser(){
-      return this.$store.getters.getActiveUser;
-    }
-  },
-  methods: {
-     logOut(){
-      this.$store.dispatch("logOut")
-      this.$router.push('/home')
-    }
-  },
-
-  watch: {
-    activeUser() {
-    if(this.activeUser.role) {
-      console.log(this.activeUser.role)
-      this.showIsLogin = true
-    } else {
-      this.showIsLogin = false
-    }
-    if(this.activeUser.role == 'admin') {
-      this.showIsAdmin = true
-    } else {
-      this.showIsAdmin = false
-    }
-  }
-},
-beforeMount(){
-  if(this.activeUser.role) {
-    this.showIsLogin = true
-  }
-  if(this.activeUser.role == 'admin') {
-    this.showIsAdmin = true
-  }
-}
-};
+  };
 </script>
 
 <style lang="scss">
-@import "../scss/main";
+  @import "../scss/main";
 
-.home {
-  margin: 0 1.5rem;
-  @extend %center;
-  flex-direction: column;
-  background-image:url('../assets/img/mountains.jpg');
-  background-size: cover;
-  background-position: center;
-  margin: 0;
-  height: 100vh;
-  width: 100vw;
-  justify-content: flex-end;
+  .home {
+    margin: 0 1.5rem;
+    @extend %center;
+    flex-direction: column;
+    background-image: url('../assets/img/mountains.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    justify-content: flex-end;
 
+    .textbox {
+      background: #ffff;
+      opacity: .9;
+      flex: 1;
+      margin: 1rem 1.5rem 0 1.5rem;
+      border-radius: 15px;
+      padding: .5rem;
+    }
 
-
-  .textbox {
-    background: #ffff;
-    opacity: .9;
-    flex: 1;
-    margin: 1rem 1.5rem 0 1.5rem;
-    border-radius: 15px;
-    padding: .5rem;
-  }
-      @media screen and (min-width: 480px){
+    @media screen and (min-width: 480px) {
       .textbox {
         width: 400px;
       }
     }
-}
+  }
 </style>

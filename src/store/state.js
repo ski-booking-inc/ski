@@ -17,6 +17,5 @@ export default {
     activeUser: {
         name: null,
         role: null,
-    },
-    rejected: false
+    }
 }

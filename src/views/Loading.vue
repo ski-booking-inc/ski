@@ -5,20 +5,21 @@
 </template>
 
 <script>
-// @ is an alias to /src
-
-export default {
-  name: 'home',
-  created(){
-     setTimeout( () => this.$router.push({ path: '/home'}), 2500);
-   }
-}
+  export default {
+    name: 'home',
+    //Routes to next page after 2.5 sec
+    created() {
+      setTimeout(() => this.$router.push({
+        path: '/home'
+      }), 2500);
+    }
+  }
 </script>
 <style scoped lang="scss">
   @import "../scss/main";
 
   .home {
-    background-image:url('../assets/img/mountains.jpg');
+    background-image: url('../assets/img/mountains.jpg');
     background-size: cover;
     background-position: center;
     margin: 0;
@@ -31,5 +32,4 @@ export default {
       margin-top: -5rem;
     }
   }
-
 </style>

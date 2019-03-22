@@ -39,7 +39,7 @@
       getExtras() {
         return this.$store.getters.getExtras;
       },
-      activeUser(){
+      activeUser() {
         return this.$store.getters.getActiveUser;
       }
     },
@@ -48,24 +48,26 @@
     },
 
     methods: {
-      async addBooking(){
+      //Check if user is logged in or not, and redirect the to right path
+      //Trigger booking function
+      async addBooking() {
         if (this.activeUser.name == null) {
           this.$router.push('/login')
         } else {
-          //lägg till username till varje Bokning, glöm inte async
           await this.addUsername()
           this.$store.dispatch('setBooking', this.userBookings)
           this.$router.push('/confirm')
           this.$store.dispatch('emptyBookings')
         }
       },
-      addUsername(){
-        for(let i=0; i<this.userBookings.length; i++){
+      //Add username to booking
+      addUsername() {
+        for (let i = 0; i < this.userBookings.length; i++) {
           this.userBookings[i].username = this.activeUser.name
         }
-        console.log(this.userBookings)
       },
-      countTotalSum(){
+      //Calculate total sum
+      countTotalSum() {
         let sum = 0;
         let sumExtras = 0;
 
@@ -96,5 +98,4 @@
       }
     }
   }
-
 </style>

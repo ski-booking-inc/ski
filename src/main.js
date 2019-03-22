@@ -7,7 +7,6 @@ import VueAxios from 'vue-axios'
 import VueSwal from 'vue-swal'
 import VeeValidate from 'vee-validate'
 
-
 Vue.use(VeeValidate);
 Vue.use(VueSwal, VueAxios, axios)
 

@@ -21,6 +21,7 @@ export default {
     }
   },
   methods: {
+    //Adds chosen option to state and trigger find match
     addCategory(category, num1, num2){
       this.isDisabled = true;
       this.select1 = num1

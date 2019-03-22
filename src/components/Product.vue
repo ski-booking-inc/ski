@@ -32,14 +32,13 @@
       </section>
       </section>
       <article class="aside">
-
-      <section class="arrow">
-        <img v-if="show" @click="show=false" src="../assets/img/baseline-arrow_downward-24px.svg" alt="arrow">
-        <img v-if="!show" @click="show=true" src="../assets/img/baseline-arrow_upward-24px.svg" alt="arrow">
-      </section>
-      <section class="bin">
-        <img @click="removeItem" src="../assets/img/baseline-delete-24px.svg" alt="delete">
-      </section>
+        <section class="arrow">
+          <img v-if="show" @click="show=false" src="../assets/img/baseline-arrow_downward-24px.svg" alt="arrow">
+          <img v-if="!show" @click="show=true" src="../assets/img/baseline-arrow_upward-24px.svg" alt="arrow">
+        </section>
+        <section class="bin">
+          <img @click="removeItem" src="../assets/img/baseline-delete-24px.svg" alt="delete">
+        </section>
       </article>
   </main>
 </template>
@@ -58,6 +57,7 @@ export default {
     }
   },
   methods: {
+    //Trigger remove product from cart function and update total sum
     removeItem() {
       this.$store.dispatch("removeProduct", this.booking);
       this.$emit('countTotalSum')

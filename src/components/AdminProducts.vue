@@ -1,6 +1,6 @@
 <template>
   <main class="productAdmin adminTable">
-  <h1>Produkter</h1>
+    <h1>Produkter</h1>
     <section>
       <input class="inputsearch" type="text" v-model="search" placeholder="Sök efter en produkt">
       <table cellspacing="0" class="table">
@@ -18,7 +18,7 @@
         </thead>
         <tbody class="scrolling-box align-left">
           <tr v-for="prod in filterProd" :key="prod._id">
-          <td>{{ prod.artnr }}</td>
+            <td>{{ prod.artnr }}</td>
             <td>{{ prod.article }}</td>
             <td>{{ prod.category }}</td>
             <td>{{ prod.age }}</td>
@@ -29,10 +29,8 @@
           </tr>
         </tbody>
       </table>
-
     </section>
     <router-view />
-
   </main>
 </template>
 
@@ -47,6 +45,7 @@ export default {
     };
   },
   methods: {
+    //Trigger remove product from mongo db in admin
     async removeProd(id) {
       this.$store.dispatch("removeProd", id);
       await this.$store.dispatch("getProducts");
@@ -56,7 +55,7 @@ export default {
     products() {
       return this.$store.state.products;
     },
-    filterProd: function() {
+    filterProd() {
       return this.products.filter(prod => {
         return (
           prod.article.toLowerCase().match(this.search.toLowerCase()) ||

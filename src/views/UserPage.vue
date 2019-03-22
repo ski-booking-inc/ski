@@ -1,9 +1,8 @@
 <template>
   <main class="userPage">
     <section class="opacityBox">
-    <h1>Mina bokningar</h1>
-    <myProduct class="component" v-for='(booking, index) in myBookings' :key='index' :booking='booking'/>
-
+      <h1>Mina bokningar</h1>
+      <myProduct class="component" v-for='(booking, index) in myBookings' :key='index' :booking='booking'/>
     </section>
     <a class="btn green" href="#" @click="logOut">Logga ut</a>
     <a class="btn blue" href="#" @click="$router.push('/home')">Hem</a>
@@ -19,15 +18,16 @@
       myProduct
     },
     computed: {
-      myBookings(){
+      myBookings() {
         return this.$store.getters.myBookings
       }
     },
     methods: {
-      logOut(){
-       this.$store.dispatch("logOut")
-       this.$router.push('/home')
-     }
+      //Trigger logout function and change route
+      logOut() {
+        this.$store.dispatch("logOut")
+        this.$router.push('/home')
+      }
     }
   };
 </script>

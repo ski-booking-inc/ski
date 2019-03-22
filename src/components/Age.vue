@@ -6,14 +6,14 @@
     <button class="btnChoose" :class="[{hide1:select1 == 2}, {hide2:select2 == 2}]" href="#" @click="addAge('Ungdom 7-15', 1, 3)" :disabled = isDisabled>Ungdom 7-15 år</button>
     <button class="btnChoose" :class="[{hide1:select1 == 3}, {hide2:select2 == 3}]" href="#" @click="addAge('Barn 0-6', 1, 2)" :disabled = isDisabled>Barn 0-6 år</button>
   </section>
-    <router-view/>
+  <router-view />
 </main>
 </template>
 
 <script>
 export default {
   name: "age",
-  data(){
+  data() {
     return {
       isDisabled: false,
       select1: undefined,
@@ -22,7 +22,8 @@ export default {
     }
   },
   methods: {
-    addAge(age, num1, num2){
+    //Adds chosen option to state 
+    addAge(age, num1, num2) {
       this.isDisabled = true;
       this.select1 = num1
       this.select2 = num2
@@ -36,5 +37,4 @@ export default {
 
 <style lang="scss">
 @import "../scss/main";
-
 </style>

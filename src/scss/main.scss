@@ -1,170 +1,176 @@
 %center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 body {
+  @extend %center;
+
+  .myproduct,
+  .product {
+    background-color: white;
+    color: black;
+
+    .user {
+      padding: 0 3rem;
+      width: 12rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: auto;
+      grid-template-areas:
+       "cat cat cat age age age"
+       "length length weigth weigth shoe shoe"
+       "info info info info info info"
+       "extra extra extra extra extra extra";
+
+      p {
+        margin: 0.3rem;
+        padding: 0.2rem;
+      }
+
+      .cat {
+        grid-area: cat;
+        border: 1px solid lightgray;
+      }
+
+      .age {
+        grid-area: age;
+        border: 1px solid lightgray;
+      }
+
+      .length {
+        grid-area: length;
+        border: 1px solid lightgray;
+      }
+
+      .weigth {
+        grid-area: weigth;
+        border: 1px solid lightgray;
+      }
+
+      .shoe {
+        grid-area: shoe;
+        border: 1px solid lightgray;
+      }
+
+      .info {
+        grid-area: info;
+        border: 1px solid lightgray;
+      }
+
+      .extra {
+        grid-area: extra;
+        border: 1px solid lightgray;
+      }
+    }
+  }
+
+  .who {
+    top: 0;
+  }
+
+  .cart,
+  .products,
+  .userPage {
+    margin: 0 1.5rem;
     @extend %center;
+    flex-direction: column;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    justify-content: flex-end;
+    background-image: url("../assets/img/mountains.jpg");
+    background-size: cover;
+    background-position: center;
 
-    .product, .myproduct {
-      background-color: white;
-      color: black;
-
-      .user {
-        padding: 0 3rem 0 3rem;
-        width: 12rem;
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: auto;
-        grid-template-areas:
-        "cat cat cat age age age"
-        "length length weigth weigth shoe shoe"
-        "info info info info info info"
-        "extra extra extra extra extra extra";
-
-        p {
-          margin: .3rem;
-          padding: .2rem;
-        }
-
-        .cat {
-          grid-area: cat;
-          border: 1px solid lightgray;
-        }
-        .age {
-          grid-area: age;
-          border: 1px solid lightgray;
-
-        }
-        .length {
-          grid-area: length;
-          border: 1px solid lightgray;
-
-        }
-        .weigth {
-          grid-area: weigth;
-          border: 1px solid lightgray;
-
-        }
-        .shoe {
-          grid-area: shoe;
-          border: 1px solid lightgray;
-
-        }
-        .info {
-          grid-area: info;
-          border: 1px solid lightgray;
-
-        }
-        .extra {
-          grid-area: extra;
-          border: 1px solid lightgray;
-        }
-      }
-    }
-
-    .who {
-      top: 0;
-    }
-
-    .products, .cart, .userPage {
-        margin: 0 1.5rem;
-        @extend %center;
-        flex-direction: column;
-        margin: 0;
-        height: 100vh;
-        width: 100vw;
-        justify-content: flex-end;
-        background-image:url('../assets/img/mountains.jpg');
-        background-size: cover;
-        background-position: center;
-
-        .opacityBox {
-          display: flex;
-          align-items: center;
-          flex-direction: column;
-          background:#6e94d1;
-          color: white;
-          opacity: .9;
-          flex: 1;
-          margin: .1rem 1.5rem 0 1.5rem;
-          border-radius: 15px;
-          padding: 0 2rem;
+    .opacityBox {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      background: #6e94d1;
+      color: white;
+      opacity: 0.9;
+      flex: 1;
+      margin: 0.1rem 1.5rem 0;
+      border-radius: 15px;
+      padding: 0 2rem;
 
       .hide1,
       .hide2 {
         display: none !important;
       }
-      }
     }
-    .btnChoose {
-      @extend%center;
-      background: #22447a;
-      margin-top: .3rem;
-      height: 3.5rem;
-      width: 12.5rem;
+  }
+
+  .btnChoose {
+    @extend%center;
+    background: #22447a;
+    margin-top: 0.3rem;
+    height: 3.5rem;
+    width: 12.5rem;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 15px;
+    border: none;
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+  }
+
+  a {
+    &.btn-orange {
+      @extend %center;
+      width: 10rem;
+      background: #ff794f;
+      margin: 0.2rem;
+      height: 2.5rem;
       color: white;
       text-decoration: none;
       text-transform: uppercase;
-      border-radius: 15px;
-      border: none;
-      font-family: "Montserrat", Helvetica, Arial, sans-serif;
-      font-size: 1rem;
-  }
-
-    a {
-        &.btn-orange {
-            @extend %center;
-            width: 10rem;
-            background: #ff794f;
-            margin: .2rem;
-            height: 2.5rem;
-            color: white;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: .8rem;
-            border-radius: 4px;
-          }
-        &.btn {
-            @extend %center;
-            width: 100vw;
-            background: #22447a;
-            margin-top: .5rem;
-            height: 3.8rem;
-            color: white;
-            text-decoration: none;
-            text-transform: uppercase;
-         
-            //Logga in
-            &.ready {
-                background: #199d59;
-                color: #cfcfcf;
-            }
-
-            .green {
-                background: rgb(139, 219, 159);
-                height: 2.8rem;
-            }
-        }
-
-            .blue {
-            background: lightblue;
-            height: 2.8rem;
-        }
+      font-size: 0.8rem;
+      border-radius: 4px;
     }
-    @media screen and (min-width: 480px){
-     a {
-       &.btn {
-         width: 175px;
-        }
-        &.btnChoose {
-          margin-top: .2rem;
-          height: 3.3rem;
-        }
+
+    &.btn {
+      @extend %center;
+      width: 100vw;
+      background: #22447a;
+      margin-top: 0.5rem;
+      height: 3.8rem;
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &.ready {
+        background: #199d59;
+        color: #cfcfcf;
+      }
+
+      .green {
+        background: rgb(139, 219, 159);
+        height: 2.8rem;
       }
     }
+
+    .blue {
+      background: lightblue;
+      height: 2.8rem;
+    }
+  }
+  @media screen and (min-width: 480px) {
+    a {
+      &.btn {
+        width: 175px;
+      }
+
+      &.btnChoose {
+        margin-top: 0.2rem;
+        height: 3.3rem;
+      }
+    }
+  }
 }

@@ -6,59 +6,61 @@
       <h1>Tack för din bokning!</h1>
       <p>Välkommen, vi ser fram emot att se dig i backen! Din bekräftelse finns under Mina bokningar!</p>
     </section>
-    <a class="knapp" href="#" @click="$router.push('/home')">X</a>
+    <a class="btn-round" href="#" @click="$router.push('/home')">X</a>
     </section>
-
     <router-view/>
   </div>
 </template>
 
 <script>
-export default {
-  name: "confirm"
-};
+  export default {
+    name: "confirm"
+  };
 </script>
 
 <style lang="scss">
-@import "../scss/main";
+  @import "../scss/main";
 
-.confirm {
-  background-image:url('../assets/img/mountains.jpg');
-  background-size: cover;
-  background-position: center;
-  margin: 0;
-  height: 100vh;
-  width: 100vw;
-  @extend %center;
-  flex-direction: column;
+  .confirm {
+    background-image: url('../assets/img/mountains.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    @extend %center;
+    flex-direction: column;
 
-  .textbox {
-    background: #ffff;
-    opacity: .9;
-    flex: 1;
-    margin: 2rem 1.5rem 2rem 1.5rem;
-    border-radius: 15px;
-    padding: .5rem;
-  }
-
-  img {
-    width: 13rem;
-    margin-top: 4rem;
-  }
-  p {
-    margin-bottom: 5rem;
-  }
-  @media screen and (min-width: 480px){
     .textbox {
+      background: #ffff;
+      opacity: .9;
+      flex: 1;
+      margin: 2rem 1.5rem 2rem 1.5rem;
+      border-radius: 15px;
+      padding: .5rem;
+    }
+
+    img {
+      width: 13rem;
+      margin-top: 4rem;
+    }
+
+    p {
+      margin-bottom: 5rem;
+    }
+
+    @media screen and (min-width: 480px) {
+      .textbox {
         width: 400px;
       }
     }
-}
+  }
 
-p {
-  margin: 2em;
-}
-  .knapp {
+  p {
+    margin: 2em;
+  }
+
+  .btn-round {
     border-radius: 50%;
     background: #ff794f;
     padding: 8px 14px;
@@ -68,5 +70,4 @@ p {
     font-size: 1.7rem;
     box-shadow: 0 0 3px #7cd1f9;
   }
-
 </style>

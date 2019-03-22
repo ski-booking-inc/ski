@@ -98,7 +98,7 @@ let router = new Router({
   ]
 })
 
-// If Auth is required && false, go to /login
+//If Auth is required and is false, go to /login
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth) && !auth.isAuthenticated()) {
     next({

@@ -29,14 +29,8 @@ export default {
     setExtras(state, extras) {
         state.extras = extras
     },
-    setProd(state, testProd) {
-        state.testProd = testProd
-    },
     setActiveUser(state, user) {
         state.activeUser = user;
-    },
-    toggleRejected(state) {
-        state.rejected = !state.rejected;
     },
     removeActiveUser(state, activeUser) {
         state.activeUser = activeUser
