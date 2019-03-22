@@ -8,6 +8,7 @@ export default {
     userBookings: [],
     dbBookings: [],
     dayDiff: 0,
+    showButton: false,
     extras: {
         lift: 499,
         skigoogles: 69,

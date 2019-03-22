@@ -17,8 +17,8 @@
     </section>
     <span>
       <ul>
-        <li><a href="#" class="btn orange" @click="$router.push('/products'),select1 = undefined ,select2 = undefined, isDisabled = false">Börja om</a></li>
-        <li><a href="#" class="btn" @click="dateFunctions">Gå vidare</a></li>
+        <li><a href="#" class="btn orange" @click="resetBooking">Börja om</a></li>
+        <li><a v-if="showButton" href="#" class="btn" @click="dateFunctions">Gå vidare</a></li>
       </ul>
     </span>
   </main>
@@ -61,6 +61,9 @@
       },
       products() {
         return this.$store.getters.getProducts
+      },
+      showButton() {
+        return this.$store.state.showButton
       }
     },
     methods: {
@@ -124,6 +127,14 @@
       //Alert function
       alert() {
         this.$swal(this.paraOne, this.paraTwo, "warning")
+      },
+      //Reset booking choises function
+      resetBooking() {
+        this.$router.push('/products')
+        this.select1 = undefined
+        this.select2 = undefined
+        this.isDisabled = false
+        this.$store.dispatch('showButton', false)
       },
       //Creates array with all booked dates
       getDatesArray() {

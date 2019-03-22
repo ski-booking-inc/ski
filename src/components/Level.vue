@@ -30,6 +30,7 @@ export default {
       this.$store.dispatch('addProduct', category)
       this.$store.dispatch('findMatch')
       this.$emit('showButton')
+      this.$store.dispatch('showButton', true)
 
     }
   }

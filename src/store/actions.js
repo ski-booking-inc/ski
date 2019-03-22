@@ -143,5 +143,9 @@ export default {
       name: null,
       role: null
     })
+  },
+  //Toggle button in Products view
+  showButton(ctx, payload) {
+    ctx.commit('showButton', payload)
   }
 }

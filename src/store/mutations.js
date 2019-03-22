@@ -37,5 +37,8 @@ export default {
     },
     emptyBookings(state) {
         state.userBookings.length = 0;
+    },
+    showButton(state, payload) {
+      state.showButton = payload;
     }
 }
