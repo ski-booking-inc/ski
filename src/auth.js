@@ -4,7 +4,7 @@ module.exports.isAuthenticated = () => {
     //Logged in
     return true;
   } else {
-    //Not logged in
+    //Not loggedin
     return false;
   }
 }
