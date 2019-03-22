@@ -102,6 +102,7 @@
           this.paraTwo = 'Du kan inte hyra över dagen via appen eller lämna tillbaka produkten innan du hyrt dem.'
           this.select1 = undefined
           this.select2 = undefined
+          this.show = true
           this.alert(this.paraOne, this.paraTwo)
           this.$router.push(`/products`);
 
