@@ -1,4 +1,4 @@
-const isAuthenticated = () => {
+module.exports.isAuthenticated = () => {
 
   if (sessionStorage.getItem(['loginSession'])) {
     //Logged in
@@ -8,5 +8,3 @@ const isAuthenticated = () => {
     return false;
   }
 }
-
-export default isAuthenticated;
