@@ -95,7 +95,7 @@
         );
         //Error message if chosen dates are the same or start is later than stop
         //Resets
-        if (this.dayDiff < 0) {
+        if (this.dayDiff <= 0) {
           this.isDisabled = false
           this.isBooked = true
           this.paraOne = 'Ogiltligt Datum'

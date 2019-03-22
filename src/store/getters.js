@@ -12,13 +12,10 @@ export default {
   dates(state) {
     return state.dates;
   },
-  getUserBookings(state) {   //userbooking
-    return state.userBookings;
-  },
   dayDiff(state) {
     return state.dayDiff;
   },
-  userBookings(state) {    //userbokkifngofd
+  userBookings(state) {   
     return state.userBookings;
   },
   extras(state) {
