@@ -26,9 +26,9 @@
         <p>{{ booking.chosenProduct.info }}</p>
       </section>
       <section class="extra">
-        <p v-if="booking.userInfo.lift">Liftkort 499:-</p>
-        <p v-if="booking.userInfo.helmet">Hjälm 49:-</p>
-        <p v-if="booking.userInfo.skigoogles">Skidglasögon 69:-</p>
+        <p v-if="booking.userInfo.lift">Liftkort {{ extras.lift }}:-</p>
+        <p v-if="booking.userInfo.helmet">Hjälm {{ extras.helmet }}:-</p>
+        <p v-if="booking.userInfo.skigoogles">Skidglasögon {{ extras.skigoogles }}:-</p>
       </section>
       </section>
       <article class="aside">
@@ -54,6 +54,9 @@ export default {
   computed: {
     dayDiff() {
       return this.$store.getters.dayDiff;
+    },
+    extras() {
+      return this.$store.getters.extras;
     }
   },
   methods: {

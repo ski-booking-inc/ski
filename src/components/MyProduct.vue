@@ -26,9 +26,9 @@
       <p>{{ product[0].info }}</p>
       </section>
       <section class="extra">
-        <p v-if="booking.userInfo.lift">Liftkort 499:-</p>
-        <p v-if="booking.userInfo.helmet">Hjälm 49:-</p>
-        <p v-if="booking.userInfo.skigoogles">Skidglasögon 69:-</p>
+        <p v-if="booking.userInfo.lift">Liftkort {{ extras.lift }}:-</p>
+        <p v-if="booking.userInfo.helmet">Hjälm {{ extras.helmet }}:-</p>
+        <p v-if="booking.userInfo.skigoogles">Skidglasögon {{ extras.skigoogles }}:-</p>
       </section>
     </section>
     <h3>Totalsumma: {{ total }}:-</h3>

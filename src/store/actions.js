@@ -119,7 +119,7 @@ export default {
       await Axios.post('http://localhost:3000/users', signupData)
       ctx.dispatch('login', signupData)
     } catch (err) {
-      console.err(err.stack);
+      console.error(err.stack);
     }
   },
   //Check if logged in
@@ -148,6 +148,7 @@ export default {
   showButton(ctx, payload) {
     ctx.commit('showButton', payload)
   },
+  //Empty product keys array when reset booking options
   emptyProductKeys(ctx) {
     ctx.commit('emptyProductKeys')
   }

@@ -23,11 +23,11 @@
           <section class="box">
             <h1>Tillval</h1>
             <section>
-              <label for="helmet">Hjälm | 49:-</label>
+              <label for="helmet">Hjälm | {{ extras.helmet }}:-</label>
               <input id="helmet" type="checkbox" value="helmet" v-model="userInput.helmet"><br>
-              <label for="skigoogles">Skidglasögon | 69:-</label>
+              <label for="skigoogles">Skidglasögon | {{ extras.skigoogles }}:-</label>
               <input id="skigoogles" type="checkbox" value="skigoogles" v-model="userInput.skigoogles"><br>
-              <label for="lift">Liftkort | 499:-</label>
+              <label for="lift">Liftkort | {{ extras.lift }}:-</label>
               <input  id="lift" type="checkbox" value="lift" v-model="userInput.lift">
             </section>
           </section>
@@ -53,6 +53,11 @@
           skigoogles: false,
           lift: false,
         }
+      }
+    },
+    computed: {
+      extras() {
+        return this.$store.getters.extras;
       }
     },
     methods: {
