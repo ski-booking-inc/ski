@@ -2,7 +2,7 @@
   <main class="userPage">
     <section class="opacityBox">
     <h1>Mina bokningar</h1>
-    <myProduct v-for='(booking, index) in myBookings' :key='index' :booking='booking'/>
+    <myProduct class="component" v-for='(booking, index) in myBookings' :key='index' :booking='booking'/>
 
     </section>
     <a class="btn green" href="#" @click="logOut">Logga ut</a>
@@ -37,5 +37,9 @@
 
   .opacityBox {
     overflow: scroll;
+
+    .component {
+      margin-top: .2rem;
+    }
   }
 </style>

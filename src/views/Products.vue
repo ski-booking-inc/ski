@@ -107,7 +107,7 @@ export default {
       );
 
       if (dayDiff <= 0){
-        // om man bokar mindre än 1 dygn eller hörge inlämnings datum än utlämning, så får man här 
+        // om man bokar mindre än 1 dygn eller hörge inlämnings datum än utlämning, så får man här
         // felmedelande och får börja om.
          this.isBooked = true
          this.paraOne = 'Ogiltligt Datum'
@@ -115,9 +115,10 @@ export default {
          this.alert(this.paraOne, this.paraTwo)
          this.select1 = undefined
          this.select2 = undefined
+         this.isDisabled = false;
          this.$router.push('/products')
-      } 
-      else 
+      }
+      else
       this.$store.dispatch("addDateDiff", dayDiff);
     },
     async dateFunctions(){
@@ -208,7 +209,7 @@ export default {
     height: 1.8rem;
     margin: .3rem;
     }
-  }  
+  }
   span {
     width: 100vw;
       ul {
