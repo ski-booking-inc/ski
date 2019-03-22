@@ -89,8 +89,9 @@ export default {
     ctx.commit('removedProducts', array)
   },
   //Send bookings to API, Mongo
-  setBooking(ctx, bookings) {
-    bookings.forEach(v => Axios.post('http://localhost:3000/bookings', v))
+  async setBooking(ctx, bookings) {
+    await bookings.forEach(v => Axios.post('http://localhost:3000/bookings', v))
+    ctx.dispatch('dbBookings')
   },
   //login function
   async login(ctx, loginData) {

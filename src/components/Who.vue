@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "App",
+  name: "who",
     beforeMount() {
     this.$store.dispatch("getProducts");
     this.$store.dispatch('dbBookings');
